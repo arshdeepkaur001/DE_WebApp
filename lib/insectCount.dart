@@ -538,17 +538,17 @@ class _MyHomePageState extends State<Insects> {
                       ],
                     ),
                     child: SfCartesianChart(
-                      legend: Legend(
-                        isVisible: true,
-                        // name:legend,
-                        position: LegendPosition.top,
-                        offset: const Offset(550, -150),
-                        // toggleSeriesVisibility: true,
-                        // Border color and border width of legend
-                        overflowMode: LegendItemOverflowMode.wrap,
-                        // borderColor: Colors.black,
-                        // borderWidth: 2
-                      ),
+                      // legend: Legend(
+                      //   isVisible: true,
+                      //   // name:legend,
+                      //   position: LegendPosition.top,
+                      //   offset: const Offset(550, -150),
+                      //   // toggleSeriesVisibility: true,
+                      //   // Border color and border width of legend
+                      //   overflowMode: LegendItemOverflowMode.wrap,
+                      //   // borderColor: Colors.black,
+                      //   // borderWidth: 2
+                      // ),
                       plotAreaBackgroundColor: Colors.white,
                       primaryXAxis: CategoryAxis(
                         title: AxisTitle(
@@ -572,7 +572,7 @@ class _MyHomePageState extends State<Insects> {
                       ),
                       series: <ChartSeries<apiData, String>>[
                         LineSeries<apiData, String>(
-                          name: 'Apis Mellifera',
+                          // name: 'Apis Mellifera',
                           markerSettings: const MarkerSettings(
                             height: 3.0,
                             width: 3.0,
