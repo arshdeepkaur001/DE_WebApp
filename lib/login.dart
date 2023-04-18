@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(25)),
                 child: SizedBox(
                   width: size.width > 900 ? 460 : size.width * 0.9,
-                  height: size.height > 700 ? 460 : size.height * 0.65,
+                  height: size.height > 700 ? 480 : size.height * 0.65,
                   // width: 460,
                   // height: 450,
                   child: Column(
