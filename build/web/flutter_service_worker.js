@@ -12,7 +12,7 @@ const RESOURCES = {
 "assets/assets/images/weather_23-03-2023_12_D0313.csv": "53579d4ad851760174a1fe65b08b92b8",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
-"assets/NOTICES": "1ec58d0754570f5e795ea7b38a4661ef",
+"assets/NOTICES": "bd53ec66435f44c1f6df2570a2429804",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
 "canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e",
@@ -26,9 +26,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "d0c9af7dbef6397f1aad362236d7978b",
-"/": "d0c9af7dbef6397f1aad362236d7978b",
-"main.dart.js": "c15beaefeb0294c2d09a0a20c80b5830",
+"index.html": "1ef7b1d6da9124d008b0039484c8273d",
+"/": "1ef7b1d6da9124d008b0039484c8273d",
+"main.dart.js": "6b85d13e682610c3c6bc513d90e889a4",
 "manifest.json": "1db7e88037c7a17cb8e31665b0415e4d",
 "version.json": "06df526c3732555b42e6c22348cbf431"
 };

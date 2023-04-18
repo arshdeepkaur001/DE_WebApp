@@ -1,10 +1,11 @@
 import 'package:detest/constant.dart';
 import 'package:detest/home_screen.dart';
+import 'package:detest/register_screen.dart'; // Import the RegisterScreen class
 import 'package:detest/text_input_field.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  const Login({Key? key}); // Use "Key?" instead of "super.key"
 
   @override
   State<Login> createState() => _LoginState();
@@ -49,7 +50,7 @@ class _LoginState extends State<Login> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             backgroundColor: Colors.red,
-            content: Text('User Not Exist or Something went wrrong!'),
+            content: Text('User Not Exist or Something went wrong!'),
           ),
         );
         setState(() {
@@ -64,6 +65,13 @@ class _LoginState extends State<Login> {
         ),
       );
     }
+  }
+
+  void register() {
+    // Navigate to RegisterScreen
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => RegisterScreen(),
+    ));
   }
 
   @override
@@ -89,7 +97,7 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(25)),
                 child: SizedBox(
                   width: size.width > 900 ? 460 : size.width * 0.9,
-                  height: size.height > 700 ? 450 : size.height * 0.65,
+                  height: size.height > 700 ? 460 : size.height * 0.65,
                   // width: 460,
                   // height: 450,
                   child: Column(
@@ -151,7 +159,7 @@ class _LoginState extends State<Login> {
                               decoration: const BoxDecoration(
                                 color: buttonColor,
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
+                                  Radius.circular(5),
                                 ),
                               ),
                               child: InkWell(
@@ -172,6 +180,34 @@ class _LoginState extends State<Login> {
                                 color: Colors.purple,
                               ),
                             ),
+                      const SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Don't have an account? ",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                // Navigate to register screen
+                                register();
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
