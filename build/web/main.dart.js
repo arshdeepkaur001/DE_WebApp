@@ -49894,7 +49894,7 @@ this.aJ()},
 I(a){var s,r,q,p,o=this,n=null,m=t.w,l=a.J(m).f.a,k=A.c7(25),j=l.a
 j=j>900?460:j*0.9
 s=l.b
-s=s>700?460:s*0.65
+s=s>700?480:s*0.65
 r=a.J(m).f
 q=o.d
 q===$&&A.a()
