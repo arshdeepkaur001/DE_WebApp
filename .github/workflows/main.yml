@@ -1,0 +1,32 @@
+name: Build Web
+
+on:
+  push:
+    branches:
+      - master  # Change this to your desired branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 3.7.7
+        architecture: X64  # Make sure this matches the architecture of the runner
+        cache: false 
+
+    - name: Build Web
+      run: flutter build web --output-dir=build/web
+      
+    - name: Commit Changes
+      run: |
+        git config --local user.email "gyaneshwar.knp.2019@gmail.com"
+        git config --local user.name "gyan3000"
+        git add build/web
+        git commit -m "Updated build/web"
+        git push
