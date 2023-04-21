@@ -49,6 +49,7 @@ Future<String> getData(String email) async {
     // print(now);
     int nowInMS = fmt.parse(now).millisecondsSinceEpoch;
 
+    deviceData.clear();    
     for (var i in jsonDecode(response.body)) {
       // print(i);
       deviceData.add(Device.fromJson(i, nowInMS));
