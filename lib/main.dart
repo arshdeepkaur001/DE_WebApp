@@ -2,6 +2,7 @@ import 'package:detest/config_screen.dart';
 import 'package:detest/configure/configure_image.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'home_screen.dart';
 // import 'home_screen.dart';
 
 void main() {
@@ -18,9 +19,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Digital-entomologist',
       theme: ThemeData.light(),
-      home: const Login(
-          // email: 'milanpreetkaur502@gmail.com',
-          ),
+      home: const HomeScreen(
+        email: 'milanpreetkaur502@gmail.com',
+        // email: 'DEsensor@gmail.com',
+      ),
       // home: const ConfigScreen(
       //   deviceId: 'D0315',
       //   userName: 'milanpreetkaur502@gmail.com',

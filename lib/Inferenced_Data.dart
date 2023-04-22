@@ -320,6 +320,7 @@ class _MyHomePageState extends State<Inference> {
   late TooltipBehavior _tooltipBehavior;
   late String _startDate;
   late String _endDate;
+  late String Class = " ";
 
   List<dynamic> data = [];
   String errorMessage = '';
@@ -333,6 +334,7 @@ class _MyHomePageState extends State<Inference> {
       builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
           int seriesIndex) {
         final apiData item = chartData[pointIndex];
+        // Class = item.Class;
         return Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -397,6 +399,11 @@ class _MyHomePageState extends State<Inference> {
 
   void updateData() async {
     await getAPIData(widget.deviceId, _startDate, _endDate);
+    if (chartData.isEmpty) {
+      Class = ' ';
+    } else {
+      Class = chartData[0].Class;
+    }
   }
 
   @override
@@ -566,7 +573,10 @@ class _MyHomePageState extends State<Inference> {
                       ),
                       series: <ChartSeries<apiData, String>>[
                         LineSeries<apiData, String>(
-                          name: 'Apis Mellifera',
+                          // Text("Class: ${item.Class}"),
+                          // name: apiData.Class as dynamic,
+                          // name: 'Apis Mellifera',
+                          name: Class,
                           markerSettings: const MarkerSettings(
                             height: 3.0,
                             width: 3.0,
@@ -577,8 +587,10 @@ class _MyHomePageState extends State<Inference> {
                           xValueMapper: (apiData sales, _) => sales.TimeStamp,
                           yValueMapper: (apiData sales, _) =>
                               double.parse(sales.Mean),
-                          dataLabelSettings:
-                              DataLabelSettings(isVisible: false),
+                          // name: ((apiData sales, _) => sales.TimeStamp) [0],
+                          // name: apiData.Class,
+                          // legendItemText: (apiData sales, _) => sales.Class,
+                          dataLabelSettings: DataLabelSettings(isVisible: true),
                           enableTooltip: true,
                           animationDuration: 0,
                           color: Colors.blue,
