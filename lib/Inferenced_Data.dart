@@ -296,6 +296,9 @@
 
 // //   // print(chartData);
 // // }
+
+// // // for single and automatically fetching Legend name from dynamoDB
+
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
