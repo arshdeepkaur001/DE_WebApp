@@ -114,7 +114,6 @@ class _HomeScreenState extends State<HomeScreen> {
     String requestBody = jsonEncode(mapeddate);
     // print("JSON DATA: ${requestBody}");
     http.Response response = await http.post(APIURL, body: requestBody);
-    print("Vanshu is here");
     var data = jsonDecode(response.body);
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
