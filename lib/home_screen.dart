@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _serialId = TextEditingController();
     _securityKey = TextEditingController();
     super.initState();
+    print("Vanshu was here");
   }
 
   @override
