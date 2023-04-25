@@ -349,7 +349,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Center(
                                 child: Text(
-                                  'Insect Count',
+                                  'Motion Count',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
@@ -358,7 +358,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Center(
                                 child: Text(
-                                  'Inferenced Data',
+                                  'Insect Count',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
