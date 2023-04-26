@@ -48924,7 +48924,7 @@ if(o.length===0)q.r=" "
 else q.r=o[0].c
 return A.a3(null,r)}})
 return A.a4($async$i2,r)},
-I(a){var s,r,q,p,o,n,m,l,k,j=this,i=null,h=A.JQ(B.Z,!0,0,A.bf("TimeSeries Graph For Inferenced Data",i,i,i,i,A.bj(i,i,B.i,i,i,i,i,i,i,i,i,20,i,i,i,i,i,!0,i,1,i,i,i,i,i,i),i,i,i)),g=t.p
+I(a){var s,r,q,p,o,n,m,l,k,j=this,i=null,h=A.JQ(B.Z,!0,0,A.bf("TimeSeries Graph For Insect Count",i,i,i,i,A.bj(i,i,B.i,i,i,i,i,i,i,i,i,20,i,i,i,i,i,!0,i,1,i,i,i,i,i,i),i,i,i)),g=t.p
 g=A.b([A.ce(A.b([A.c7(A.jL(!0,B.aE,!1,i,A.lm(),i,i,i,i,2,A.ir(i,new A.da(4,B.aZ,B.cL),i,new A.Z(16,12,16,12),i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,!1,i,i,i,"Start Date (YYYY-MM-DD)",i,i,i,i,i,i,i,i,i,i,i,i,i),!0,i,!0,i,!1,i,i,i,i,i,i,1,i,i,!1,"\u2022",new A.asY(j),i,i,i,i,!1,i,i,B.bb,i,i,i,i,i,i,i,B.af,i,B.bw,i,i,i),1),A.bv(i,i,16),A.c7(A.jL(!0,B.aE,!1,i,A.lm(),i,i,i,i,2,A.ir(i,new A.da(4,B.aZ,B.cL),i,new A.Z(16,12,16,12),i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,!1,i,i,i,"End Date (YYYY-MM-DD)",i,i,i,i,i,i,i,i,i,i,i,i,i),!0,i,!0,i,!1,i,i,i,i,i,i,1,i,i,!1,"\u2022",new A.asZ(j),i,i,i,i,!1,i,i,B.bb,i,i,i,i,i,i,i,B.af,i,B.bw,i,i,i),1),A.bv(i,i,16),A.aAr(!1,A.bf("Get Data",i,i,i,i,A.bj(i,i,i,i,i,i,i,i,i,i,i,20,i,i,i,i,i,!0,i,i,i,i,i,i,i,i),i,i,i),B.j,i,i,i,i,i,new A.at_(j),i,A.lH(i,i,i,i,i,i,i,i,i,i,i,new A.C(80,0),new A.Z(24,20,24,20),B.Z,i,new A.cO(A.cs(8),B.u),i,i,i,i))],g),B.r,B.n,B.q,i),A.bv(i,32,i)],g)
 s=t.V
 if(j.x.length!==0){r=A.cs(10)
