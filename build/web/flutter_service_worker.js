@@ -18,6 +18,20 @@ const RESOURCES = {
 "canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e",
 "canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
 "canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
+<<<<<<< HEAD
+=======
+"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e",
+"favicon2.png": "b15589c6eb6a8422d67e7c8de28a7833",
+"index.html": "782244ac7f25447375380bcc1839db8c",
+"/": "782244ac7f25447375380bcc1839db8c",
+"main.dart.js": "3137d2cdb3a86150e0898b86d9fc2a18",
+"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
+"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"manifest.json": "1db7e88037c7a17cb8e31665b0415e4d",
+"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
+>>>>>>> aa07dd4da911e6f7386ef0930cce080639c48b59
 "favicon.png": "dedcd451e848c86317191309b1e4a262",
 "favicon1.png": "5898be9902795cbc619b5ff1dbb78287",
 "favicon2.png": "b15589c6eb6a8422d67e7c8de28a7833",
