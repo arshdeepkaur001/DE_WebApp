@@ -414,7 +414,7 @@ class _MyHomePageState extends State<Inference> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'TimeSeries Graph For Inferenced Data',
+          'TimeSeries Graph For Insect Count',
           style: TextStyle(
             fontSize: 20.0,
             letterSpacing: 1.0,
