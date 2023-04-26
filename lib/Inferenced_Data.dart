@@ -571,7 +571,7 @@ class _MyHomePageState extends State<Inference> {
                       ),
                       tooltipBehavior: _tooltipBehavior,
                       title: ChartTitle(
-                        text: 'Graph Of Mean',
+                        text: 'TimeSeries Graph for Insect Count',
                         textStyle: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       series: <ChartSeries<apiData, String>>[

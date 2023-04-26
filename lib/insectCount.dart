@@ -417,7 +417,7 @@ class _MyHomePageState extends State<Insects> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'TimeSeries Graph For Insect Count',
+          'TimeSeries Graph For Motion Detection',
           style: TextStyle(
             fontSize: 20.0,
             letterSpacing: 1.0,
