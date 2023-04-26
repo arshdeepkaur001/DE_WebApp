@@ -563,7 +563,7 @@ class _MyHomePageState extends State<Inference> {
                       ),
                       primaryYAxis: NumericAxis(
                         title: AxisTitle(
-                          text: 'Mean',
+                          text: 'Insect Count',
                           textStyle: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         axisLine: AxisLine(width: 0),
@@ -571,7 +571,7 @@ class _MyHomePageState extends State<Inference> {
                       ),
                       tooltipBehavior: _tooltipBehavior,
                       title: ChartTitle(
-                        text: 'TimeSeries Graph for Insect Count',
+                        text: 'Graph of Insect Count',
                         textStyle: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       series: <ChartSeries<apiData, String>>[

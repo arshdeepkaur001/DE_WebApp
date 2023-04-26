@@ -559,7 +559,7 @@ class _MyHomePageState extends State<Insects> {
                       ),
                       primaryYAxis: NumericAxis(
                         title: AxisTitle(
-                          text: 'Insect Count',
+                          text: 'Motion Count',
                           textStyle: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         axisLine: AxisLine(width: 0),
@@ -567,7 +567,7 @@ class _MyHomePageState extends State<Insects> {
                       ),
                       tooltipBehavior: _tooltipBehavior,
                       title: ChartTitle(
-                        text: 'Graph Of Insect Count',
+                        text: 'Graph Of Motion Count',
                         textStyle: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       series: <ChartSeries<apiData, String>>[
