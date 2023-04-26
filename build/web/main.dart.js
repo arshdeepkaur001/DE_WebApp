@@ -48936,10 +48936,10 @@ g.push(A.dH(new A.aR(B.jL,A.aT(i,A.dH(A.bf(q,i,i,"",i,p,i,i,i),i,i),B.j,i,i,new 
 s=A.b([new A.bg(1,B.C,B.bN,new A.c(0,0),5)],s)
 q=A.aFx(!0,B.OF,B.d2,B.dJ)
 p=A.KA(45,A.k2("Time",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i)))
-o=A.P_(new A.lr(0),new A.m5(0.5),A.k2("Mean",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i)))
+o=A.P_(new A.lr(0),new A.m5(0.5),A.k2("Insect Count",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i)))
 n=j.d
 n===$&&A.a()
-m=A.KD("TimeSeries Graph for Insect Count",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i))
+m=A.KD("Graph of Insect Count",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i))
 l=j.r
 if(l===$)l=j.r=" "
 k=$.a28
@@ -49636,10 +49636,10 @@ l.w=""
 i.push(A.dH(new A.aR(B.jL,A.aT(k,A.dH(A.bf(q,k,k,"",k,p,k,k,k),k,k),B.j,k,k,new A.bY(B.i,k,k,r,s,k,B.L),k,400,k,k,k,k,k,k),k),k,k))}else{r=A.cs(16)
 s=A.b([new A.bg(1,B.C,B.bN,new A.c(0,0),4)],s)
 q=A.KA(45,A.k2("Time",A.bj(k,k,k,k,k,k,k,k,k,k,k,k,k,k,B.P,k,k,!0,k,k,k,k,k,k,k,k)))
-p=A.P_(new A.lr(0),new A.m5(0.5),A.k2("Insect Count",A.bj(k,k,k,k,k,k,k,k,k,k,k,k,k,k,B.P,k,k,!0,k,k,k,k,k,k,k,k)))
+p=A.P_(new A.lr(0),new A.m5(0.5),A.k2("Motion Count",A.bj(k,k,k,k,k,k,k,k,k,k,k,k,k,k,B.P,k,k,!0,k,k,k,k,k,k,k,k)))
 o=l.d
 o===$&&A.a()
-n=A.KD("Graph Of Insect Count",A.bj(k,k,k,k,k,k,k,k,k,k,k,k,k,k,B.P,k,k,!0,k,k,k,k,k,k,k,k))
+n=A.KD("Graph Of Motion Count",A.bj(k,k,k,k,k,k,k,k,k,k,k,k,k,k,B.P,k,k,!0,k,k,k,k,k,k,k,k))
 m=$.ay6
 i.push(A.aT(k,A.Rj(k,B.i,q,p,A.b([A.Og(k,0,k,k,A.LZ(!1),m,!0,B.f0,k,k,k,new A.atg(),k,new A.ath(),t.pk,t.N)],t.lq),n,o,A.TG(!0,!0,!0,!0,!0,B.bW,1,A.O(B.d.ap(76.5),0,0,0),B.bf)),B.j,k,k,new A.bY(B.i,k,k,r,s,k,B.L),k,400,k,k,k,k,k,k))}return A.D2(j,A.i6(A.dH(A.aT(k,A.by(i,B.bQ,B.n,B.q),B.j,k,k,k,k,k,k,k,new A.Z(16,16,16,16),k,k,k),k,k),k,k,k,B.a0),k)}}
 A.atp.prototype={
@@ -50783,7 +50783,7 @@ I(a){return A.bv(null,null,1/a.K(t.w).f.b)}}
 A.LT.prototype={
 I(a){var s,r=a.K(t.w).f,q=r.f,p=q.b+8,o=this.c,n=o.b,m=n>=p+8+43,l=26+q.a,k=r.a.a-q.c-26,j=new A.c(A.E(o.a,l,k),n-8-p)
 n=this.d
-s=new A.c(A.E(n.a,l,k),n.b-8+p)
+s=new A.c(A.E(n.a,l,k),n.b+8-p)
 q=m?j:s
 return new A.aR(new A.Z(8,p,8,8),new A.ig(new A.SQ(j,s,m),new A.Fe(q,A.aOH(this.e),m,A.aZr(),null),null),null)}}
 A.V1.prototype={
