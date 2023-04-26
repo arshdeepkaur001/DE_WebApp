@@ -48939,7 +48939,7 @@ p=A.KA(45,A.k2("Time",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,
 o=A.P_(new A.lr(0),new A.m5(0.5),A.k2("Mean",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i)))
 n=j.d
 n===$&&A.a()
-m=A.KD("Graph Of Mean",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i))
+m=A.KD("TimeSeries Graph for Insect Count",A.bj(i,i,i,i,i,i,i,i,i,i,i,i,i,i,B.P,i,i,!0,i,i,i,i,i,i,i,i))
 l=j.r
 if(l===$)l=j.r=" "
 k=$.a28
@@ -49625,7 +49625,7 @@ s=2
 return A.ab(q.hu(o,n,p),$async$i2)
 case 2:return A.a3(null,r)}})
 return A.a4($async$i2,r)},
-I(a){var s,r,q,p,o,n,m,l=this,k=null,j=A.JQ(B.Z,!0,0,A.bf("TimeSeries Graph For Insect Count",k,k,k,k,A.bj(k,k,B.i,k,k,k,k,k,k,k,k,20,k,k,k,k,k,!0,k,1,k,k,k,k,k,k),k,k,k)),i=t.p
+I(a){var s,r,q,p,o,n,m,l=this,k=null,j=A.JQ(B.Z,!0,0,A.bf("TimeSeries Graph For Motion Detection",k,k,k,k,A.bj(k,k,B.i,k,k,k,k,k,k,k,k,20,k,k,k,k,k,!0,k,1,k,k,k,k,k,k),k,k,k)),i=t.p
 i=A.b([A.ce(A.b([A.c7(A.jL(!0,B.aE,!1,k,A.lm(),k,k,k,k,2,A.ir(k,new A.da(4,B.aZ,B.cL),k,new A.Z(16,12,16,12),k,k,k,k,!0,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,!1,k,k,k,"Start Date (YYYY-MM-DD)",k,k,k,k,k,k,k,k,k,k,k,k,k),!0,k,!0,k,!1,k,k,k,k,k,k,1,k,k,!1,"\u2022",new A.atd(l),k,k,k,k,!1,k,k,B.bb,k,k,k,k,k,k,k,B.af,k,B.bw,k,k,k),1),A.bv(k,k,16),A.c7(A.jL(!0,B.aE,!1,k,A.lm(),k,k,k,k,2,A.ir(k,new A.da(4,B.aZ,B.cL),k,new A.Z(16,12,16,12),k,k,k,k,!0,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,!1,k,k,k,"End Date (YYYY-MM-DD)",k,k,k,k,k,k,k,k,k,k,k,k,k),!0,k,!0,k,!1,k,k,k,k,k,k,1,k,k,!1,"\u2022",new A.ate(l),k,k,k,k,!1,k,k,B.bb,k,k,k,k,k,k,k,B.af,k,B.bw,k,k,k),1),A.bv(k,k,16),A.aAr(!1,A.bf("Get Data",k,k,k,k,A.bj(k,k,k,k,k,k,k,k,k,k,k,20,k,k,k,k,k,!0,k,k,k,k,k,k,k,k),k,k,k),B.j,k,k,k,k,k,new A.atf(l),k,A.lH(k,k,k,k,k,k,k,k,k,k,k,new A.C(80,0),new A.Z(24,20,24,20),B.Z,k,new A.cO(A.cs(8),B.u),k,k,k,k))],i),B.r,B.n,B.q,k),A.bv(k,32,k)],i)
 s=t.V
 if(l.w.length!==0){r=A.cs(10)
