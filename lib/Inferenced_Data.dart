@@ -792,7 +792,7 @@ class _MyHomePageState extends State<Inference> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'TimeSeries Graph For Insect Count',
+          'TimeSeries Graph For Insect Count for ' + widget.deviceId,
           style: TextStyle(
             fontSize: 20.0,
             letterSpacing: 1.0,
