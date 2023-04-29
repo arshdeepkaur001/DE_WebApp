@@ -333,6 +333,7 @@ class _MyHomePageState extends State<Inference> {
     _tooltipBehavior = TooltipBehavior(
       enable: true,
       color: Colors.white,
+
       // textStyle: TextStyle(color: Colors.white),
       builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
           int seriesIndex) {
@@ -421,6 +422,7 @@ class _MyHomePageState extends State<Inference> {
             color: Colors.white,
           ),
         ),
+        // Text(widget.deviceId),
         backgroundColor: Colors.green,
         elevation: 0.0,
         centerTitle: true,
@@ -574,6 +576,10 @@ class _MyHomePageState extends State<Inference> {
                         text: 'Graph of Insect Count',
                         textStyle: TextStyle(fontWeight: FontWeight.bold),
                       ),
+                      // title: ChartTitle(
+                      //   text: widget.deviceId,
+                      //   textStyle: TextStyle(fontWeight: FontWeight.bold),
+                      // ),
                       series: <ChartSeries<apiData, String>>[
                         LineSeries<apiData, String>(
                           // Text("Class: ${item.Class}"),
