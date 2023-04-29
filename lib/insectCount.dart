@@ -360,7 +360,7 @@ class _MyHomePageState extends State<Insects> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text("TimeStamp: ${item.TimeStamp}"),
-              Text("Count: ${item.Count}"),
+              Text("Motion Count: ${item.Count}"),
               // Text("Class: ${item.Class}"),
             ],
           ),

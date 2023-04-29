@@ -718,7 +718,7 @@ class _MyHomePageState extends State<Inference> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text("TimeStamp: ${item.TimeStamp}"),
-              Text("Mean: ${item.Mean}"),
+              Text("Count: ${item.Mean}"),
               Text("Class: ${item.Class}"),
             ],
           ),
