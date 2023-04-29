@@ -1052,7 +1052,8 @@ class _MyHomePageState extends State<Inference> {
                           // name: ((apiData sales, _) => sales.TimeStamp) [0],
                           // name: apiData.Class,
                           // legendItemText: (apiData sales, _) => sales.Class,
-                          dataLabelSettings: DataLabelSettings(isVisible: true),
+                          dataLabelSettings:
+                              DataLabelSettings(isVisible: false),
                           enableTooltip: true,
                           animationDuration: 0,
                           color: Colors.blue,
