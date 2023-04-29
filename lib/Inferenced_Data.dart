@@ -821,6 +821,30 @@ class _MyHomePageState extends State<Inference> {
                             initialDate: _startDate ?? DateTime.now(),
                             firstDate: DateTime(1900),
                             lastDate: DateTime.now(),
+                            builder: (context, child) {
+                              return Theme(
+                                data: Theme.of(context).copyWith(
+                                  colorScheme: const ColorScheme.light(
+                                    primary: Colors.green,
+                                    onPrimary: Colors.white,
+                                    onSurface: Colors.purple,
+                                  ),
+                                  textButtonTheme: TextButtonThemeData(
+                                    style: TextButton.styleFrom(
+                                      elevation: 10,
+                                      backgroundColor:
+                                          Colors.black, // button text color
+                                    ),
+                                  ),
+                                ),
+                                // child: child!,
+                                child: MediaQuery(
+                                  data: MediaQuery.of(context)
+                                      .copyWith(alwaysUse24HourFormat: true),
+                                  child: child ?? Container(),
+                                ),
+                              );
+                            },
                           );
                           if (selectedDate != null) {
                             setState(() {
