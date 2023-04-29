@@ -314,6 +314,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Insects extends StatefulWidget {
@@ -332,8 +333,8 @@ List<apiData> chartData = [];
 
 class _MyHomePageState extends State<Insects> {
   late TooltipBehavior _tooltipBehavior;
-  late String _startDate;
-  late String _endDate;
+  late DateTime _startDate;
+  late DateTime _endDate;
 
   List<dynamic> data = [];
   String errorMessage = '';
@@ -367,6 +368,8 @@ class _MyHomePageState extends State<Insects> {
       },
     );
     super.initState();
+    _startDate = DateTime.parse('2023-04-27 00:00:00Z');
+    _endDate = DateTime.parse('2023-04-27 23:59:59Z');
   }
 
   // @override
@@ -379,13 +382,21 @@ class _MyHomePageState extends State<Insects> {
   // }
 
   Future<void> getAPIData(
-      String deviceId, String _startDate, String _endDate) async {
+      String deviceId, DateTime _startDate, DateTime _endDate) async {
     final response = await http.get(Uri.https(
       'd2vjluhkw6.execute-api.us-east-1.amazonaws.com',
       '/insect/insect-count',
       {
-        'startdate': _startDate,
-        'enddate': _endDate,
+        'startdate': _startDate.year.toString() +
+            "-" +
+            _startDate.month.toString() +
+            "-" +
+            _startDate.day.toString(),
+        'enddate': _endDate.year.toString() +
+            "-" +
+            _endDate.month.toString() +
+            "-" +
+            _endDate.day.toString(),
         'deviceid': deviceId,
       },
     ));
@@ -438,30 +449,58 @@ class _MyHomePageState extends State<Insects> {
                 Row(
                   children: [
                     Expanded(
-                      child: TextField(
-                        onChanged: (value) {
-                          _startDate = value;
+                      child: TextFormField(
+                        onTap: () async {
+                          final DateTime? selectedDate = await showDatePicker(
+                            context: context,
+                            initialDate: _startDate ?? DateTime.now(),
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime.now(),
+                          );
+                          if (selectedDate != null) {
+                            setState(() {
+                              _startDate = selectedDate;
+                            });
+                          }
                         },
                         decoration: InputDecoration(
-                          labelText: 'Start Date (YYYY-MM-DD)',
+                          labelText: 'Start Date',
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
                         ),
+                        controller: TextEditingController(
+                            text: _startDate != null
+                                ? DateFormat('yyyy-MM-dd').format(_startDate)
+                                : ''),
                       ),
                     ),
                     SizedBox(width: 16.0),
                     Expanded(
-                      child: TextField(
-                        onChanged: (value) {
-                          _endDate = value;
+                      child: TextFormField(
+                        onTap: () async {
+                          final DateTime? selectedDate = await showDatePicker(
+                            context: context,
+                            initialDate: _endDate ?? DateTime.now(),
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime.now(),
+                          );
+                          if (selectedDate != null) {
+                            setState(() {
+                              _endDate = selectedDate;
+                            });
+                          }
                         },
                         decoration: InputDecoration(
-                          labelText: 'End Date (YYYY-MM-DD)',
+                          labelText: 'End Date',
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
                         ),
+                        controller: TextEditingController(
+                            text: _endDate != null
+                                ? DateFormat('yyyy-MM-dd').format(_endDate)
+                                : ''),
                       ),
                     ),
                     SizedBox(width: 16.0),
