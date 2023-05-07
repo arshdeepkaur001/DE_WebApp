@@ -1,9 +1,10 @@
- import 'dart:convert';
+import 'dart:convert';
 import 'package:detest/constant.dart';
 import 'package:detest/download.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
+
 // /jijent
 class DeviceScreen extends StatefulWidget {
   final String deviceId;
@@ -323,8 +324,8 @@ class _DeviceScreenState extends State<DeviceScreen> {
                         ),
                         RadioListTile(
                           activeColor: Colors.purple,
-                          title: const Text("video"),
-                          value: "video",
+                          title: const Text("Frames"),
+                          value: "Frames",
                           groupValue: file,
                           onChanged: (value) {
                             setState(() {
@@ -348,7 +349,7 @@ class _DeviceScreenState extends State<DeviceScreen> {
                               onTap: getData,
                               child: const Center(
                                 child: Text(
-                                  'Submit',
+                                  'Download',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 20,
