@@ -48901,7 +48901,7 @@ if(o.length===0)q.r=" "
 else q.r=o[0].c
 return A.a3(null,r)}})
 return A.a4($async$i2,r)},
-I(a){var s,r,q,p,o,n,m,l,k,j=this,i=null,h="yyyy-MM-dd",g=A.JR(B.Z,!0,0,A.bg("TimeSeries Graph For Insect Count",i,i,i,i,A.bj(i,i,B.i,i,i,i,i,i,i,i,i,20,i,i,i,i,i,!0,i,1,i,i,i,i,i,i),i,i,i)),f=A.iu(i,new A.da(4,B.aY,B.cK),i,new A.Z(16,12,16,12),i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,!1,i,i,i,"Start Date",i,i,i,i,i,i,i,i,i,i,i,i,i)
+I(a){var s,r,q,p,o,n,m,l,k,j=this,i=null,h="yyyy-MM-dd",g=A.JR(B.Z,!0,0,A.bg("TimeSeries Graph For Insect Count for "+j.a.c,i,i,i,i,A.bj(i,i,B.i,i,i,i,i,i,i,i,i,20,i,i,i,i,i,!0,i,1,i,i,i,i,i,i),i,i,i)),f=A.iu(i,new A.da(4,B.aY,B.cK),i,new A.Z(16,12,16,12),i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,!1,i,i,i,"Start Date",i,i,i,i,i,i,i,i,i,i,i,i,i)
 j.e===$&&A.a()
 s=A.hT(h,i).dG(j.e)
 f=A.c7(A.rh(!1,A.ib(s),f,!1,i,i,i,1,i,i,i,i,new A.ate(j,a),i,i,B.af,i,i),1)
@@ -49651,7 +49651,7 @@ s=2
 return A.aa(q.hu(o,n,p),$async$i2)
 case 2:return A.a3(null,r)}})
 return A.a4($async$i2,r)},
-I(a){var s,r,q,p,o,n,m,l=this,k=null,j="yyyy-MM-dd",i=A.JR(B.Z,!0,0,A.bg("TimeSeries Graph For Motion Detection",k,k,k,k,A.bj(k,k,B.i,k,k,k,k,k,k,k,k,20,k,k,k,k,k,!0,k,1,k,k,k,k,k,k),k,k,k)),h=A.iu(k,new A.da(4,B.aY,B.cK),k,new A.Z(16,12,16,12),k,k,k,k,!0,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,!1,k,k,k,"Start Date",k,k,k,k,k,k,k,k,k,k,k,k,k)
+I(a){var s,r,q,p,o,n,m,l=this,k=null,j="yyyy-MM-dd",i=A.JR(B.Z,!0,0,A.bg("TimeSeries Graph For Motion Detection for "+l.a.c,k,k,k,k,A.bj(k,k,B.i,k,k,k,k,k,k,k,k,20,k,k,k,k,k,!0,k,1,k,k,k,k,k,k),k,k,k)),h=A.iu(k,new A.da(4,B.aY,B.cK),k,new A.Z(16,12,16,12),k,k,k,k,!0,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,!1,k,k,k,"Start Date",k,k,k,k,k,k,k,k,k,k,k,k,k)
 l.e===$&&A.a()
 s=A.hT(j,k).dG(l.e)
 h=A.c7(A.rh(!1,A.ib(s),h,!1,k,k,k,1,k,k,k,k,new A.atu(l,a),k,k,B.af,k,k),1)
@@ -49782,7 +49782,7 @@ s=2
 return A.aa(q.hu(o,n,p),$async$i2)
 case 2:return A.a3(null,r)}})
 return A.a4($async$i2,r)},
-I(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a="yyyy-MM-dd",a0="Time",a1=A.JR(B.Z,!0,0,A.bg("TimeSeries Graph For Weather Data",b,b,b,b,A.bj(b,b,B.i,b,b,b,b,b,b,b,b,20,b,b,b,b,b,!0,b,1,b,b,b,b,b,b),b,b,b)),a2=A.iu(b,new A.da(4,B.aY,B.cK),b,new A.Z(16,12,16,12),b,b,b,b,!0,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,!1,b,b,b,"Start Date",b,b,b,b,b,b,b,b,b,b,b,b,b)
+I(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a="yyyy-MM-dd",a0="Time",a1=A.JR(B.Z,!0,0,A.bg("TimeSeries Graph For Weather Data for "+c.a.c,b,b,b,b,A.bj(b,b,B.i,b,b,b,b,b,b,b,b,20,b,b,b,b,b,!0,b,1,b,b,b,b,b,b),b,b,b)),a2=A.iu(b,new A.da(4,B.aY,B.cK),b,new A.Z(16,12,16,12),b,b,b,b,!0,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,!1,b,b,b,"Start Date",b,b,b,b,b,b,b,b,b,b,b,b,b)
 c.e===$&&A.a()
 s=A.hT(a,b).dG(c.e)
 a2=A.c7(A.rh(!1,A.ib(s),a2,!1,b,b,b,1,b,b,b,b,new A.atz(c,a3),b,b,B.af,b,b),1)
