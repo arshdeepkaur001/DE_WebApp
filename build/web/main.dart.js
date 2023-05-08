@@ -49006,7 +49006,7 @@ return A.aU(s,A.ce(A.b([B.Rn,A.q8(d,r?B.aS:B.i,s),B.om,A.bg(c,s,s,s,s,s,s,s,s)],
 I(a){var s,r,q=this,p=null
 if(!q.e)s=new A.BC(B.jl,new A.aT(B.GV,A.aAM(B.Z,B.ka,"btn1",new A.aob(q)),p),new A.aT(B.GU,A.aAM(B.Z,B.In,"btn2",new A.aoc(a)),p),B.Kk,q.d,new A.aod(q),B.Or,B.UH,B.TD,B.Ie,B.Ig,!0,B.qg,p)
 else{s=t.p
-s=A.aU(p,A.by(A.b([new A.aT(B.qO,A.ce(A.b([A.aAM(B.Z,B.Io,B.j7,new A.aoe(q))],s),B.r,B.dL,B.q,p),p),A.i0(!1,p,!0,q.OY(a,0,"J O B",B.re),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aof(q),p,p,p,p),A.i0(!1,p,!0,q.OY(a,3,"I M A G E",B.rd),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aog(q),p,p,p,p),B.ik,new A.aT(B.cT,A.ce(A.b([A.aHO(B.Iu,B.Wl,new A.aoh(a),A.Kp(p,p,new A.dj(B.Z,t.h9),p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p))],s),B.r,B.n,B.q,p),p),B.c_],s),B.ai,B.n,B.q),B.j,B.jl,p,p,p,p,p,p,p,p,p,300)}r=t.p
+s=A.aU(p,A.by(A.b([new A.aT(B.qO,A.ce(A.b([A.aAM(B.Z,B.Io,B.j7,new A.aoe(q))],s),B.r,B.dL,B.q,p),p),A.i0(!1,p,!0,q.OY(a,0,"J O B",B.re),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aof(q),p,p,p,p),A.i0(!1,p,!0,q.OY(a,3,"I M A G E",B.rd),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aog(q),p,p,p,p),B.ik,new A.aT(B.cT,A.ce(A.b([A.aHO(B.Iu,B.Wk,new A.aoh(a),A.Kp(p,p,new A.dj(B.Z,t.h9),p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p))],s),B.r,B.n,B.q,p),p),B.c_],s),B.ai,B.n,B.q),B.j,B.jl,p,p,p,p,p,p,p,p,p,300)}r=t.p
 return A.D3(p,A.vu(!0,A.ce(A.b([s,A.c7(A.by(A.b([A.bu(A.ce(B.KI,B.r,B.bS,B.q,p),80,p),q.Y0(a,q.d)],r),B.ai,B.n,B.q),1)],r),B.r,B.n,B.q,p),!0,B.ac,!0,!0),p)}}
 A.aod.prototype={
 $1(a){var s=this.a
@@ -49119,7 +49119,7 @@ s.e=this.a.a},
 $S:0}
 A.aol.prototype={
 $3(a,b,c){if(c==null)return b
-return B.Ef},
+return B.Eg},
 $C:"$3",
 $R:3,
 $S:325}
@@ -49203,7 +49203,7 @@ j=A.E7(!0,B.bn,!1,n,A.a2i(),j,n,n,n,2,A.aKe("Device On Time",B.I8),!0,n,!0,n,!1,
 q=o.e
 q===$&&A.a()
 q=A.E7(!0,B.bn,!1,n,A.a2i(),q,n,n,n,2,A.aKe("Device Off Time",B.HR),!0,n,!0,n,!1,n,n,n,n,n,n,1,n,n,!1,"\u2022",n,n,n,new A.aot(o,a),n,!1,n,n,B.cT,n,n,n,n,n,n,n,B.af,n,B.e5,n,n,n)
-r=o.r==="wait"?B.pT:A.aU(n,A.i0(!1,n,!0,B.E6,n,!0,n,n,n,n,n,n,n,n,n,n,n,o.gY8(),n,n,n,n),B.j,n,n,B.em,n,50,n,B.cx,n,n,n,n)
+r=o.r==="wait"?B.pT:A.aU(n,A.i0(!1,n,!0,B.E7,n,!0,n,n,n,n,n,n,n,n,n,n,n,o.gY8(),n,n,n,n),B.j,n,n,B.em,n,50,n,B.cx,n,n,n,n)
 r=A.by(A.b([B.e3,l,B.Rr,new A.aT(B.jN,s,n),B.P2,B.cG,new A.aT(B.jN,j,n),B.P8,B.cG,new A.aT(B.jN,q,n),B.P7,B.cG,r,B.e3],k),B.ai,B.n,B.q)
 l=r}return A.by(A.b([A.ce(A.b([A.bu(new A.aT(B.Hc,A.aAp(l,n,10,new A.cO(m,B.u)),n),n,700)],k),B.r,B.bS,B.q,n)],k),B.r,B.n,B.q)}}
 A.aou.prototype={
@@ -49308,7 +49308,7 @@ s.scl(0,"")
 this.aJ()},
 aqp(a,b){var s=this.w
 if(s==="ok")return new A.zL(this.r,null)
-else if(s==="empty")return B.Ee
+else if(s==="empty")return B.Ef
 return this.XU(b)},
 I(a){var s=null,r=a.J(t.w).f
 return A.D3(A.JR(B.Z,s,s,s),this.aqp(a,r.a),s)},
@@ -49321,8 +49321,8 @@ s=A.E7(!0,B.bn,!1,n,A.a2i(),s,n,n,n,2,A.iu(n,n,n,n,n,n,n,n,!0,new A.da(4,A.cs(5)
 r=o.x
 q=t.N
 p=t.p
-q=A.by(A.b([B.P4,A.aGC(B.aS,r,new A.apP(o),B.Wz,"weather",q),A.aGC(B.aS,r,new A.apQ(o),B.Wv,"video",q)],p),B.ai,B.n,B.q)
-r=!o.f?A.aU(n,A.i0(!1,n,!0,B.Eh,n,!0,n,n,n,n,n,n,n,n,n,n,n,o.gXy(o),n,n,n,n),B.j,n,n,B.em,n,50,n,B.cx,n,n,n,n):B.pT
+q=A.by(A.b([B.P4,A.aGC(B.aS,r,new A.apP(o),B.Wx,"weather",q),A.aGC(B.aS,r,new A.apQ(o),B.WD,"Frames",q)],p),B.ai,B.n,B.q)
+r=!o.f?A.aU(n,A.i0(!1,n,!0,B.E6,n,!0,n,n,n,n,n,n,n,n,n,n,n,o.gXy(o),n,n,n,n),B.j,n,n,B.em,n,50,n,B.cx,n,n,n,n):B.pT
 return A.i9(A.ce(A.b([A.bu(new A.aT(new A.Z(k,50,k,50),A.aAp(A.by(A.b([B.c_,B.WG,B.c_,i,B.e3,new A.aT(B.cx,h,n),B.c_,new A.aT(B.cx,s,n),B.c_,q,r,B.e3],p),B.r,B.n,B.q),n,10,new A.cO(j,B.u)),n),n,l)],p),B.r,B.bS,B.q,n),n,n,n,B.a0)}}
 A.apD.prototype={
 $0(){this.a.f=!0},
@@ -49472,8 +49472,8 @@ ac(){return new A.VG([],B.k)}}
 A.VG.prototype={
 au(){this.e=this.a.c
 this.aJ()},
-I(a){var s,r,q=this,p=null,o=!q.d?A.aFh(B.Z,B.j7,B.Wk,new A.aqa(q)):B.at,n=t.p
-o=A.by(A.b([B.Ws,A.ce(A.b([new A.aT(B.GT,o,p)],n),B.r,B.dL,B.q,p)],n),B.r,B.n,B.q)
+I(a){var s,r,q=this,p=null,o=!q.d?A.aFh(B.Z,B.j7,B.Wj,new A.aqa(q)):B.at,n=t.p
+o=A.by(A.b([B.Wr,A.ce(A.b([new A.aT(B.GT,o,p)],n),B.r,B.dL,B.q,p)],n),B.r,B.n,B.q)
 if(q.d)s=B.P5
 else{s=J.aQ(q.e)
 r=!0
@@ -49499,7 +49499,7 @@ $0(){this.a.d=!0},
 $S:0}
 A.aqb.prototype={
 $2(a,b){var s=null,r=this.a
-return new A.aT(B.H9,A.aU(s,A.ce(A.b([new A.aT(B.H1,A.bg(""+(b+1)+" )",s,s,s,s,B.Tx,s,s,s),s),A.c7(A.bg(A.j(J.af(r.e,b)),s,s,s,s,B.Ty,s,s,s),1),new A.aT(B.H2,A.aHO(B.Is,B.Wn,new A.aq8(r,b),A.lI(s,s,B.cu,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s)),s)],t.p),B.r,B.n,B.q,s),B.j,s,s,B.em,s,55,s,s,s,s,s,s),s)},
+return new A.aT(B.H9,A.aU(s,A.ce(A.b([new A.aT(B.H1,A.bg(""+(b+1)+" )",s,s,s,s,B.Tx,s,s,s),s),A.c7(A.bg(A.j(J.af(r.e,b)),s,s,s,s,B.Ty,s,s,s),1),new A.aT(B.H2,A.aHO(B.Is,B.Wm,new A.aq8(r,b),A.lI(s,s,B.cu,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s)),s)],t.p),B.r,B.n,B.q,s),B.j,s,s,B.em,s,55,s,s,s,s,s,s),s)},
 $S:337}
 A.aq8.prototype={
 $0(){var s=0,r=A.a5(t.H),q=this,p,o
@@ -49552,7 +49552,7 @@ k.toString
 k.f.BQ(A.aBD(null,null,B.Z,null,B.F,null,A.bg(J.bL(m),null,null,null,null,null,null,null,null),B.h5,A.bT(0,0,0,0,0,3),null,null,null,null,null,null,null,null))}else throw A.e(A.ch("Failed to load api"))
 return A.a3(null,r)}})
 return A.a4($async$wB,r)},
-I(a){var s=null,r=A.JR(B.Z,s,s,A.ce(A.b([B.Iq,B.om,A.bg("Biodiversity Sensor Console",s,s,s,s,s,s,s,s)],t.p),B.r,B.n,B.q,s)),q=A.aFh(B.Z,"btn3",B.WA,new A.arp(this,a)),p=this.d
+I(a){var s=null,r=A.JR(B.Z,s,s,A.ce(A.b([B.Iq,B.om,A.bg("Biodiversity Sensor Console",s,s,s,s,s,s,s,s)],t.p),B.r,B.n,B.q,s)),q=A.aFh(B.Z,"btn3",B.Wz,new A.arp(this,a)),p=this.d
 p===$&&A.a()
 return A.D3(r,A.aAR(new A.arq(this),p,t.N),q)}}
 A.are.prototype={
@@ -49563,7 +49563,7 @@ q=a.J(q).f
 n=o.f
 n===$&&A.a()
 s=t.p
-return new A.t8(B.Ed,A.bu(A.by(A.b([B.cG,p,B.Ro,A.aU(r,A.aHn(n,B.rb,"1234","Serial ID"),B.j,r,r,r,r,r,r,B.cx,r,r,r,q.a.a)],s),B.r,B.n,B.q),140,400),A.b([A.aBa(B.WH,B.f2,new A.arc(a),r,B.i),A.aBa(B.Wp,B.Z,new A.ard(o,a),r,B.i)],s),r)},
+return new A.t8(B.Ee,A.bu(A.by(A.b([B.cG,p,B.Ro,A.aU(r,A.aHn(n,B.rb,"1234","Serial ID"),B.j,r,r,r,r,r,r,B.cx,r,r,r,q.a.a)],s),B.r,B.n,B.q),140,400),A.b([A.aBa(B.WH,B.f2,new A.arc(a),r,B.i),A.aBa(B.Wo,B.Z,new A.ard(o,a),r,B.i)],s),r)},
 $S:338}
 A.arc.prototype={
 $0(){A.eq(this.a,!1).e_()},
@@ -109733,19 +109733,19 @@ B.E5=new A.cE(B.v,null,null,B.Ep,null)
 B.i=new A.B(4294967295)
 B.P=new A.iq(6)
 B.B2=new A.w(!0,B.i,null,null,null,null,20,B.P,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.Wy=new A.bF("Download",null,B.B2,null,null,null,null,null,null,null,null)
+B.E6=new A.cE(B.v,null,null,B.Wy,null)
 B.WP=new A.bF("Send",null,B.B2,null,null,null,null,null,null,null,null)
-B.E6=new A.cE(B.v,null,null,B.WP,null)
+B.E7=new A.cE(B.v,null,null,B.WP,null)
 B.UK=new A.w(!0,B.Z,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Wh=new A.bF("Register a new Device ",null,B.UK,null,null,null,null,null,null,null,null)
-B.Ed=new A.cE(B.v,null,null,B.Wh,null)
+B.Ee=new A.cE(B.v,null,null,B.Wh,null)
 B.cX=new A.iq(8)
 B.ir=new A.w(!0,B.Z,null,null,null,null,25,B.cX,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Wf=new A.bF("SORRY WE HAVE NO FILE !",null,B.ir,null,null,null,null,null,null,null,null)
-B.Ee=new A.cE(B.v,null,null,B.Wf,null)
+B.Ef=new A.cE(B.v,null,null,B.Wf,null)
 B.WE=new A.bF("Loading...",null,null,null,null,null,null,null,null,null,null)
-B.Ef=new A.cE(B.v,null,null,B.WE,null)
-B.Wi=new A.bF("Submit",null,B.B2,null,null,null,null,null,null,null,null)
-B.Eh=new A.cE(B.v,null,null,B.Wi,null)
+B.Eg=new A.cE(B.v,null,null,B.WE,null)
 B.jc=new A.tq(B.aS,null)
 B.pT=new A.cE(B.v,null,null,B.jc,null)
 B.WL=new A.bF("Something went wrrong!",null,null,null,null,null,null,null,null,null,null)
@@ -110397,33 +110397,33 @@ B.CE=new A.bh(0.2,B.C,B.q4,B.h,11)
 B.Ki=A.b(s([B.CE]),t.V)
 B.rB=A.b(s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none"]),t.s)
 B.ri=new A.dy(B.re,null,null,null)
-B.Wj=new A.bF("J O B",null,null,null,null,null,null,null,null,null,null)
-B.Op=new A.BD(B.ri,B.ri,B.Wj)
+B.Wi=new A.bF("J O B",null,null,null,null,null,null,null,null,null,null)
+B.Op=new A.BD(B.ri,B.ri,B.Wi)
 B.rh=new A.dy(B.rd,null,null,null)
 B.Wg=new A.bF("I M A G E",null,null,null,null,null,null,null,null,null,null)
 B.Oo=new A.BD(B.rh,B.rh,B.Wg)
 B.Kk=A.b(s([B.Op,B.Oo]),A.ae("p<BD>"))
 B.rC=A.b(s([" NOT SELECTED TIME ZONE"," (GMT +01:00) Europe/Berlin"," (GMT +05:30) Asia/Kolkata"," (GMT -08:00) USA"]),t.s)
 B.cm=new A.w(!0,B.i,null,null,null,null,16,B.P,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Wt=new A.bF("S.NO",null,B.cm,null,null,null,null,null,null,null,null)
-B.Ek=new A.cE(B.v,null,null,B.Wt,null)
-B.Wm=new A.bF("DEVICE ID",null,B.cm,null,null,null,null,null,null,null,null)
-B.Ec=new A.cE(B.v,null,null,B.Wm,null)
-B.Wr=new A.bF("BOOT STATUS",null,B.cm,null,null,null,null,null,null,null,null)
-B.E9=new A.cE(B.v,null,null,B.Wr,null)
-B.WB=new A.bF("REGISTERED",null,B.cm,null,null,null,null,null,null,null,null)
-B.Ei=new A.cE(B.v,null,null,B.WB,null)
-B.Wx=new A.bF("CONFIGURE",null,B.cm,null,null,null,null,null,null,null,null)
-B.Eb=new A.cE(B.v,null,null,B.Wx,null)
-B.Ww=new A.bF("DOWNLOAD",null,B.cm,null,null,null,null,null,null,null,null)
-B.E7=new A.cE(B.v,null,null,B.Ww,null)
-B.Wq=new A.bF("Weather Data",null,B.cm,null,null,null,null,null,null,null,null)
-B.El=new A.cE(B.v,null,null,B.Wq,null)
+B.Ws=new A.bF("S.NO",null,B.cm,null,null,null,null,null,null,null,null)
+B.Ek=new A.cE(B.v,null,null,B.Ws,null)
+B.Wl=new A.bF("DEVICE ID",null,B.cm,null,null,null,null,null,null,null,null)
+B.Ed=new A.cE(B.v,null,null,B.Wl,null)
+B.Wq=new A.bF("BOOT STATUS",null,B.cm,null,null,null,null,null,null,null,null)
+B.Ea=new A.cE(B.v,null,null,B.Wq,null)
+B.WA=new A.bF("REGISTERED",null,B.cm,null,null,null,null,null,null,null,null)
+B.Ei=new A.cE(B.v,null,null,B.WA,null)
+B.Wv=new A.bF("CONFIGURE",null,B.cm,null,null,null,null,null,null,null,null)
+B.Ec=new A.cE(B.v,null,null,B.Wv,null)
+B.Wu=new A.bF("DOWNLOAD",null,B.cm,null,null,null,null,null,null,null,null)
+B.E8=new A.cE(B.v,null,null,B.Wu,null)
+B.Wp=new A.bF("Weather Data",null,B.cm,null,null,null,null,null,null,null,null)
+B.El=new A.cE(B.v,null,null,B.Wp,null)
 B.WI=new A.bF("Motion Count",null,B.cm,null,null,null,null,null,null,null,null)
-B.Ea=new A.cE(B.v,null,null,B.WI,null)
+B.Eb=new A.cE(B.v,null,null,B.WI,null)
 B.WK=new A.bF("Insect Count",null,B.cm,null,null,null,null,null,null,null,null)
-B.Eg=new A.cE(B.v,null,null,B.WK,null)
-B.Ke=A.b(s([B.Ek,B.Ec,B.E9,B.Ei,B.Eb,B.E7,B.El,B.Ea,B.Eg]),t.p)
+B.Eh=new A.cE(B.v,null,null,B.WK,null)
+B.Ke=A.b(s([B.Ek,B.Ed,B.Ea,B.Ei,B.Ec,B.E8,B.El,B.Eb,B.Eh]),t.p)
 B.Sl=new A.jO(B.Ke)
 B.Ko=A.b(s([B.Sl]),t.nk)
 B.rD=A.b(s([0,0,26624,1023,65534,2047,65534,2047]),t.t)
@@ -110454,8 +110454,8 @@ B.KH=A.b(s([B.J,B.m]),A.ae("p<w5>"))
 B.T=new A.mC(0,"rtl")
 B.x=new A.mC(1,"ltr")
 B.rF=A.b(s([B.T,B.x]),A.ae("p<mC>"))
-B.Wo=new A.bF("C O N F I G U R E",null,B.ir,null,null,null,null,null,null,null,null)
-B.KI=A.b(s([B.Wo]),t.p)
+B.Wn=new A.bF("C O N F I G U R E",null,B.ir,null,null,null,null,null,null,null,null)
+B.KI=A.b(s([B.Wn]),t.p)
 B.a7=new A.eT(0,"icon")
 B.aw=new A.eT(1,"input")
 B.a4=new A.eT(2,"label")
@@ -111663,19 +111663,19 @@ B.P0=new A.BS(0,"start")
 B.yd=new A.BS(1,"end")
 B.jO=new A.Z(30,10,30,10)
 B.is=new A.w(!0,null,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Wu=new A.bF("*Add this to job card to set the timezone of the device.",null,B.is,null,null,null,null,null,null,null,null)
-B.P2=new A.aT(B.jO,B.Wu,null)
+B.Wt=new A.bF("*Add this to job card to set the timezone of the device.",null,B.is,null,null,null,null,null,null,null,null)
+B.P2=new A.aT(B.jO,B.Wt,null)
 B.Hk=new A.Z(8,0,0,0)
 B.HT=new A.cM(57495,!1)
 B.Ih=new A.dy(B.HT,null,B.Z,null)
 B.P3=new A.aT(B.Hk,B.Ih,null)
 B.Uj=new A.w(!0,null,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Wy=new A.bF("What is your file?",null,B.Uj,null,null,null,null,null,null,null,null)
-B.P4=new A.aT(B.cx,B.Wy,null)
+B.Ww=new A.bF("What is your file?",null,B.Uj,null,null,null,null,null,null,null,null)
+B.P4=new A.aT(B.cx,B.Ww,null)
 B.GX=new A.Z(0,50,0,0)
 B.WM=new A.bF("You Selected Download All ",null,B.ir,null,null,null,null,null,null,null,null)
-B.E8=new A.cE(B.v,null,null,B.WM,null)
-B.P5=new A.aT(B.GX,B.E8,null)
+B.E9=new A.cE(B.v,null,null,B.WM,null)
+B.P5=new A.aT(B.GX,B.E9,null)
 B.WF=new A.bF("*Takes only 24hr format time, ranging from 1-24.",null,B.is,null,null,null,null,null,null,null,null)
 B.P7=new A.aT(B.jO,B.WF,null)
 B.WJ=new A.bF("*Takes the numeric value in hours(1hr-22hr) for which device is going to remain on and camera will work.",null,B.is,null,null,null,null,null,null,null,null)
@@ -111711,8 +111711,8 @@ B.dU=new A.v6(0,"none")
 B.Pk=new A.v6(1,"scroll")
 B.Pl=new A.v6(4,"unknown")
 B.Pm=new A.Cc(null,null,null,null,null,null,null,null,null,null)
-B.WD=new A.bF("C a p t u r i n g ... ",null,B.B4,null,null,null,null,null,null,null,null)
-B.Pn=new A.on(15,null,null,15,null,null,B.WD,null)
+B.WC=new A.bF("C a p t u r i n g ... ",null,B.B4,null,null,null,null,null,null,null,null)
+B.Pn=new A.on(15,null,null,15,null,null,B.WC,null)
 B.zA=new A.qJ(0,"platformDefault")
 B.zB=new A.qJ(1,"inAppWebView")
 B.Po=new A.qJ(2,"externalApplication")
@@ -111983,8 +111983,8 @@ B.Ry=new A.jJ(3,"hide")
 B.a_s=new A.jJ(4,"remove")
 B.AH=new A.jJ(5,"timeout")
 B.Rz=new A.vQ(null,null,null,null,null,null,null,null,null,null)
-B.WC=new A.bF("Please Select Date",null,null,null,null,null,null,null,null,null,null)
-B.RA=new A.rc(B.WC,null,null,null,null,null,null,null,null,null,null,B.qK,null,null,B.h5,B.F,null)
+B.WB=new A.bF("Please Select Date",null,null,null,null,null,null,null,null,null,null)
+B.RA=new A.rc(B.WB,null,null,null,null,null,null,null,null,null,null,B.qK,null,null,B.h5,B.F,null)
 B.AI=new A.DJ(0,"permissive")
 B.a_t=new A.DJ(1,"normal")
 B.RB=new A.vR(0,"ascending")
@@ -112335,14 +112335,14 @@ B.Vp=new A.w(!0,B.i,null,"Roboto",null,null,null,null,null,null,null,null,null,n
 B.V2=new A.w(!0,B.i,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.f,null,null,null,"whiteMountainView labelSmall",null,null,null,null)
 B.We=new A.f6(B.UN,B.VY,B.VF,B.Tn,B.Vx,B.UD,B.W1,B.TT,B.Um,B.Vs,B.Ti,B.VH,B.Vv,B.Vp,B.V2)
 B.ou=new A.Ej(1,"longestLine")
-B.Wk=new A.bF("Download All",null,null,null,null,null,null,null,null,null,null)
-B.Wl=new A.bF("Home",null,null,null,null,null,null,null,null,null,null)
-B.Wn=new A.bF("Download",null,B.B5,null,null,null,null,null,null,null,null)
-B.Wp=new A.bF("Register",null,null,null,null,null,null,null,null,null,null)
-B.Ws=new A.bF("Select to download! ",null,B.ir,null,null,null,null,null,null,null,null)
-B.Wv=new A.bF("video",null,null,null,null,null,null,null,null,null,null)
-B.Wz=new A.bF("weather",null,null,null,null,null,null,null,null,null,null)
-B.WA=new A.bF("Register a new Device +",null,null,null,null,null,null,null,null,null,null)
+B.Wj=new A.bF("Download All",null,null,null,null,null,null,null,null,null,null)
+B.Wk=new A.bF("Home",null,null,null,null,null,null,null,null,null,null)
+B.Wm=new A.bF("Download",null,B.B5,null,null,null,null,null,null,null,null)
+B.Wo=new A.bF("Register",null,null,null,null,null,null,null,null,null,null)
+B.Wr=new A.bF("Select to download! ",null,B.ir,null,null,null,null,null,null,null,null)
+B.Wx=new A.bF("weather",null,null,null,null,null,null,null,null,null,null)
+B.Wz=new A.bF("Register a new Device +",null,null,null,null,null,null,null,null,null,null)
+B.WD=new A.bF("Frames",null,null,null,null,null,null,null,null,null,null)
 B.TH=new A.w(!0,B.Z,null,null,null,null,35,B.cX,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.WG=new A.bF("Download",null,B.TH,null,null,null,null,null,null,null,null)
 B.WH=new A.bF("Cancel",null,null,null,null,null,null,null,null,null,null)
