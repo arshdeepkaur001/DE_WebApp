@@ -403,73 +403,73 @@ class _DeviceScreenState extends State<DeviceScreen> {
   bool apiWait = false;
   List<dynamic> videLinks = [];
   String dataStatus = '';
-  String? file = 'video';
+  String? file = 'image';
   DateTimeRange dateRange =
       DateTimeRange(start: DateTime(2000), end: DateTime.now());
 
-  // Future<void> getData() async {
-  //   setState(() {
-  //     apiWait = true;
-  //   });
-  //   if (dateController.text == '') {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       const SnackBar(
-  //         content: Text(
-  //           'Please Select Date',
-  //         ),
-  //       ),
-  //     );
-  //     setState(() {
-  //       setState(() {
-  //         apiWait = false;
-  //       });
-  //     });
-  //   } else {
-  //     String deviceId = widget.deviceId;
-  //     String dt = dateController.text;
-  //     // print('${timeinput.text}');
-  //     if (timeinput.text != '') {
-  //       dt = '${dt}_${timeinput.text.substring(0, 2)}';
-  //       // print('${timeinput.text.substring(0, 2)}');
-  //     }
+  Future<void> getData() async {
+    setState(() {
+      apiWait = true;
+    });
+    if (dateController.text == '') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Please Select Date',
+          ),
+        ),
+      );
+      setState(() {
+        setState(() {
+          apiWait = false;
+        });
+      });
+    } else {
+      String deviceId = widget.deviceId;
+      String dt = dateController.text;
+      // print('${timeinput.text}');
+      if (timeinput.text != '') {
+        dt = '${dt}_${timeinput.text.substring(0, 2)}';
+        // print('${timeinput.text.substring(0, 2)}');
+      }
 
-  //     // String tm = timeinput.text.substring(0, 2);
-  //     // _
-  //     final response = await http.get(
-  //       Uri.parse(
-  //         // 'https://jsezk8d2qa.execute-api.us-east-1.amazonaws.com/file?file-type=video&deviceid=D1002&date=2022-10-15_17',
-  //         // 'https://jsezk8d2qa.execute-api.us-east-1.amazonaws.com/file?file-type=video&deviceid=D1002&date=2022-10-15',
-  //         'https://jsezk8d2qa.execute-api.us-east-1.amazonaws.com/file?file-type=$file&deviceid=$deviceId&date=$dt',
-  //       ),
-  //     );
-  //     if (response.statusCode == 200) {
-  //       // videLinks = jsonDecode(response.body)['videos'];
-  //       if (file == 'video') {
-  //         videLinks = jsonDecode(response.body)['videos'];
-  //       } else {
-  //         videLinks = jsonDecode(response.body)['files'];
-  //       }
-  //       // print(jsonDecode(response.body));
+      // String tm = timeinput.text.substring(0, 2);
+      // _
+      final response = await http.get(
+        Uri.parse(
+          // 'https://jsezk8d2qa.execute-api.us-east-1.amazonaws.com/file?file-type=video&deviceid=D1002&date=2022-10-15_17',
+          // 'https://jsezk8d2qa.execute-api.us-east-1.amazonaws.com/file?file-type=video&deviceid=D1002&date=2022-10-15',
+          'https://jsezk8d2qa.execute-api.us-east-1.amazonaws.com/file?file-type=$file&deviceid=$deviceId&date=$dt',
+        ),
+      );
+      if (response.statusCode == 200) {
+        // videLinks = jsonDecode(response.body)['videos'];
+        if (file == 'image') {
+          videLinks = jsonDecode(response.body)['images'];
+        } else {
+          videLinks = jsonDecode(response.body)['files'];
+        }
+        // print(jsonDecode(response.body));
 
-  //       // print(videLinks);
+        // print(videLinks);
 
-  //       // print(videLinks);
-  //       if (videLinks.isEmpty) {
-  //         setState(() {
-  //           dataStatus = 'empty';
-  //           apiWait = false;
-  //         });
-  //       } else {
-  //         setState(() {
-  //           dataStatus = 'ok';
-  //           apiWait = false;
-  //         });
-  //       }
-  //     } else {
-  //       throw Exception('Failed to load api');
-  //     }
-  //   }
-  // }
+        // print(videLinks);
+        if (videLinks.isEmpty) {
+          setState(() {
+            dataStatus = 'empty';
+            apiWait = false;
+          });
+        } else {
+          setState(() {
+            dataStatus = 'ok';
+            apiWait = false;
+          });
+        }
+      } else {
+        throw Exception('Failed to load api');
+      }
+    }
+  }
 
   @override
   void initState() {
@@ -479,8 +479,8 @@ class _DeviceScreenState extends State<DeviceScreen> {
     secondInput = TextEditingController();
     secondInput.text = "";
     super.initState();
-    _startDate = DateTime.parse('2023-04-27 00:00:00Z');
-    _endDate = DateTime.parse('2023-04-27 23:59:59Z');
+    _startDate = DateTime.parse(DateTime.now().toString());
+    _endDate = DateTime.parse(DateTime.now().toString());
   }
 
   Widget returnScreen(BuildContext context, Size size) {
@@ -677,113 +677,8 @@ class _DeviceScreenState extends State<DeviceScreen> {
                                       : ''),
                             ),
                           ),
-                          // SizedBox(width: 16.0),
-                          // ElevatedButton(
-                          //   onPressed: () {
-                          //     // fetch new data
-                          //     updateData();
-                          //   },
-                          //   child: Text(
-                          //     'Get Data',
-                          //     style: TextStyle(
-                          //       fontSize: 20,
-                          //     ),
-                          //   ),
-                          //   style: ElevatedButton.styleFrom(
-                          //     primary: Colors.green, // Set the button color to green
-                          //     minimumSize:
-                          //         Size(80, 0), // Set a minimum width for the button
-                          //     padding:
-                          //         EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                          //     shape: RoundedRectangleBorder(
-                          //       borderRadius: BorderRadius.circular(8),
-                          //     ),
-                          //   ),
-                          // ),
                         ],
-                        // children: [
-                        //   Expanded(
-                        //       child: ElevatedButton(
-                        //     style: const ButtonStyle(
-                        //       backgroundColor:
-                        //           MaterialStatePropertyAll(Colors.green),
-                        //     ),
-                        //     child: Text(
-                        //         '${start.year}/${start.month}/${start.day}'),
-                        //     onPressed: pickDateRange,
-                        //   )),
-                        //   const SizedBox(width: 16),
-                        //   Expanded(
-                        //       child: ElevatedButton(
-                        //     style: const ButtonStyle(
-                        //       backgroundColor:
-                        //           MaterialStatePropertyAll(Colors.green),
-                        //     ),
-                        //     child: Text('${end.year}/${end.month}/${end.day}'),
-                        //     onPressed: pickDateRange,
-                        //   )),
-                        // ],
                       ),
-                      // child: TextField(
-                      //   controller: dateController,
-                      //   decoration: InputDecoration(
-                      //     labelText: 'Select Date',
-                      //     prefixIcon: const Icon(Icons.calendar_month),
-                      //     labelStyle: const TextStyle(fontSize: 20),
-                      //     enabledBorder: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(5),
-                      //       borderSide: const BorderSide(
-                      //         color: borderColor,
-                      //       ),
-                      //     ),
-                      //     focusedBorder: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(5),
-                      //       borderSide: const BorderSide(
-                      //         color: borderColor,
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   onTap: () async {
-                      //     final DateTime? pickedDate = await showDatePicker(
-                      //       context: context,
-                      //       initialDate: DateTime.now(),
-                      //       firstDate:
-                      //           DateTime(2000), // allow to choose before today.
-                      //       lastDate: DateTime(2101),
-                      //       builder: (context, child) {
-                      //         return Theme(
-                      //           data: Theme.of(context).copyWith(
-                      //             colorScheme: const ColorScheme.light(
-                      //               primary: Colors.green,
-                      //               onPrimary: Colors.white,
-                      //               onSurface: Colors.black,
-                      //             ),
-                      //             textButtonTheme: TextButtonThemeData(
-                      //               style: TextButton.styleFrom(
-                      //                 elevation: 10,
-                      //                 backgroundColor:
-                      //                     Colors.black, // button text color
-                      //               ),
-                      //             ),
-                      //           ),
-                      //           child: child!,
-                      //         );
-                      //       },
-                      //     );
-                      //     if (pickedDate != null) {
-                      //       String formattedDate =
-                      //           DateFormat('yyyy-MM-dd').format(pickedDate);
-                      //       // DateFormat('dd-MM-yyyy').format(pickedDate);
-
-                      //       setState(() {
-                      //         dateController.text = formattedDate;
-                      //         // print(dateController.text);
-                      //       });
-                      //     } else {
-                      //       // print("Date is not selected");
-                      //     }
-                      //   },
-                      // ),
                     ),
                     const SizedBox(height: 30),
                     const SizedBox(width: 20),

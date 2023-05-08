@@ -277,9 +277,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             4: FractionColumnWidth(0.10),
                             5: FractionColumnWidth(0.10),
                             6: FractionColumnWidth(0.10),
+                            // 7: FractionColumnWidth(0.10),
                             7: FractionColumnWidth(0.10),
-                            8: FractionColumnWidth(0.10),
-                            9: FractionColumnWidth(0.01),
+                            8: FractionColumnWidth(0.01),
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -346,15 +346,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                              Center(
-                                child: Text(
-                                  'Motion Count',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                      color: backgroundColor),
-                                ),
-                              ),
+                              // Center(
+                              //   child: Text(
+                              //     'Motion Count',
+                              //     style: TextStyle(
+                              //         fontWeight: FontWeight.bold,
+                              //         fontSize: 16,
+                              //         color: backgroundColor),
+                              //   ),
+                              // ),
                               Center(
                                 child: Text(
                                   'Insect Count',
@@ -404,9 +404,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               4: FractionColumnWidth(0.10),
                               5: FractionColumnWidth(0.10),
                               6: FractionColumnWidth(0.10),
+                              // 7: FractionColumnWidth(0.10),
                               7: FractionColumnWidth(0.10),
-                              8: FractionColumnWidth(0.10),
-                              9: FractionColumnWidth(0.01),
+                              8: FractionColumnWidth(0.01),
                             },
                             children: [
                               TableRow(children: [
@@ -526,32 +526,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 40,
-                                  child: Center(
-                                    child: IconButton(
-                                      onPressed: () {
-                                        // print('Insect');
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (_) => Insects(
-                                              // values: [],
-                                              deviceId: deviceData[i].deviceId,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      icon: const Icon(
-                                        Icons.bug_report_rounded,
-                                        color: backgroundColor,
-                                      ),
-                                      // label: const Text('InsectCount Data'),
-                                      style: ElevatedButton.styleFrom(
-                                          // elevation: 10,
-                                          backgroundColor: Colors.white10),
-                                    ),
-                                  ),
-                                ),
+                                // SizedBox(
+                                //   height: 40,
+                                //   child: Center(
+                                //     child: IconButton(
+                                //       onPressed: () {
+                                //         // print('Insect');
+                                //         Navigator.of(context).push(
+                                //           MaterialPageRoute(
+                                //             builder: (_) => Insects(
+                                //               // values: [],
+                                //               deviceId: deviceData[i].deviceId,
+                                //             ),
+                                //           ),
+                                //         );
+                                //       },
+                                //       icon: const Icon(
+                                //         Icons.bug_report_rounded,
+                                //         color: backgroundColor,
+                                //       ),
+                                //       // label: const Text('InsectCount Data'),
+                                //       style: ElevatedButton.styleFrom(
+                                //           // elevation: 10,
+                                //           backgroundColor: Colors.white10),
+                                //     ),
+                                //   ),
+                                // ),
                                 SizedBox(
                                   height: 40,
                                   child: Center(

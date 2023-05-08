@@ -368,8 +368,8 @@ class _MyHomePageState extends State<Insects> {
       },
     );
     super.initState();
-    _startDate = DateTime.parse('2023-04-27 00:00:00Z');
-    _endDate = DateTime.parse('2023-04-27 23:59:59Z');
+    _startDate = DateTime.parse(DateTime.now().toString());
+    _endDate = DateTime.parse(DateTime.now().toString());
   }
 
   // @override
