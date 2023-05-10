@@ -666,11 +666,20 @@
 // }
 
 import 'dart:convert';
+import 'dart:html' as html;
+import 'package:share/share.dart';
 import 'package:flutter/services.dart';
+import 'dart:io';
+import 'package:csv/csv.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:open_file/open_file.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:detest/widget/check_permission.dart';
+import 'package:detest/widget/directory_path.dart';
 
 class Inference extends StatefulWidget {
   final String deviceId;
@@ -691,7 +700,10 @@ class _MyHomePageState extends State<Inference> {
   late DateTime _startDate;
   late DateTime _endDate;
   late String Class = " ";
+  late String csvString = " ";
 
+  var checkAllPermission = CheckPermission();
+  var getDirectoryPath = DirectoryPath();
   List<dynamic> data = [];
   String errorMessage = '';
 
@@ -759,6 +771,78 @@ class _MyHomePageState extends State<Inference> {
         'deviceid': deviceId,
       },
     ));
+    final Map<String, dynamic> jsonDataMap =
+        Map<String, dynamic>.from(json.decode(response.body));
+
+    final List<Map<String, dynamic>> jsonData = [jsonDataMap];
+    List<List<dynamic>> csvData = [
+      [
+        "TimeStamp",
+        "DeviceId",
+        "Class",
+        "Mean",
+      ]
+    ];
+
+    List<dynamic> row = [];
+    List<dynamic> test = jsonData[0]["body"];
+    int len = test.length;
+    print("Data: ${len}");
+
+    for (int i = 0; i < len; i++) {
+      row = [];
+      row.add(jsonData[0]["body"][i]['TimeStamp']);
+      row.add(jsonData[0]["body"][i]['DeviceId']);
+      row.add(jsonData[0]["body"][i]['Class']);
+      row.add(jsonData[0]["body"][i]['Mean']);
+
+      csvData.add(row);
+    }
+
+    csvString = const ListToCsvConverter().convert(csvData);
+    print(csvString);
+
+    // Future<void> _downloadCSV() async {
+    //   // Create CSV content
+    //   // List<List<dynamic>> rows = [...];
+    //   // String csv = const ListToCsvConverter().convert(rows);
+
+    //   // Get external storage directory
+    //   Directory? directory = await getExternalStorageDirectory();
+    //   DateTime creationTime = DateTime.now();
+    //   String ti = creationTime.hour.toString() +
+    //       creationTime.minute.toString() +
+    //       creationTime.second.toString();
+    //   final String path = '/storage/emulated/0/Download/insectcount$ti.csv';
+    //   File file = File(path);
+    //   // Create file path and write CSV content to file
+    //   // File file = File('${directory!.path}/data.csv');
+    //   await file.writeAsString(csvString);
+
+    //   // Share or open the file
+    //   // Share the file with other apps
+
+    //   Share.shareFiles([file.path], text: 'CSV file');
+    //   // Or open the file in the device's default CSV viewer
+    //   await OpenFile.open(file.path);
+    // }
+
+    // if (await Permission.storage.request().isGranted) {
+    //   DateTime creationTime = DateTime.now();
+    //   String ti = creationTime.hour.toString() +
+    //       creationTime.minute.toString() +
+    //       creationTime.second.toString();
+    //   final String path = '/storage/emulated/0/Download/insectcount$ti.csv';
+    //   File file = File(path);
+    //   file.writeAsString(csvString);
+    //   // csvPath = path;
+    // } else {
+    //   // Map<Permission, PermissionStatus> statuses =
+    //   await [
+    //     Permission.storage,
+    //   ].request();
+    // }
+    // final csvString = csvConverter.convert(csvData);
     var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
     if (parsed['statusCode'] == 200) {
       data = parsed['body'];
@@ -777,6 +861,95 @@ class _MyHomePageState extends State<Inference> {
       throw Exception('Failed to load api');
     }
   }
+
+  Future<void> downloadCsvFile(String csvString, String filename) async {
+    // Convert the CSV string to a byte list.
+    List<int> csvBytes = utf8.encode(csvString);
+
+    // Create a blob containing the CSV data.
+    final blob = html.Blob([csvBytes], 'text/csv');
+
+    // Create a URL for the blob.
+    final url = html.Url.createObjectUrlFromBlob(blob);
+
+    // Create a download link and click it to initiate the download.
+    final anchor = html.document.createElement('a') as html.AnchorElement
+      ..href = url
+      ..download = filename;
+    html.document.body!.append(anchor);
+    anchor.click();
+
+    // Clean up by revoking the URL object.
+    html.Url.revokeObjectUrl(url);
+  }
+
+  void handleDownloadButtonPressed() async {
+    // String csvString = 'header1,header2,header3\nvalue1,value2,value3';
+    String filename = 'InsectCount.csv';
+    await downloadCsvFile(csvString, filename);
+    print('Download completed!');
+  }
+
+  // Future<void> downloadCsv() async {
+  //   // if (await Permission.storage.request().isGranted) {
+  //   if (await checkAllPermission.isStoragePermission()) {
+  //     DateTime creationTime = DateTime.now();
+  //     String ti = creationTime.hour.toString() +
+  //         creationTime.minute.toString() +
+  //         creationTime.second.toString();
+  //     final path = getDirectoryPath.getPath();
+  //     File file = File(path);
+  //     file.writeAsString(csvString);
+  //     // csvPath = path;
+  //   }
+  //   // } else {
+  //   //   // Map<Permission, PermissionStatus> statuses =
+  //   //   await [
+  //   //     Permission.storage,
+  //   //   ].request();
+  //   // }
+  //   // // }
+  // }
+
+  // Future<void> _downloadCSV() async {
+  //   // Create CSV content
+  //   // List<List<dynamic>> rows = [...];
+  //   // String csv = const ListToCsvConverter().convert(rows);
+
+  //   // Get external storage directory
+  //   // Directory? directory = await getExternalStorageDirectory();
+  //   // DateTime creationTime = DateTime.now();
+  //   // String ti = creationTime.hour.toString() +
+  //   //     creationTime.minute.toString() +
+  //   //     creationTime.second.toString();
+  //   // final String path = '/storage/emulated/0/Download/insectcount$ti.csv';
+  //   // File file = File(path);
+  //   // // Create file path and write CSV content to file
+  //   // // File file = File('${directory!.path}/data.csv');
+  //   // await file.writeAsString(csvString);
+
+  //   // // Share or open the file
+  //   // // Share the file with other apps
+
+  //   // Share.shareFiles([file.path], text: 'CSV file');
+  //   // // Or open the file in the device's default CSV viewer
+  //   // await OpenFile.open(file.path);
+  //   // Get path of the Download directory
+  //   Directory? downloadDirectory = await getDownloadsDirectory();
+  //   String filePath =
+  //       '${downloadDirectory!.path}/insectcount_${DateTime.now().millisecondsSinceEpoch}.csv';
+
+  //   // Create the file and write CSV content to file
+  //   File file = File(filePath);
+  //   await file.writeAsString(csvString);
+
+  //   // Share or open the file
+  //   // Share the file with other apps
+  //   Share.shareFiles([file.path], text: 'CSV file');
+
+  //   // Or open the file in the device's default CSV viewer
+  //   await OpenFile.open(file.path);
+  // }
 
   void updateData() async {
     await getAPIData(widget.deviceId, _startDate, _endDate);
@@ -939,8 +1112,64 @@ class _MyHomePageState extends State<Inference> {
                         ),
                       ),
                     ),
+                    SizedBox(width: 16.0),
+
+                    // Add other widgets here
+                    Positioned(
+                      // bottom: 16,
+                      // right: 16,
+                      child: ElevatedButton(
+                        onPressed: handleDownloadButtonPressed,
+                        child: Text(
+                          'Download CSV',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary:
+                              Colors.green, // Set the button color to green
+                          minimumSize:
+                              Size(80, 0), // Set a minimum width for the button
+                          padding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 24),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
+                // Row(
+                //   children: [
+                //     // Add other widgets here
+                //     Positioned(
+                //       // bottom: 16,
+                //       // right: 16,
+                //       child: ElevatedButton(
+                //         onPressed: handleDownloadButtonPressed,
+                //         child: Text(
+                //           'Download CSV',
+                //           style: TextStyle(
+                //             fontSize: 20,
+                //           ),
+                //         ),
+                //         style: ElevatedButton.styleFrom(
+                //           primary:
+                //               Colors.green, // Set the button color to green
+                //           minimumSize:
+                //               Size(80, 0), // Set a minimum width for the button
+                //           padding: EdgeInsets.symmetric(
+                //               vertical: 20, horizontal: 24),
+                //           shape: RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(8),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(height: 32.0),
                 if (errorMessage.isNotEmpty)
                   Center(
