@@ -888,6 +888,7 @@ class _MyHomePageState extends State<Inference> {
     String filename = 'InsectCount.csv';
     await downloadCsvFile(csvString, filename);
     print('Download completed!');
+    print('Successful');
   }
 
   // Future<void> downloadCsv() async {
