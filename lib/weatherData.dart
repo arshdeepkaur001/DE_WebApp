@@ -823,7 +823,7 @@ class _MyHomePageState extends State<Weather> {
                             ),
                             primaryYAxis: NumericAxis(
                               title: AxisTitle(
-                                text: 'Temprature(°C)',
+                                text: 'Temperature(°C)',
                                 textStyle:
                                     TextStyle(fontWeight: FontWeight.bold),
                               ),

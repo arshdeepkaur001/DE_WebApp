@@ -49671,7 +49671,7 @@ c.w=""
 r.push(A.e4(new A.b9(B.qH,A.b7(b,A.e4(A.bm(q,b,b,"",b,p,b,b,b),b,b),B.k,b,b,new A.c5(B.i,b,b,s,a2,b,B.O),b,400,b,b,b,b,b,b),b),b,b))}else{s=A.cI(16)
 q=A.b([new A.bh(1,B.D,B.c6,new A.c(0,0),5)],a2)
 o=A.a3N(45,A.nd(a0,A.bw(b,b,b,b,b,b,b,b,b,b,b,b,b,b,B.Z,b,b,!0,b,b,b,b,b,b,b,b)))
-n=A.adg(new A.nb(0),new A.o3(0.5),A.nd("Temprature(\xb0C)",A.bw(b,b,b,b,b,b,b,b,b,b,b,b,b,b,B.Z,b,b,!0,b,b,b,b,b,b,b,b)))
+n=A.adg(new A.nb(0),new A.o3(0.5),A.nd("Temperature(\xb0C)",A.bw(b,b,b,b,b,b,b,b,b,b,b,b,b,b,B.Z,b,b,!0,b,b,b,b,b,b,b,b)))
 m=A.alz(new A.atj(),B.i,!0)
 l=A.a41("Temperature Graph",A.bw(b,b,b,b,b,b,b,b,b,b,b,b,b,b,B.Z,b,b,!0,b,b,b,b,b,b,b,b))
 k=$.rW
@@ -50778,7 +50778,7 @@ I(a){return A.bv(null,null,1/a.J(t.w).f.b)}}
 A.LI.prototype={
 I(a){var s,r=a.J(t.w).f,q=r.f,p=q.b+8,o=this.c,n=o.b,m=n>=p+8+43,l=26+q.a,k=r.a.a-q.c-26,j=new A.c(A.E(o.a,l,k),n-8-p)
 n=this.d
-s=new A.c(A.E(n.a,l,k),n.b+8-p)
+s=new A.c(A.E(n.a,l,k),n.b-8+p)
 q=m?j:s
 return new A.b9(new A.a1(8,p,8,8),new A.ig(new A.SF(j,s,m),new A.F7(q,A.aOv(this.e),m,A.aZf(),null),null),null)}}
 A.UP.prototype={
