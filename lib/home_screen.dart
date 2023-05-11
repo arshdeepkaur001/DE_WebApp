@@ -270,16 +270,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             horizontal: 10, vertical: 0),
                         child: Table(
                           columnWidths: const {
-                            0: FractionColumnWidth(0.10),
-                            1: FractionColumnWidth(0.10),
-                            2: FractionColumnWidth(0.10),
-                            3: FractionColumnWidth(0.10),
-                            4: FractionColumnWidth(0.10),
-                            5: FractionColumnWidth(0.10),
-                            6: FractionColumnWidth(0.10),
+                            0: FractionColumnWidth(0.13),
+                            1: FractionColumnWidth(0.12),
+                            2: FractionColumnWidth(0.12),
+                            3: FractionColumnWidth(0.12),
+                            4: FractionColumnWidth(0.12),
+                            5: FractionColumnWidth(0.12),
+                            6: FractionColumnWidth(0.12),
                             // 7: FractionColumnWidth(0.10),
-                            7: FractionColumnWidth(0.10),
-                            8: FractionColumnWidth(0.01),
+                            7: FractionColumnWidth(0.12),
+                            // 8: FractionColumnWidth(0.01),
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -397,16 +397,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               horizontal: 20, vertical: 0),
                           child: Table(
                             columnWidths: const {
-                              0: FractionColumnWidth(0.10),
-                              1: FractionColumnWidth(0.10),
-                              2: FractionColumnWidth(0.10),
-                              3: FractionColumnWidth(0.10),
-                              4: FractionColumnWidth(0.10),
-                              5: FractionColumnWidth(0.10),
-                              6: FractionColumnWidth(0.10),
+                              0: FractionColumnWidth(0.13),
+                              1: FractionColumnWidth(0.12),
+                              2: FractionColumnWidth(0.12),
+                              3: FractionColumnWidth(0.12),
+                              4: FractionColumnWidth(0.12),
+                              5: FractionColumnWidth(0.12),
+                              6: FractionColumnWidth(0.12),
                               // 7: FractionColumnWidth(0.10),
-                              7: FractionColumnWidth(0.10),
-                              8: FractionColumnWidth(0.01),
+                              7: FractionColumnWidth(0.12),
+                              // 8: FractionColumnWidth(0.01),
                             },
                             children: [
                               TableRow(children: [
