@@ -12,6 +12,7 @@ import 'package:detest/insectCount.dart';
 
 class HomeScreen extends StatefulWidget {
   final String email;
+
   const HomeScreen({super.key, required this.email});
 
   @override
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<String> response;
   late TextEditingController _serialId;
   late TextEditingController _securityKey;
+  late String result;
   bool _hovering = false;
   @override
   void initState() {
@@ -128,6 +130,57 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> rebootDevice(String deviceId, String status) async {
+    String result = " ";
+    const url =
+        'https://2cbz9w9ydi.execute-api.us-east-1.amazonaws.com/deviceReboot';
+
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+
+    final payload =
+        json.encode({'deviceId': deviceId, 'message': 'Reboot Device'});
+
+    try {
+      final response =
+          await http.post(Uri.parse(url), headers: headers, body: payload);
+
+      if (response.statusCode == 200) {
+        result = '1';
+        print('Reboot request sent successfully');
+      } else {
+        result = '2';
+        print(
+            'Failed to send reboot request. Status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      result = '3';
+      print('Error occurred while sending reboot request: $e');
+    }
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        if (result == '1' && status == "active") {
+          return AlertDialog(
+            title: const Center(
+                child: Text(
+              "Reboot request sent successfully",
+              style: TextStyle(color: buttonColor),
+            )),
+          );
+        } else {
+          return AlertDialog(
+            title: const Center(
+                child: Text(
+              "Failed to send reboot request",
+              style: TextStyle(color: buttonColor),
+            )),
+          );
+        }
+      },
+    );
+  }
   // Future<void> Delete_device(String deviceId) async {
   //   final url = Uri.https(
   //     'z29tdyfh2h.execute-api.us-east-1.amazonaws.com',
@@ -270,17 +323,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             horizontal: 10, vertical: 0),
                         child: Table(
                           columnWidths: const {
-                            0: FractionColumnWidth(0.13),
-                            1: FractionColumnWidth(0.12),
-                            2: FractionColumnWidth(0.12),
-                            3: FractionColumnWidth(0.12),
-                            4: FractionColumnWidth(0.12),
-                            5: FractionColumnWidth(0.12),
-                            6: FractionColumnWidth(0.13),
-                            // 7: FractionColumnWidth(0.10),
-                            7: FractionColumnWidth(0.12),
-                            8: FractionColumnWidth(0.12),
+                            // 0: FractionColumnWidth(0.13),
+                            // 1: FractionColumnWidth(0.12),
+                            // 2: FractionColumnWidth(0.12),
+                            // 3: FractionColumnWidth(0.12),
+                            // 4: FractionColumnWidth(0.12),
+                            // 5: FractionColumnWidth(0.12),
+                            // 6: FractionColumnWidth(0.13),
+                            // // 7: FractionColumnWidth(0.10),
+                            // 7: FractionColumnWidth(0.12),
+                            // 8: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.01),
+                            0: FractionColumnWidth(0.09),
+                            1: FractionColumnWidth(0.10),
+                            2: FractionColumnWidth(0.10),
+                            3: FractionColumnWidth(0.10),
+                            4: FractionColumnWidth(0.10),
+                            5: FractionColumnWidth(0.10),
+                            6: FractionColumnWidth(0.10),
+                            7: FractionColumnWidth(0.10),
+                            8: FractionColumnWidth(0.10),
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -365,6 +427,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
+                              Center(
+                                child: Text(
+                                  'RESTART',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: backgroundColor),
+                                ),
+                              ),
                               // Center(
                               //   child: Text(
                               //     '',
@@ -398,14 +469,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               horizontal: 20, vertical: 0),
                           child: Table(
                             columnWidths: const {
-                              0: FractionColumnWidth(0.13),
-                              1: FractionColumnWidth(0.12),
-                              2: FractionColumnWidth(0.12),
-                              3: FractionColumnWidth(0.12),
-                              4: FractionColumnWidth(0.12),
-                              5: FractionColumnWidth(0.12),
-                              6: FractionColumnWidth(0.13),
-                              7: FractionColumnWidth(0.12),
+                              0: FractionColumnWidth(0.09),
+                              1: FractionColumnWidth(0.10),
+                              2: FractionColumnWidth(0.10),
+                              3: FractionColumnWidth(0.10),
+                              4: FractionColumnWidth(0.10),
+                              5: FractionColumnWidth(0.10),
+                              6: FractionColumnWidth(0.10),
+                              7: FractionColumnWidth(0.10),
+                              8: FractionColumnWidth(0.10),
                               // 8: FractionColumnWidth(0.01),
                             },
                             children: [
@@ -572,6 +644,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                         color: backgroundColor,
                                       ),
                                       // label: const Text('Inferenced Data'),
+                                      style: ElevatedButton.styleFrom(
+                                          // elevation: 10,
+                                          backgroundColor: Colors.white10),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                  child: Center(
+                                    child: IconButton(
+                                      onPressed: () {
+                                        // print('Status');
+                                        rebootDevice(
+                                            // values: [],
+                                            deviceData[i].deviceId,
+                                            deviceData[i].status);
+                                      },
+                                      icon: const Icon(
+                                        Icons.restart_alt_sharp,
+                                        color: backgroundColor,
+                                      ),
+                                      // label: const Text('TempDB Data'),
                                       style: ElevatedButton.styleFrom(
                                           // elevation: 10,
                                           backgroundColor: Colors.white10),
