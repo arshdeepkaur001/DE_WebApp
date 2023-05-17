@@ -279,6 +279,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             6: FractionColumnWidth(0.13),
                             // 7: FractionColumnWidth(0.10),
                             7: FractionColumnWidth(0.12),
+                            8: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.01),
                           },
                           children: const <TableRow>[
@@ -404,7 +405,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               4: FractionColumnWidth(0.12),
                               5: FractionColumnWidth(0.12),
                               6: FractionColumnWidth(0.13),
-                              // 7: FractionColumnWidth(0.10),
                               7: FractionColumnWidth(0.12),
                               // 8: FractionColumnWidth(0.01),
                             },
