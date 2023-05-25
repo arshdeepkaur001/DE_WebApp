@@ -249,12 +249,12 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Sleep Duration'),
+          title: const Text('Select Duration'),
           content: Container(
             height: 200,
             child: Column(
               children: [
-                const Text('Select the sleep duration:'),
+                const Text('Enter the sleep duration:'),
                 const SizedBox(height: 30),
                 Padding(
                   padding:
