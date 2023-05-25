@@ -575,6 +575,7 @@ class _MyHomePageState extends State<Weather> {
     var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
     if (parsed['statusCode'] == 200) {
       data = parsed['body'];
+      print(data);
       chartData.clear();
       for (dynamic i in data) {
         chartData.add(apiData.fromJson(i));
