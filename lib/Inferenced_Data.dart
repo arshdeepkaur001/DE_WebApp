@@ -694,7 +694,6 @@ class Inference extends StatefulWidget {
 }
 
 List<apiData> chartData = [];
-List<apiData1> chartData1 = [];
 
 class _MyHomePageState extends State<Inference> {
   late TooltipBehavior _tooltipBehavior;
@@ -847,7 +846,6 @@ class _MyHomePageState extends State<Inference> {
     var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
     if (parsed['statusCode'] == 200) {
       data = parsed['body'];
-      print(data);
       chartData.clear();
       for (dynamic i in data) {
         chartData.add(apiData.fromJson(i));
@@ -858,42 +856,6 @@ class _MyHomePageState extends State<Inference> {
         parsed['statusCode'] == 500) {
       setState(() {
         errorMessage = parsed['body'][0]['message'];
-      });
-    } else {
-      throw Exception('Failed to load api');
-    }
-
-    final response1 = await http.get(Uri.https(
-      'z6sd4rs5e9.execute-api.us-east-1.amazonaws.com',
-      '/devlopement/lambda_db',
-      {
-        'startdate': _startDate.year.toString() +
-            "-" +
-            _startDate.month.toString() +
-            "-" +
-            _startDate.day.toString(),
-        'enddate': _endDate.year.toString() +
-            "-" +
-            _endDate.month.toString() +
-            "-" +
-            _endDate.day.toString(),
-        'deviceid': deviceId,
-      },
-    ));
-    var parsed1 = jsonDecode(response1.body); //.cast<Map<String, dynamic>>();
-    if (parsed1['statusCode'] == 200) {
-      data = parsed1['body'];
-      print(data);
-      // chartData1.clear();
-      for (dynamic i in data) {
-        chartData.add(apiData.fromJson(i));
-      }
-      setState(() {});
-    } else if (parsed1['statusCode'] == 400 ||
-        parsed1['statusCode'] == 404 ||
-        parsed1['statusCode'] == 500) {
-      setState(() {
-        errorMessage = parsed1['body'][0]['message'];
       });
     } else {
       throw Exception('Failed to load api');
@@ -1406,28 +1368,12 @@ class apiData {
   final String TimeStamp;
   final String Mean;
   final String Class;
-  final String Temperature;
 
   factory apiData.fromJson(dynamic parsedJson) {
     return apiData(
       parsedJson['TimeStamp'].toString(),
       parsedJson['Mean'].toString(),
       parsedJson['Class'].toString(),
-      parsedJson['Temperature'].toString(),
-    );
-  }
-}
-
-class apiData1 {
-  apiData1(this.TimeStamp, this.Temperature);
-
-  final String TimeStamp;
-  final String Temperature;
-
-  factory apiData1.fromJson(dynamic parsedJson) {
-    return apiData1(
-      parsedJson['TimeStamp'].toString(),
-      parsedJson['Temperature'].toString(),
     );
   }
 }
