@@ -49109,7 +49109,7 @@ return A.b7(s,A.ch(A.b([B.Aw,A.q9(d,r?B.b_:B.i,s),B.om,A.bg(c,s,s,s,s,s,s,s,s)],
 I(a){var s,r,q=this,p=null
 if(!q.e)s=new A.BD(B.ji,new A.b5(B.GW,A.aAM(B.Y,B.k9,"btn1",new A.aod(q)),p),new A.b5(B.GV,A.aAM(B.Y,B.Ij,"btn2",new A.aoe(a)),p),B.Kc,q.d,new A.aof(q),B.Oj,B.Uv,B.Tq,B.Ia,B.Ic,!0,B.qe,p)
 else{s=t.p
-s=A.b7(p,A.bG(A.b([new A.b5(B.qL,A.ch(A.b([A.aAM(B.Y,B.Ik,B.pM,new A.aog(q))],s),B.t,B.f_,B.q,p),p),A.i3(!1,p,!0,q.P6(a,0,"J O B",B.rd),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aoh(q),p,p,p,p),A.i3(!1,p,!0,q.P6(a,3,"I M A G E",B.rc),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aoi(q),p,p,p,p),B.ii,new A.b5(B.cc,A.ch(A.b([A.aU1(B.Io,B.Wf,new A.aoj(a),A.Kl(p,p,new A.dj(B.Y,t.h9),p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p))],s),B.t,B.o,B.q,p),p),B.bJ],s),B.an,B.o,B.q),B.k,B.ji,p,p,p,p,p,p,p,p,p,300)}r=t.p
+s=A.b7(p,A.bG(A.b([new A.b5(B.qL,A.ch(A.b([A.aAM(B.Y,B.Ik,B.pM,new A.aog(q))],s),B.t,B.f_,B.q,p),p),A.i3(!1,p,!0,q.P6(a,0,"J O B",B.rd),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aoh(q),p,p,p,p),A.i3(!1,p,!0,q.P6(a,3,"I M A G E",B.rc),p,!0,p,p,p,p,p,p,p,p,p,p,p,new A.aoi(q),p,p,p,p),B.ii,new A.b5(B.cc,A.ch(A.b([A.aU1(B.Io,B.Wg,new A.aoj(a),A.Kl(p,p,new A.dj(B.Y,t.h9),p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p))],s),B.t,B.o,B.q,p),p),B.bJ],s),B.an,B.o,B.q),B.k,B.ji,p,p,p,p,p,p,p,p,p,300)}r=t.p
 return A.QT(p,A.vt(!0,A.ch(A.b([s,A.c8(A.bG(A.b([A.bw(A.ch(B.KA,B.t,B.bF,B.q,p),80,p),q.Y3(a,q.d)],r),B.an,B.o,B.q),1)],r),B.t,B.o,B.q,p),!0,B.ad,!0,!0),p)}}
 A.aof.prototype={
 $1(a){var s=this.a
@@ -49705,7 +49705,7 @@ return A.a4($async$xZ,r)},
 aoA(a,b){var s=this.c
 s.toString
 return A.y_(null,new A.arz(this,a,b),s,null,!0,t.H)},
-I(a){var s=null,r=A.a2K(B.Y,s,s,A.ch(A.b([B.Il,B.om,A.bg("Biodiversity Sensor Console",s,s,s,s,s,s,s,s)],t.p),B.t,B.o,B.q,s)),q=A.aQ_(B.Y,"btn3",B.Wt,new A.arv(this,a)),p=this.d
+I(a){var s=null,r=A.a2K(B.Y,s,s,A.ch(A.b([B.Il,B.om,A.bg("Biodiversity Sensor Console",s,s,s,s,s,s,s,s)],t.p),B.t,B.o,B.q,s)),q=A.aQ_(B.Y,"btn3",B.Ws,new A.arv(this,a)),p=this.d
 p===$&&A.a()
 return A.QT(r,A.aAR(new A.arw(this),p,t.N),q)}}
 A.ard.prototype={
@@ -49743,8 +49743,8 @@ o=A.rf(!0,B.b6,!1,q,A.y0(),o,q,q,q,2,A.hp(q,q,q,q,q,q,q,q,!0,new A.cP(4,A.cj(5),
 s=p.w
 s===$&&A.a()
 r=t.p
-s=A.b7(q,A.bG(A.b([B.Wq,B.ck,new A.b5(B.cz,o,q),B.bJ,new A.b5(B.cz,A.rf(!0,B.b6,!1,q,A.y0(),s,q,q,q,2,A.hp(q,q,q,q,q,q,q,q,!0,new A.cP(4,A.cj(5),B.bM),q,q,q,q,q,q,q,q,q,q,new A.cP(4,A.cj(5),B.bM),q,q,q,q,q,q,q,q,q,q,q,!1,q,q,B.iq,"Select Time",q,B.k8,q,q,q,q,q,q,q,q,q,q,q),!0,q,!0,q,!1,q,q,q,q,q,q,1,q,q,!1,"\u2022",q,q,q,new A.arj(p,a),q,!1,q,q,B.cc,q,q,q,q,q,q,q,B.a8,q,B.cK,q,q,q),q)],r),B.t,B.o,B.q),B.k,q,q,q,q,200,q,q,q,q,q,q)
-return A.t7(A.b([A.oL(B.WH,new A.ark(p,a),q)],r),s,B.Wi)},
+s=A.b7(q,A.bG(A.b([B.Wf,B.ck,new A.b5(B.cz,o,q),B.bJ,new A.b5(B.cz,A.rf(!0,B.b6,!1,q,A.y0(),s,q,q,q,2,A.hp(q,q,q,q,q,q,q,q,!0,new A.cP(4,A.cj(5),B.bM),q,q,q,q,q,q,q,q,q,q,new A.cP(4,A.cj(5),B.bM),q,q,q,q,q,q,q,q,q,q,q,!1,q,q,B.iq,"Select Time",q,B.k8,q,q,q,q,q,q,q,q,q,q,q),!0,q,!0,q,!1,q,q,q,q,q,q,1,q,q,!1,"\u2022",q,q,q,new A.arj(p,a),q,!1,q,q,B.cc,q,q,q,q,q,q,q,B.a8,q,B.cK,q,q,q),q)],r),B.t,B.o,B.q),B.k,q,q,q,q,200,q,q,q,q,q,q)
+return A.t7(A.b([A.oL(B.WH,new A.ark(p,a),q)],r),s,B.Wv)},
 $S:54}
 A.ari.prototype={
 $0(){var s=0,r=A.a5(t.H),q=this,p,o,n,m
@@ -109844,8 +109844,8 @@ B.E1=new A.cu(B.u,null,null,B.Eo,null)
 B.i=new A.z(4294967295)
 B.a_=new A.is(6)
 B.AX=new A.u(!0,B.i,null,null,null,null,20,B.a_,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Wr=new A.bD("Download",null,B.AX,null,null,null,null,null,null,null,null)
-B.E2=new A.cu(B.u,null,null,B.Wr,null)
+B.Wq=new A.bD("Download",null,B.AX,null,null,null,null,null,null,null,null)
+B.E2=new A.cu(B.u,null,null,B.Wq,null)
 B.WJ=new A.bD("Send",null,B.AX,null,null,null,null,null,null,null,null)
 B.E3=new A.cu(B.u,null,null,B.WJ,null)
 B.Fj=new A.z(4290518290)
@@ -109889,8 +109889,8 @@ B.EK=new A.z(4279060385)
 B.Nt=new A.bO([50,B.ql,100,B.qi,200,B.jg,300,B.F3,400,B.EV,500,B.q7,600,B.fW,700,B.je,800,B.EM,900,B.EK],t.pl)
 B.bG=new A.m0(B.Nt,4280391411)
 B.VR=new A.u(!0,B.bG,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Ws=new A.bD("Sleep request sent successfully",null,B.VR,null,null,null,null,null,null,null,null)
-B.Eh=new A.cu(B.u,null,null,B.Ws,null)
+B.Wr=new A.bD("Sleep request sent successfully",null,B.VR,null,null,null,null,null,null,null,null)
+B.Eh=new A.cu(B.u,null,null,B.Wr,null)
 B.EL=new A.z(4279061775)
 B.T5=new A.u(!0,B.EL,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.W9=new A.bD("Reboot request sent successfully",null,B.T5,null,null,null,null,null,null,null,null)
@@ -110567,8 +110567,8 @@ B.S=new A.mv(0,"rtl")
 B.x=new A.mv(1,"ltr")
 B.rE=A.b(s([B.S,B.x]),A.ag("p<mv>"))
 B.Tu=new A.u(!0,B.Y,null,null,null,null,25,B.d0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Wh=new A.bD("C O N F I G U R E",null,B.Tu,null,null,null,null,null,null,null,null)
-B.KA=A.b(s([B.Wh]),t.p)
+B.Wi=new A.bD("C O N F I G U R E",null,B.Tu,null,null,null,null,null,null,null,null)
+B.KA=A.b(s([B.Wi]),t.p)
 B.a9=new A.eU(0,"icon")
 B.at=new A.eU(1,"input")
 B.a3=new A.eU(2,"label")
@@ -110678,12 +110678,12 @@ B.rO=A.b(s([B.c4,B.fI]),A.ag("p<j0>"))
 B.cq=new A.u(!0,B.i,null,null,null,null,16,B.a_,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Wm=new A.bD("S.NO",null,B.cq,null,null,null,null,null,null,null,null)
 B.Ej=new A.cu(B.u,null,null,B.Wm,null)
-B.Wg=new A.bD("DEVICE ID",null,B.cq,null,null,null,null,null,null,null,null)
-B.E9=new A.cu(B.u,null,null,B.Wg,null)
+B.Wh=new A.bD("DEVICE ID",null,B.cq,null,null,null,null,null,null,null,null)
+B.E9=new A.cu(B.u,null,null,B.Wh,null)
 B.Wl=new A.bD("BOOT STATUS",null,B.cq,null,null,null,null,null,null,null,null)
 B.E7=new A.cu(B.u,null,null,B.Wl,null)
-B.Wu=new A.bD("REGISTERED",null,B.cq,null,null,null,null,null,null,null,null)
-B.Ef=new A.cu(B.u,null,null,B.Wu,null)
+B.Wt=new A.bD("REGISTERED",null,B.cq,null,null,null,null,null,null,null,null)
+B.Ef=new A.cu(B.u,null,null,B.Wt,null)
 B.Wp=new A.bD("CONFIGURE",null,B.cq,null,null,null,null,null,null,null,null)
 B.E8=new A.cu(B.u,null,null,B.Wp,null)
 B.Wo=new A.bD("DOWNLOAD",null,B.cq,null,null,null,null,null,null,null,null)
@@ -111826,8 +111826,8 @@ B.dU=new A.v5(0,"none")
 B.Pb=new A.v5(1,"scroll")
 B.Pc=new A.v5(4,"unknown")
 B.Pd=new A.Cd(null,null,null,null,null,null,null,null,null,null)
-B.Wv=new A.bD("C a p t u r i n g ... ",null,B.B_,null,null,null,null,null,null,null,null)
-B.Pe=new A.on(15,null,null,15,null,null,B.Wv,null)
+B.Wu=new A.bD("C a p t u r i n g ... ",null,B.B_,null,null,null,null,null,null,null,null)
+B.Pe=new A.on(15,null,null,15,null,null,B.Wu,null)
 B.Pf=new A.v9(null,null,null,null,null)
 B.hV=new A.PW(!1)
 B.hW=new A.PW(!0)
@@ -112441,11 +112441,11 @@ B.Vg=new A.u(!0,B.i,null,"Roboto",null,null,null,null,null,null,null,null,null,n
 B.UR=new A.u(!0,B.i,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.f,null,null,null,"whiteMountainView labelSmall",null,null,null,null)
 B.W7=new A.f7(B.UB,B.VQ,B.Vw,B.Tc,B.Vo,B.Ur,B.VV,B.TH,B.Ua,B.Vj,B.T7,B.Vy,B.Vm,B.Vg,B.UR)
 B.ot=new A.Eg(1,"longestLine")
-B.Wf=new A.bD("Home",null,null,null,null,null,null,null,null,null,null)
-B.Wi=new A.bD("Select Sleep Duration",null,null,null,null,null,null,null,null,null,null)
+B.Wf=new A.bD("Enter the sleep duration:",null,null,null,null,null,null,null,null,null,null)
+B.Wg=new A.bD("Home",null,null,null,null,null,null,null,null,null,null)
 B.Wj=new A.bD("Register",null,null,null,null,null,null,null,null,null,null)
-B.Wq=new A.bD("Select the sleep duration:",null,null,null,null,null,null,null,null,null,null)
-B.Wt=new A.bD("Register a new Device +",null,null,null,null,null,null,null,null,null,null)
+B.Ws=new A.bD("Register a new Device +",null,null,null,null,null,null,null,null,null,null)
+B.Wv=new A.bD("Select Duration",null,null,null,null,null,null,null,null,null,null)
 B.Ww=new A.bD("Frames",null,null,null,null,null,null,null,null,null,null)
 B.Tv=new A.u(!0,B.Y,null,null,null,null,35,B.d0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Wz=new A.bD("Download",null,B.Tv,null,null,null,null,null,null,null,null)
