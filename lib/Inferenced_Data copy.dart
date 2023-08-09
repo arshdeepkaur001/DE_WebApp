@@ -666,20 +666,10 @@
 // // }
 
 // import 'dart:convert';
-// import 'dart:html' as html;
-// import 'package:share/share.dart';
 // import 'package:flutter/services.dart';
-// import 'dart:io';
-// import 'package:csv/csv.dart';
-// import 'package:path_provider/path_provider.dart';
 // import 'package:http/http.dart' as http;
 // import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart';
 // import 'package:syncfusion_flutter_charts/charts.dart';
-// import 'package:open_file/open_file.dart';
-// import 'package:permission_handler/permission_handler.dart';
-// import 'package:detest/widget/check_permission.dart';
-// import 'package:detest/widget/directory_path.dart';
 
 // class Inference extends StatefulWidget {
 //   final String deviceId;
@@ -693,19 +683,14 @@
 //   State<Inference> createState() => _MyHomePageState();
 // }
 
-// List<apiData> chartData1 = [];
-// List<apiData> chartData2 = [];
-// List<apiData> chartData3 = [];
+// List<apiData> chartData = [];
 
 // class _MyHomePageState extends State<Inference> {
 //   late TooltipBehavior _tooltipBehavior;
 //   late DateTime _startDate;
 //   late DateTime _endDate;
 //   late String Class = " ";
-//   late String csvString = " ";
 
-//   var checkAllPermission = CheckPermission();
-//   var getDirectoryPath = DirectoryPath();
 //   List<dynamic> data = [];
 //   String errorMessage = '';
 
@@ -732,8 +717,8 @@
 //             mainAxisSize: MainAxisSize.min,
 //             children: [
 //               Text("TimeStamp: ${item.TimeStamp}"),
-//               Text("Count: ${item.Predictions}"),
-//               // Text("Class: ${item.Class}"),
+//               Text("Mean: ${item.Mean}"),
+//               Text("Class: ${item.Class}"),
 //             ],
 //           ),
 //         );
@@ -741,8 +726,6 @@
 //     );
 
 //     super.initState();
-//     _startDate = DateTime.parse(DateTime.now().toString());
-//     _endDate = DateTime.parse(DateTime.now().toString());
 //   }
 
 //   // @override
@@ -773,79 +756,6 @@
 //         'deviceid': deviceId,
 //       },
 //     ));
-//     // print(response.body);
-//     final Map<String, dynamic> jsonDataMap =
-//         Map<String, dynamic>.from(json.decode(response.body));
-
-//     final List<Map<String, dynamic>> jsonData = [jsonDataMap];
-//     List<List<dynamic>> csvData = [
-//       [
-//         "TimeStamp",
-//         "DeviceId",
-//         "Class",
-//         "Mean",
-//       ]
-//     ];
-
-//     List<dynamic> row = [];
-//     List<dynamic> test = jsonData[0]["body"];
-//     int len = test.length;
-//     // print("Data: ${len}");
-
-//     for (int i = 0; i < len; i++) {
-//       row = [];
-//       row.add(jsonData[0]["body"][i]['TimeStamp']);
-//       row.add(jsonData[0]["body"][i]['DeviceId']);
-//       row.add(jsonData[0]["body"][i]['Class']);
-//       row.add(jsonData[0]["body"][i]['Mean']);
-
-//       csvData.add(row);
-//     }
-
-//     csvString = const ListToCsvConverter().convert(csvData);
-//     // print(csvString);
-
-//     // Future<void> _downloadCSV() async {
-//     //   // Create CSV content
-//     //   // List<List<dynamic>> rows = [...];
-//     //   // String csv = const ListToCsvConverter().convert(rows);
-
-//     //   // Get external storage directory
-//     //   Directory? directory = await getExternalStorageDirectory();
-//     //   DateTime creationTime = DateTime.now();
-//     //   String ti = creationTime.hour.toString() +
-//     //       creationTime.minute.toString() +
-//     //       creationTime.second.toString();
-//     //   final String path = '/storage/emulated/0/Download/insectcount$ti.csv';
-//     //   File file = File(path);
-//     //   // Create file path and write CSV content to file
-//     //   // File file = File('${directory!.path}/data.csv');
-//     //   await file.writeAsString(csvString);
-
-//     //   // Share or open the file
-//     //   // Share the file with other apps
-
-//     //   Share.shareFiles([file.path], text: 'CSV file');
-//     //   // Or open the file in the device's default CSV viewer
-//     //   await OpenFile.open(file.path);
-//     // }
-
-//     // if (await Permission.storage.request().isGranted) {
-//     //   DateTime creationTime = DateTime.now();
-//     //   String ti = creationTime.hour.toString() +
-//     //       creationTime.minute.toString() +
-//     //       creationTime.second.toString();
-//     //   final String path = '/storage/emulated/0/Download/insectcount$ti.csv';
-//     //   File file = File(path);
-//     //   file.writeAsString(csvString);
-//     //   // csvPath = path;
-//     // } else {
-//     //   // Map<Permission, PermissionStatus> statuses =
-//     //   await [
-//     //     Permission.storage,
-//     //   ].request();
-//     // }
-//     // final csvString = csvConverter.convert(csvData);
 //     var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
 //     if (parsed['statusCode'] == 200) {
 //       data = parsed['body'];
@@ -859,14 +769,6 @@
 //           print(json.decode(i['Predictions'])['APISME']);
 //         }
 //       }
-//       // for (dynamic i in data) {
-//       //   if (Predictions.) {
-//       //     // chartData.add(apiData.fromJson(i));
-//       //     print(json.decode(i['Predictions']));
-//       //   }
-//       // }
-//       // print(chartData[0].Predictions);
-//       // print(json.decode(i['Predictions']));
 //       setState(() {});
 //     } else if (parsed['statusCode'] == 400 ||
 //         parsed['statusCode'] == 404 ||
@@ -878,96 +780,6 @@
 //       throw Exception('Failed to load api');
 //     }
 //   }
-
-//   Future<void> downloadCsvFile(String csvString, String filename) async {
-//     // Convert the CSV string to a byte list.
-//     List<int> csvBytes = utf8.encode(csvString);
-
-//     // Create a blob containing the CSV data.
-//     final blob = html.Blob([csvBytes], 'text/csv');
-
-//     // Create a URL for the blob.
-//     final url = html.Url.createObjectUrlFromBlob(blob);
-
-//     // Create a download link and click it to initiate the download.
-//     final anchor = html.document.createElement('a') as html.AnchorElement
-//       ..href = url
-//       ..download = filename;
-//     html.document.body!.append(anchor);
-//     anchor.click();
-
-//     // Clean up by revoking the URL object.
-//     html.Url.revokeObjectUrl(url);
-//   }
-
-//   void handleDownloadButtonPressed() async {
-//     // String csvString = 'header1,header2,header3\nvalue1,value2,value3';
-//     String filename = 'InsectCount.csv';
-//     await downloadCsvFile(csvString, filename);
-//     print('Download completed!');
-//     print('Successful');
-//   }
-
-//   // Future<void> downloadCsv() async {
-//   //   // if (await Permission.storage.request().isGranted) {
-//   //   if (await checkAllPermission.isStoragePermission()) {
-//   //     DateTime creationTime = DateTime.now();
-//   //     String ti = creationTime.hour.toString() +
-//   //         creationTime.minute.toString() +
-//   //         creationTime.second.toString();
-//   //     final path = getDirectoryPath.getPath();
-//   //     File file = File(path);
-//   //     file.writeAsString(csvString);
-//   //     // csvPath = path;
-//   //   }
-//   //   // } else {
-//   //   //   // Map<Permission, PermissionStatus> statuses =
-//   //   //   await [
-//   //   //     Permission.storage,
-//   //   //   ].request();
-//   //   // }
-//   //   // // }
-//   // }
-
-//   // Future<void> _downloadCSV() async {
-//   //   // Create CSV content
-//   //   // List<List<dynamic>> rows = [...];
-//   //   // String csv = const ListToCsvConverter().convert(rows);
-
-//   //   // Get external storage directory
-//   //   // Directory? directory = await getExternalStorageDirectory();
-//   //   // DateTime creationTime = DateTime.now();
-//   //   // String ti = creationTime.hour.toString() +
-//   //   //     creationTime.minute.toString() +
-//   //   //     creationTime.second.toString();
-//   //   // final String path = '/storage/emulated/0/Download/insectcount$ti.csv';
-//   //   // File file = File(path);
-//   //   // // Create file path and write CSV content to file
-//   //   // // File file = File('${directory!.path}/data.csv');
-//   //   // await file.writeAsString(csvString);
-
-//   //   // // Share or open the file
-//   //   // // Share the file with other apps
-
-//   //   // Share.shareFiles([file.path], text: 'CSV file');
-//   //   // // Or open the file in the device's default CSV viewer
-//   //   // await OpenFile.open(file.path);
-//   //   // Get path of the Download directory
-//   //   Directory? downloadDirectory = await getDownloadsDirectory();
-//   //   String filePath =
-//   //       '${downloadDirectory!.path}/insectcount_${DateTime.now().millisecondsSinceEpoch}.csv';
-
-//   //   // Create the file and write CSV content to file
-//   //   File file = File(filePath);
-//   //   await file.writeAsString(csvString);
-
-//   //   // Share or open the file
-//   //   // Share the file with other apps
-//   //   Share.shareFiles([file.path], text: 'CSV file');
-
-//   //   // Or open the file in the device's default CSV viewer
-//   //   await OpenFile.open(file.path);
-//   // }
 
 //   void updateData() async {
 //     await getAPIData(widget.deviceId, _startDate, _endDate);
@@ -1049,10 +861,6 @@
 //                           contentPadding: EdgeInsets.symmetric(
 //                               vertical: 12, horizontal: 16),
 //                         ),
-//                         controller: TextEditingController(
-//                             text: _startDate != null
-//                                 ? DateFormat('yyyy-MM-dd').format(_startDate)
-//                                 : ''),
 //                       ),
 //                     ),
 //                     SizedBox(width: 16.0),
@@ -1101,10 +909,6 @@
 //                           contentPadding: EdgeInsets.symmetric(
 //                               vertical: 12, horizontal: 16),
 //                         ),
-//                         controller: TextEditingController(
-//                             text: _endDate != null
-//                                 ? DateFormat('yyyy-MM-dd').format(_endDate)
-//                                 : ''),
 //                       ),
 //                     ),
 //                     SizedBox(width: 16.0),
@@ -1130,59 +934,8 @@
 //                         ),
 //                       ),
 //                     ),
-//                     SizedBox(width: 16.0),
-
-//                     // Add other widgets here
-//                     ElevatedButton(
-//                       onPressed: handleDownloadButtonPressed,
-//                       child: Text(
-//                         'Download CSV',
-//                         style: TextStyle(
-//                           fontSize: 20,
-//                         ),
-//                       ),
-//                       style: ElevatedButton.styleFrom(
-//                         primary: Colors.green, // Set the button color to green
-//                         minimumSize:
-//                             Size(80, 0), // Set a minimum width for the button
-//                         padding:
-//                             EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-//                         shape: RoundedRectangleBorder(
-//                           borderRadius: BorderRadius.circular(8),
-//                         ),
-//                       ),
-//                     ),
 //                   ],
 //                 ),
-//                 // Row(
-//                 //   children: [
-//                 //     // Add other widgets here
-//                 //     Positioned(
-//                 //       // bottom: 16,
-//                 //       // right: 16,
-//                 //       child: ElevatedButton(
-//                 //         onPressed: handleDownloadButtonPressed,
-//                 //         child: Text(
-//                 //           'Download CSV',
-//                 //           style: TextStyle(
-//                 //             fontSize: 20,
-//                 //           ),
-//                 //         ),
-//                 //         style: ElevatedButton.styleFrom(
-//                 //           primary:
-//                 //               Colors.green, // Set the button color to green
-//                 //           minimumSize:
-//                 //               Size(80, 0), // Set a minimum width for the button
-//                 //           padding: EdgeInsets.symmetric(
-//                 //               vertical: 20, horizontal: 24),
-//                 //           shape: RoundedRectangleBorder(
-//                 //             borderRadius: BorderRadius.circular(8),
-//                 //           ),
-//                 //         ),
-//                 //       ),
-//                 //     ),
-//                 //   ],
-//                 // ),
 //                 SizedBox(height: 32.0),
 //                 if (errorMessage.isNotEmpty)
 //                   Center(
@@ -1217,7 +970,6 @@
 //                     ),
 //                   )
 //                 else
-//                   //BOMUTEEEEEEEEEEEEEEEEEEEEEEE
 //                   Container(
 //                     height: 400,
 //                     decoration: BoxDecoration(
@@ -1315,202 +1067,6 @@
 //                       ),
 //                     ),
 //                   ),
-//                 // OSMACOOOOOOOOOOOOOOOOO
-//                 Container(
-//                   height: 400,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(16.0),
-//                     color: Colors.white,
-//                     boxShadow: [
-//                       BoxShadow(
-//                         color: Colors.grey.shade300,
-//                         blurRadius: 5.0,
-//                         spreadRadius: 1.0,
-//                         offset: Offset(0.0, 0.0),
-//                       ),
-//                     ],
-//                   ),
-//                   child: SfCartesianChart(
-//                     legend: Legend(
-//                       isVisible: false,
-//                       // name:legend,
-//                       position: LegendPosition.top,
-//                       offset: const Offset(550, -150),
-//                       // title: LegendTitle(
-//                       //     text: 'Insect',
-//                       //     textStyle: TextStyle(
-//                       //         color: Colors.black,
-//                       //         fontSize: 15,
-//                       //         fontStyle: FontStyle.italic,
-//                       //         fontWeight: FontWeight.w900)),
-//                       // toggleSeriesVisibility: true,
-//                       // Border color and border width of legend
-//                       overflowMode: LegendItemOverflowMode.wrap,
-//                       // borderColor: Colors.black,
-//                       // borderWidth: 2
-//                     ),
-//                     plotAreaBackgroundColor: Colors.white,
-//                     primaryXAxis: CategoryAxis(
-//                       title: AxisTitle(
-//                         text: 'Time',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       labelRotation: 45,
-//                     ),
-//                     primaryYAxis: NumericAxis(
-//                       title: AxisTitle(
-//                         text: 'Insect Count',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       axisLine: AxisLine(width: 0),
-//                       majorGridLines: MajorGridLines(width: 0.5),
-//                     ),
-//                     tooltipBehavior: _tooltipBehavior,
-//                     title: ChartTitle(
-//                       text: 'GRAPH FOR OSMACO',
-//                       textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     ),
-//                     // title: ChartTitle(
-//                     //   text: widget.deviceId,
-//                     //   textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     // ),
-//                     series: <ChartSeries<apiData, String>>[
-//                       LineSeries<apiData, String>(
-//                         // Text("Class: ${item.Class}"),
-//                         // name: apiData.Class as dynamic,
-//                         // name: 'Apis Mellifera',
-//                         name: 'OSMACO',
-//                         markerSettings: const MarkerSettings(
-//                           height: 3.0,
-//                           width: 3.0,
-//                           borderColor: Colors.green,
-//                           isVisible: true,
-//                         ),
-//                         dataSource: chartData,
-//                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-//                         yValueMapper: (apiData sales, _) =>
-//                             int.parse(sales.Predictions["OSMACO"]),
-//                         // double.parse(sales.Predictions['OSMACO'].toString()),
-//                         // name: ((apiData sales, _) => sales.TimeStamp) [0],
-//                         // name: apiData.Class,
-//                         // legendItemText: (apiData sales, _) => sales.Class,
-//                         dataLabelSettings: DataLabelSettings(isVisible: false),
-//                         enableTooltip: true,
-//                         animationDuration: 0,
-//                         color: Colors.blue,
-//                       )
-//                     ],
-//                     zoomPanBehavior: ZoomPanBehavior(
-//                       enablePinching: true,
-//                       enablePanning: true,
-//                       enableDoubleTapZooming: true,
-//                       enableMouseWheelZooming: true,
-//                       enableSelectionZooming: true,
-//                       selectionRectBorderWidth: 1.0,
-//                       selectionRectBorderColor: Colors.blue,
-//                       selectionRectColor: Colors.transparent.withOpacity(0.3),
-//                       zoomMode: ZoomMode.x,
-//                     ),
-//                   ),
-//                 ),
-//                 //APISMEEEEEEEEEEEEEEEEEEEEEEEEE
-//                 Container(
-//                   height: 400,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(16.0),
-//                     color: Colors.white,
-//                     boxShadow: [
-//                       BoxShadow(
-//                         color: Colors.grey.shade300,
-//                         blurRadius: 5.0,
-//                         spreadRadius: 1.0,
-//                         offset: Offset(0.0, 0.0),
-//                       ),
-//                     ],
-//                   ),
-//                   child: SfCartesianChart(
-//                     legend: Legend(
-//                       isVisible: false,
-//                       // name:legend,
-//                       position: LegendPosition.top,
-//                       offset: const Offset(550, -150),
-//                       // title: LegendTitle(
-//                       //     text: 'Insect',
-//                       //     textStyle: TextStyle(
-//                       //         color: Colors.black,
-//                       //         fontSize: 15,
-//                       //         fontStyle: FontStyle.italic,
-//                       //         fontWeight: FontWeight.w900)),
-//                       // toggleSeriesVisibility: true,
-//                       // Border color and border width of legend
-//                       overflowMode: LegendItemOverflowMode.wrap,
-//                       // borderColor: Colors.black,
-//                       // borderWidth: 2
-//                     ),
-//                     plotAreaBackgroundColor: Colors.white,
-//                     primaryXAxis: CategoryAxis(
-//                       title: AxisTitle(
-//                         text: 'Time',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       labelRotation: 45,
-//                     ),
-//                     primaryYAxis: NumericAxis(
-//                       title: AxisTitle(
-//                         text: 'Insect Count',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       axisLine: AxisLine(width: 0),
-//                       majorGridLines: MajorGridLines(width: 0.5),
-//                     ),
-//                     tooltipBehavior: _tooltipBehavior,
-//                     title: ChartTitle(
-//                       text: 'GRAPH FOR APISME',
-//                       textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     ),
-//                     // title: ChartTitle(
-//                     //   text: widget.deviceId,
-//                     //   textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     // ),
-//                     series: <ChartSeries<apiData, String>>[
-//                       LineSeries<apiData, String>(
-//                         // Text("Class: ${item.Class}"),
-//                         // name: apiData.Class as dynamic,
-//                         // name: 'Apis Mellifera',
-//                         name: 'APISME',
-//                         markerSettings: const MarkerSettings(
-//                           height: 3.0,
-//                           width: 3.0,
-//                           borderColor: Colors.green,
-//                           isVisible: true,
-//                         ),
-//                         dataSource: chartData,
-//                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-//                         yValueMapper: (apiData sales, _) =>
-//                             int.parse(sales.Predictions["APISME"]),
-//                         // double.parse(sales.Predictions['OSMACO'].toString()),
-//                         // name: ((apiData sales, _) => sales.TimeStamp) [0],
-//                         // name: apiData.Class,
-//                         // legendItemText: (apiData sales, _) => sales.Class,
-//                         dataLabelSettings: DataLabelSettings(isVisible: false),
-//                         enableTooltip: true,
-//                         animationDuration: 0,
-//                         color: Colors.blue,
-//                       )
-//                     ],
-//                     zoomPanBehavior: ZoomPanBehavior(
-//                       enablePinching: true,
-//                       enablePanning: true,
-//                       enableDoubleTapZooming: true,
-//                       enableMouseWheelZooming: true,
-//                       enableSelectionZooming: true,
-//                       selectionRectBorderWidth: 1.0,
-//                       selectionRectBorderColor: Colors.blue,
-//                       selectionRectColor: Colors.transparent.withOpacity(0.3),
-//                       zoomMode: ZoomMode.x,
-//                     ),
-//                   ),
-//                 ),
 //               ],
 //             ),
 //           ),
