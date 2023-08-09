@@ -693,17 +693,17 @@ class Inference extends StatefulWidget {
   State<Inference> createState() => _MyHomePageState();
 }
 
-// List<apiData> chartData = [];
-List<apiData> chartData1 = [];
-List<apiData> chartData2 = [];
-List<apiData> chartData3 = [];
+List<apiData> chartData = [];
+// List<apiData> chartData1 = [];
+// List<apiData> chartData2 = [];
+// List<apiData> chartData3 = [];
 
 class _MyHomePageState extends State<Inference> {
   late TooltipBehavior _tooltipBehavior;
   late DateTime _startDate;
   late DateTime _endDate;
   late String Class = " ";
-  late int? count = 0;
+  // late int? count = 0;
   late String csvString = " ";
 
   var checkAllPermission = CheckPermission();
@@ -720,10 +720,10 @@ class _MyHomePageState extends State<Inference> {
       // textStyle: TextStyle(color: Colors.white),
       builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
           int seriesIndex) {
-        // final apiData item = chartData[pointIndex];
-        final apiData item1 = chartData1[pointIndex];
-        final apiData item2 = chartData2[pointIndex];
-        final apiData item3 = chartData3[pointIndex];
+        final apiData item = chartData[pointIndex];
+        // final apiData item1 = chartData1[pointIndex];
+        // final apiData item2 = chartData2[pointIndex];
+        // final apiData item3 = chartData3[pointIndex];
         // Class = item.Class;
         return Container(
           padding: EdgeInsets.all(10),
@@ -736,8 +736,8 @@ class _MyHomePageState extends State<Inference> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("TimeStamp: ${item1.TimeStamp}"),
-              Text("Count: ${item1.Predictions}"),
+              Text("TimeStamp: ${item.TimeStamp}"),
+              Text("Count: ${item.Predictions}"),
               // Text("BOMUTE Count: ${item1.Predictions["BOMUTE"] ?? 'N/A'}"),
               // Text("APISME Count: ${item2.Predictions["APISME"] ?? 'N/A'}"),
               // Text("OSMACO Count: ${item3.Predictions["OSMACO"] ?? 'N/A'}"),
@@ -752,7 +752,7 @@ class _MyHomePageState extends State<Inference> {
     super.initState();
     _startDate = DateTime.parse(DateTime.now().toString());
     _endDate = DateTime.parse(DateTime.now().toString());
-    count = 0;
+    // count = 0;
   }
 
   // @override
@@ -861,69 +861,80 @@ class _MyHomePageState extends State<Inference> {
       data = parsed['body'];
 
       // Clear all data lists before populating
-      chartData1.clear();
-      chartData2.clear();
-      chartData3.clear();
+      // chartData1.clear();
+      // chartData2.clear();
+      // chartData3.clear();
 
-      for (dynamic i in data) {
-        // if (json.decode(i['Predictions']) != {}) {
-        String bomuteValue = (i['Predictions'])['BOMUTE'];
-        String apismeValue = (i['Predictions'])['APISME'];
-        String osmacoValue = (i['Predictions'])['OSMACO'];
-
-        int? bomuteParsedValue = int.tryParse(bomuteValue);
-        int? apismeParsedValue = int.tryParse(apismeValue);
-        int? osmacoParsedValue = int.tryParse(osmacoValue);
-
-        if (bomuteValue != null) {
-          count = bomuteParsedValue;
-          // chartData1.add(apiData.fromJson(i, count));
-          print('bomutevalue:' '$bomuteValue');
-          print('bomuteParsedValue:' '$bomuteParsedValue');
-        } else {
-          print("Error: Could not parse '$bomuteValue' as an integer.");
-        }
-
-        if (apismeValue != null) {
-          count = apismeParsedValue;
-          // chartData2.add(apiData.fromJson(i, count));
-          print('apismeevalue:' '$apismeValue');
-          print('apismeParsedValue:' '$apismeParsedValue');
-        } else {
-          print("Error: Could not parse '$apismeValue' as an integer.");
-        }
-
-        if (osmacoValue != null) {
-          count = osmacoParsedValue;
-          // chartData3.add(apiData.fromJson(i, count));
-          print('osmacovalue:' '$osmacoValue');
-          print('osmacoParsedValue:' '$osmacoParsedValue');
-        } else {
-          print("Error: Could not parse '$osmacoValue' as an integer.");
-        }
-        // }
-      }
-      // data = parsed['body'];
-      // chartData.clear();
-      // // chartData1.clear();
       // for (dynamic i in data) {
-      //   if (json.decode(i['Predictions']) != {}) {
-      //     // String bomuteValue = (i['Predictions'])['BOMUTE'];
-      //     // int? parsedValue = int.tryParse(bomuteValue);
+      //   // if (json.decode(i['Predictions']) != {}) {
+      //   String bomuteValue = (i['Predictions'])['BOMUTE'];
+      //   String apismeValue = (i['Predictions'])['APISME'];
+      //   String osmacoValue = (i['Predictions'])['OSMACO'];
 
-      //     // if (parsedValue != null) {
-      //     //   chartData.add(apiData.fromJson(parsedValue));
-      //     // } else {
-      //     //   // Handle the case where the value couldn't be parsed as an integer
-      //     //   print("Error: Could not parse '$bomuteValue' as an integer.");
-      //     // }
+      //   int? bomuteParsedValue = int.tryParse(bomuteValue);
+      //   int? apismeParsedValue = int.tryParse(apismeValue);
+      //   int? osmacoParsedValue = int.tryParse(osmacoValue);
 
-      //     var newData = apiData.fromJson(i);
-      //     chartData
-      //         .add((apiData.fromJson(int.parse((i['Predictions'])['APISME']))));
-      //     print(json.decode(i['Predictions'])['APISME']);
+      //   if (bomuteValue != null) {
+      //     count = bomuteParsedValue;
+      //     // chartData1.add(apiData.fromJson(i, count));
+      //     print('bomutevalue:' '$bomuteValue');
+      //     print('bomuteParsedValue:' '$bomuteParsedValue');
+      //   } else {
+      //     print("Error: Could not parse '$bomuteValue' as an integer.");
       //   }
+
+      //   if (apismeValue != null) {
+      //     count = apismeParsedValue;
+      //     // chartData2.add(apiData.fromJson(i, count));
+      //     print('apismeevalue:' '$apismeValue');
+      //     print('apismeParsedValue:' '$apismeParsedValue');
+      //   } else {
+      //     print("Error: Could not parse '$apismeValue' as an integer.");
+      //   }
+
+      //   if (osmacoValue != null) {
+      //     count = osmacoParsedValue;
+      //     // chartData3.add(apiData.fromJson(i, count));
+      //     print('osmacovalue:' '$osmacoValue');
+      //     print('osmacoParsedValue:' '$osmacoParsedValue');
+      //   } else {
+      //     print("Error: Could not parse '$osmacoValue' as an integer.");
+      //   }
+      //   // }
       // }
+      data = parsed['body'];
+      chartData.clear();
+      // chartData1.clear();
+      for (dynamic i in data) {
+        if (json.decode(i['Predictions']) != {}) {
+          String apismeValue = (i['Predictions'])['APISME'];
+          int? apismeParsedValue = int.tryParse(apismeValue);
+          if (apismeParsedValue != null) {
+            // count = apismeParsedValue;
+            // chartData2.add(apiData.fromJson(i, count));
+            print('apismeevalue:' '$apismeValue');
+            print('apismeParsedValue:' '$apismeParsedValue');
+          } else {
+            print("Error: Could not parse '$apismeValue' as an integer.");
+          }
+
+          // String bomuteValue = (i['Predictions'])['BOMUTE'];
+          // int? parsedValue = int.tryParse(bomuteValue);
+
+          // if (parsedValue != null) {
+          //   chartData.add(apiData.fromJson(parsedValue));
+          // } else {
+          //   // Handle the case where the value couldn't be parsed as an integer
+          //   print("Error: Could not parse '$bomuteValue' as an integer.");
+          // }
+
+          // var newData = apiData.fromJson(i);
+          // chartData
+          //     .add((apiData.fromJson(int.parse((i['Predictions'])['APISME']))));
+          // print(json.decode(i['Predictions'])['APISME']);
+        }
+      }
 
       setState(() {});
     } else if (parsed['statusCode'] == 400 ||
@@ -1346,7 +1357,7 @@ class _MyHomePageState extends State<Inference> {
                             borderColor: Colors.green,
                             isVisible: true,
                           ),
-                          dataSource: chartData1,
+                          dataSource: chartData,
                           xValueMapper: (apiData sales, _) => sales.TimeStamp,
                           yValueMapper: (apiData sales, _) =>
                               int.parse(sales.Predictions),
@@ -1452,7 +1463,7 @@ class _MyHomePageState extends State<Inference> {
                           borderColor: Colors.green,
                           isVisible: true,
                         ),
-                        dataSource: chartData2,
+                        dataSource: chartData,
                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
                         yValueMapper: (apiData sales, _) =>
                             int.parse(sales.Predictions),
@@ -1558,7 +1569,7 @@ class _MyHomePageState extends State<Inference> {
                           borderColor: Colors.green,
                           isVisible: true,
                         ),
-                        dataSource: chartData3,
+                        dataSource: chartData,
                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
                         yValueMapper: (apiData sales, _) =>
                             int.parse(sales.Predictions),
