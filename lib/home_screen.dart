@@ -10,7 +10,6 @@ import 'constant.dart';
 import 'package:detest/weatherData.dart';
 import 'package:detest/insectCount.dart';
 import 'package:numberpicker/numberpicker.dart';
-
 import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
