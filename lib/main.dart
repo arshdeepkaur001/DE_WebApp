@@ -19,6 +19,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Digital-entomologist',
       theme: ThemeData.light(),
+      // home: const HomeScreen(
+      //   email: 'milanpreetkaur502@gmail.com',
+      //   // email: 'DEsensor@gmail.com',
+      // ),
       home: const HomeScreen(
         email: 'milanpreetkaur502@gmail.com',
         // email: 'DEsensor@gmail.com',
