@@ -915,24 +915,7 @@ class _MyHomePageState extends State<Inference> {
             // chartData2.add(apiData.fromJson(i, count));
             print('apismeevalue:' '$apismeValue');
             print('apismeParsedValue:' '$apismeParsedValue');
-          } else {
-            print("Error: Could not parse '$apismeValue' as an integer.");
           }
-
-          // String bomuteValue = (i['Predictions'])['BOMUTE'];
-          // int? parsedValue = int.tryParse(bomuteValue);
-
-          // if (parsedValue != null) {
-          //   chartData.add(apiData.fromJson(parsedValue));
-          // } else {
-          //   // Handle the case where the value couldn't be parsed as an integer
-          //   print("Error: Could not parse '$bomuteValue' as an integer.");
-          // }
-
-          // var newData = apiData.fromJson(i);
-          // chartData
-          //     .add((apiData.fromJson(int.parse((i['Predictions'])['APISME']))));
-          // print(json.decode(i['Predictions'])['APISME']);
         }
       }
 
@@ -1287,217 +1270,217 @@ class _MyHomePageState extends State<Inference> {
                   )
                 else
                   //BOMUTEEEEEEEEEEEEEEEEEEEEEEE
-                  Container(
-                    height: 400,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.shade300,
-                          blurRadius: 5.0,
-                          spreadRadius: 1.0,
-                          offset: Offset(0.0, 0.0),
-                        ),
-                      ],
-                    ),
-                    child: SfCartesianChart(
-                      legend: Legend(
-                        isVisible: false,
-                        // name:legend,
-                        position: LegendPosition.top,
-                        offset: const Offset(550, -150),
-                        // title: LegendTitle(
-                        //     text: 'Insect',
-                        //     textStyle: TextStyle(
-                        //         color: Colors.black,
-                        //         fontSize: 15,
-                        //         fontStyle: FontStyle.italic,
-                        //         fontWeight: FontWeight.w900)),
-                        // toggleSeriesVisibility: true,
-                        // Border color and border width of legend
-                        overflowMode: LegendItemOverflowMode.wrap,
-                        // borderColor: Colors.black,
-                        // borderWidth: 2
-                      ),
-                      plotAreaBackgroundColor: Colors.white,
-                      primaryXAxis: CategoryAxis(
-                        title: AxisTitle(
-                          text: 'Time',
-                          textStyle: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        labelRotation: 45,
-                      ),
-                      primaryYAxis: NumericAxis(
-                        title: AxisTitle(
-                          text: 'Insect Count',
-                          textStyle: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        axisLine: AxisLine(width: 0),
-                        majorGridLines: MajorGridLines(width: 0.5),
-                      ),
-                      tooltipBehavior: _tooltipBehavior,
-                      title: ChartTitle(
-                        text: 'GRAPH FOR BOMUTE',
-                        textStyle: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      // title: ChartTitle(
-                      //   text: widget.deviceId,
-                      //   textStyle: TextStyle(fontWeight: FontWeight.bold),
-                      // ),
-                      series: <ChartSeries<apiData, String>>[
-                        LineSeries<apiData, String>(
-                          // Text("Class: ${item.Class}"),
-                          // name: apiData.Class as dynamic,
-                          // name: 'Apis Mellifera',
-                          name: 'BOMUTE',
-                          markerSettings: const MarkerSettings(
-                            height: 3.0,
-                            width: 3.0,
-                            borderColor: Colors.green,
-                            isVisible: true,
-                          ),
-                          dataSource: chartData,
-                          xValueMapper: (apiData sales, _) => sales.TimeStamp,
-                          yValueMapper: (apiData sales, _) =>
-                              int.parse(sales.Predictions),
-                          // yValueMapper: (apiData sales, _) {
-                          //   final bomuteValue = sales.Predictions["BOMUTE"];
-                          //   print("BOMUTE Value: $bomuteValue");
-                          //   return bomuteValue != null
-                          //       ? int.parse(bomuteValue)
-                          //       : 0;
-                          // },
+                  // Container(
+                  //   height: 400,
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(16.0),
+                  //     color: Colors.white,
+                  //     boxShadow: [
+                  //       BoxShadow(
+                  //         color: Colors.grey.shade300,
+                  //         blurRadius: 5.0,
+                  //         spreadRadius: 1.0,
+                  //         offset: Offset(0.0, 0.0),
+                  //       ),
+                  //     ],
+                  //   ),
+                  //   child: SfCartesianChart(
+                  //     legend: Legend(
+                  //       isVisible: false,
+                  //       // name:legend,
+                  //       position: LegendPosition.top,
+                  //       offset: const Offset(550, -150),
+                  //       // title: LegendTitle(
+                  //       //     text: 'Insect',
+                  //       //     textStyle: TextStyle(
+                  //       //         color: Colors.black,
+                  //       //         fontSize: 15,
+                  //       //         fontStyle: FontStyle.italic,
+                  //       //         fontWeight: FontWeight.w900)),
+                  //       // toggleSeriesVisibility: true,
+                  //       // Border color and border width of legend
+                  //       overflowMode: LegendItemOverflowMode.wrap,
+                  //       // borderColor: Colors.black,
+                  //       // borderWidth: 2
+                  //     ),
+                  //     plotAreaBackgroundColor: Colors.white,
+                  //     primaryXAxis: CategoryAxis(
+                  //       title: AxisTitle(
+                  //         text: 'Time',
+                  //         textStyle: TextStyle(fontWeight: FontWeight.bold),
+                  //       ),
+                  //       labelRotation: 45,
+                  //     ),
+                  //     primaryYAxis: NumericAxis(
+                  //       title: AxisTitle(
+                  //         text: 'Insect Count',
+                  //         textStyle: TextStyle(fontWeight: FontWeight.bold),
+                  //       ),
+                  //       axisLine: AxisLine(width: 0),
+                  //       majorGridLines: MajorGridLines(width: 0.5),
+                  //     ),
+                  //     tooltipBehavior: _tooltipBehavior,
+                  //     title: ChartTitle(
+                  //       text: 'GRAPH FOR BOMUTE',
+                  //       textStyle: TextStyle(fontWeight: FontWeight.bold),
+                  //     ),
+                  //     // title: ChartTitle(
+                  //     //   text: widget.deviceId,
+                  //     //   textStyle: TextStyle(fontWeight: FontWeight.bold),
+                  //     // ),
+                  //     series: <ChartSeries<apiData, String>>[
+                  //       LineSeries<apiData, String>(
+                  //         // Text("Class: ${item.Class}"),
+                  //         // name: apiData.Class as dynamic,
+                  //         // name: 'Apis Mellifera',
+                  //         name: 'BOMUTE',
+                  //         markerSettings: const MarkerSettings(
+                  //           height: 3.0,
+                  //           width: 3.0,
+                  //           borderColor: Colors.green,
+                  //           isVisible: true,
+                  //         ),
+                  //         dataSource: chartData,
+                  //         xValueMapper: (apiData sales, _) => sales.TimeStamp,
+                  //         yValueMapper: (apiData sales, _) =>
+                  //             int.parse(sales.Predictions),
+                  //         // yValueMapper: (apiData sales, _) {
+                  //         //   final bomuteValue = sales.Predictions["BOMUTE"];
+                  //         //   print("BOMUTE Value: $bomuteValue");
+                  //         //   return bomuteValue != null
+                  //         //       ? int.parse(bomuteValue)
+                  //         //       : 0;
+                  //         // },
 
-                          // name: ((apiData sales, _) => sales.TimeStamp) [0],
-                          // name: apiData.Class,
-                          // legendItemText: (apiData sales, _) => sales.Class,
-                          dataLabelSettings:
-                              DataLabelSettings(isVisible: false),
-                          enableTooltip: true,
-                          animationDuration: 0,
-                          color: Colors.blue,
-                        )
-                      ],
-                      zoomPanBehavior: ZoomPanBehavior(
-                        enablePinching: true,
-                        enablePanning: true,
-                        enableDoubleTapZooming: true,
-                        enableMouseWheelZooming: true,
-                        enableSelectionZooming: true,
-                        selectionRectBorderWidth: 1.0,
-                        selectionRectBorderColor: Colors.blue,
-                        selectionRectColor: Colors.transparent.withOpacity(0.3),
-                        zoomMode: ZoomMode.x,
-                      ),
-                    ),
-                  ),
+                  //         // name: ((apiData sales, _) => sales.TimeStamp) [0],
+                  //         // name: apiData.Class,
+                  //         // legendItemText: (apiData sales, _) => sales.Class,
+                  //         dataLabelSettings:
+                  //             DataLabelSettings(isVisible: false),
+                  //         enableTooltip: true,
+                  //         animationDuration: 0,
+                  //         color: Colors.blue,
+                  //       )
+                  //     ],
+                  //     zoomPanBehavior: ZoomPanBehavior(
+                  //       enablePinching: true,
+                  //       enablePanning: true,
+                  //       enableDoubleTapZooming: true,
+                  //       enableMouseWheelZooming: true,
+                  //       enableSelectionZooming: true,
+                  //       selectionRectBorderWidth: 1.0,
+                  //       selectionRectBorderColor: Colors.blue,
+                  //       selectionRectColor: Colors.transparent.withOpacity(0.3),
+                  //       zoomMode: ZoomMode.x,
+                  //     ),
+                  //   ),
+                  // ),
                 // OSMACOOOOOOOOOOOOOOOOO
-                Container(
-                  height: 400,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16.0),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 5.0,
-                        spreadRadius: 1.0,
-                        offset: Offset(0.0, 0.0),
-                      ),
-                    ],
-                  ),
-                  child: SfCartesianChart(
-                    legend: Legend(
-                      isVisible: false,
-                      // name:legend,
-                      position: LegendPosition.top,
-                      offset: const Offset(550, -150),
-                      // title: LegendTitle(
-                      //     text: 'Insect',
-                      //     textStyle: TextStyle(
-                      //         color: Colors.black,
-                      //         fontSize: 15,
-                      //         fontStyle: FontStyle.italic,
-                      //         fontWeight: FontWeight.w900)),
-                      // toggleSeriesVisibility: true,
-                      // Border color and border width of legend
-                      overflowMode: LegendItemOverflowMode.wrap,
-                      // borderColor: Colors.black,
-                      // borderWidth: 2
-                    ),
-                    plotAreaBackgroundColor: Colors.white,
-                    primaryXAxis: CategoryAxis(
-                      title: AxisTitle(
-                        text: 'Time',
-                        textStyle: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      labelRotation: 45,
-                    ),
-                    primaryYAxis: NumericAxis(
-                      title: AxisTitle(
-                        text: 'Insect Count',
-                        textStyle: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      axisLine: AxisLine(width: 0),
-                      majorGridLines: MajorGridLines(width: 0.5),
-                    ),
-                    tooltipBehavior: _tooltipBehavior,
-                    title: ChartTitle(
-                      text: 'GRAPH FOR OSMACO',
-                      textStyle: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    // title: ChartTitle(
-                    //   text: widget.deviceId,
-                    //   textStyle: TextStyle(fontWeight: FontWeight.bold),
-                    // ),
-                    series: <ChartSeries<apiData, String>>[
-                      LineSeries<apiData, String>(
-                        // Text("Class: ${item.Class}"),
-                        // name: apiData.Class as dynamic,
-                        // name: 'Apis Mellifera',
-                        name: 'OSMACO',
-                        markerSettings: const MarkerSettings(
-                          height: 3.0,
-                          width: 3.0,
-                          borderColor: Colors.green,
-                          isVisible: true,
-                        ),
-                        dataSource: chartData,
-                        xValueMapper: (apiData sales, _) => sales.TimeStamp,
-                        yValueMapper: (apiData sales, _) =>
-                            int.parse(sales.Predictions),
-                        // yValueMapper: (apiData sales, _) {
-                        //   final osmacoValue = sales.Predictions["OSMACO"];
-                        //   print("OSMACO Value: $osmacoValue");
-                        //   return osmacoValue != null
-                        //       ? int.parse(osmacoValue)
-                        //       : 0;
-                        // },
+                // Container(
+                //   height: 400,
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(16.0),
+                //     color: Colors.white,
+                //     boxShadow: [
+                //       BoxShadow(
+                //         color: Colors.grey.shade300,
+                //         blurRadius: 5.0,
+                //         spreadRadius: 1.0,
+                //         offset: Offset(0.0, 0.0),
+                //       ),
+                //     ],
+                //   ),
+                //   child: SfCartesianChart(
+                //     legend: Legend(
+                //       isVisible: false,
+                //       // name:legend,
+                //       position: LegendPosition.top,
+                //       offset: const Offset(550, -150),
+                //       // title: LegendTitle(
+                //       //     text: 'Insect',
+                //       //     textStyle: TextStyle(
+                //       //         color: Colors.black,
+                //       //         fontSize: 15,
+                //       //         fontStyle: FontStyle.italic,
+                //       //         fontWeight: FontWeight.w900)),
+                //       // toggleSeriesVisibility: true,
+                //       // Border color and border width of legend
+                //       overflowMode: LegendItemOverflowMode.wrap,
+                //       // borderColor: Colors.black,
+                //       // borderWidth: 2
+                //     ),
+                //     plotAreaBackgroundColor: Colors.white,
+                //     primaryXAxis: CategoryAxis(
+                //       title: AxisTitle(
+                //         text: 'Time',
+                //         textStyle: TextStyle(fontWeight: FontWeight.bold),
+                //       ),
+                //       labelRotation: 45,
+                //     ),
+                //     primaryYAxis: NumericAxis(
+                //       title: AxisTitle(
+                //         text: 'Insect Count',
+                //         textStyle: TextStyle(fontWeight: FontWeight.bold),
+                //       ),
+                //       axisLine: AxisLine(width: 0),
+                //       majorGridLines: MajorGridLines(width: 0.5),
+                //     ),
+                //     tooltipBehavior: _tooltipBehavior,
+                //     title: ChartTitle(
+                //       text: 'GRAPH FOR OSMACO',
+                //       textStyle: TextStyle(fontWeight: FontWeight.bold),
+                //     ),
+                //     // title: ChartTitle(
+                //     //   text: widget.deviceId,
+                //     //   textStyle: TextStyle(fontWeight: FontWeight.bold),
+                //     // ),
+                //     series: <ChartSeries<apiData, String>>[
+                //       LineSeries<apiData, String>(
+                //         // Text("Class: ${item.Class}"),
+                //         // name: apiData.Class as dynamic,
+                //         // name: 'Apis Mellifera',
+                //         name: 'OSMACO',
+                //         markerSettings: const MarkerSettings(
+                //           height: 3.0,
+                //           width: 3.0,
+                //           borderColor: Colors.green,
+                //           isVisible: true,
+                //         ),
+                //         dataSource: chartData,
+                //         xValueMapper: (apiData sales, _) => sales.TimeStamp,
+                //         yValueMapper: (apiData sales, _) =>
+                //             int.parse(sales.Predictions),
+                //         // yValueMapper: (apiData sales, _) {
+                //         //   final osmacoValue = sales.Predictions["OSMACO"];
+                //         //   print("OSMACO Value: $osmacoValue");
+                //         //   return osmacoValue != null
+                //         //       ? int.parse(osmacoValue)
+                //         //       : 0;
+                //         // },
 
-                        // double.parse(sales.Predictions['OSMACO'].toString()),
-                        // name: ((apiData sales, _) => sales.TimeStamp) [0],
-                        // name: apiData.Class,
-                        // legendItemText: (apiData sales, _) => sales.Class,
-                        dataLabelSettings: DataLabelSettings(isVisible: false),
-                        enableTooltip: true,
-                        animationDuration: 0,
-                        color: Colors.blue,
-                      )
-                    ],
-                    zoomPanBehavior: ZoomPanBehavior(
-                      enablePinching: true,
-                      enablePanning: true,
-                      enableDoubleTapZooming: true,
-                      enableMouseWheelZooming: true,
-                      enableSelectionZooming: true,
-                      selectionRectBorderWidth: 1.0,
-                      selectionRectBorderColor: Colors.blue,
-                      selectionRectColor: Colors.transparent.withOpacity(0.3),
-                      zoomMode: ZoomMode.x,
-                    ),
-                  ),
-                ),
+                //         // double.parse(sales.Predictions['OSMACO'].toString()),
+                //         // name: ((apiData sales, _) => sales.TimeStamp) [0],
+                //         // name: apiData.Class,
+                //         // legendItemText: (apiData sales, _) => sales.Class,
+                //         dataLabelSettings: DataLabelSettings(isVisible: false),
+                //         enableTooltip: true,
+                //         animationDuration: 0,
+                //         color: Colors.blue,
+                //       )
+                //     ],
+                //     zoomPanBehavior: ZoomPanBehavior(
+                //       enablePinching: true,
+                //       enablePanning: true,
+                //       enableDoubleTapZooming: true,
+                //       enableMouseWheelZooming: true,
+                //       enableSelectionZooming: true,
+                //       selectionRectBorderWidth: 1.0,
+                //       selectionRectBorderColor: Colors.blue,
+                //       selectionRectColor: Colors.transparent.withOpacity(0.3),
+                //       zoomMode: ZoomMode.x,
+                //     ),
+                //   ),
+                // ),
                 //APISMEEEEEEEEEEEEEEEEEEEEEEEEE
                 Container(
                   height: 400,
