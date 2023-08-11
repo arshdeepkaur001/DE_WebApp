@@ -693,9 +693,9 @@ class Inference extends StatefulWidget {
   State<Inference> createState() => _MyHomePageState();
 }
 
-List<apiData> chartData = [];
-// List<apiData> chartData1 = [];
-// List<apiData> chartData2 = [];
+// List<apiData> chartData = [];
+List<apiData> chartData1 = [];
+List<apiData> chartData2 = [];
 // List<apiData> chartData3 = [];
 
 class _MyHomePageState extends State<Inference> {
@@ -703,7 +703,7 @@ class _MyHomePageState extends State<Inference> {
   late DateTime _startDate;
   late DateTime _endDate;
   late String Class = " ";
-  // late int? count = 0;
+  late int? count = 0;
   late String csvString = " ";
 
   var checkAllPermission = CheckPermission();
@@ -713,41 +713,42 @@ class _MyHomePageState extends State<Inference> {
 
   @override
   void initState() {
-    _tooltipBehavior = TooltipBehavior(
-      enable: true,
-      color: Colors.white,
+    // _tooltipBehavior = TooltipBehavior(
+    //   enable: true,
+    //   color: Colors.white,
 
-      // textStyle: TextStyle(color: Colors.white),
-      builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
-          int seriesIndex) {
-        final apiData item = chartData[pointIndex];
-        // final apiData item1 = chartData1[pointIndex];
-        // final apiData item2 = chartData2[pointIndex];
-        // final apiData item3 = chartData3[pointIndex];
-        // Class = item.Class;
-        return Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Color.fromARGB(255, 245, 214, 250),
-            borderRadius: BorderRadius.circular(5),
-            boxShadow: [BoxShadow(color: Colors.purple, blurRadius: 3)],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("TimeStamp: ${item.TimeStamp}"),
-              Text("Count: ${item.Predictions}"),
-              // Text("BOMUTE Count: ${item1.Predictions["BOMUTE"] ?? 'N/A'}"),
-              // Text("APISME Count: ${item2.Predictions["APISME"] ?? 'N/A'}"),
-              // Text("OSMACO Count: ${item3.Predictions["OSMACO"] ?? 'N/A'}"),
+    //   // textStyle: TextStyle(color: Colors.white),
+    //   builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
+    //       int seriesIndex) {
+    //     // final apiData item = chartData[pointIndex];
+    //     final apiData item1 = chartData1[pointIndex];
+    //     final apiData item2 = chartData2[pointIndex];
+    //     // final apiData item3 = chartData3[pointIndex];
+    //     // Class = item.Class;
+    //     return Container(
+    //       padding: EdgeInsets.all(10),
+    //       decoration: BoxDecoration(
+    //         color: Color.fromARGB(255, 245, 214, 250),
+    //         borderRadius: BorderRadius.circular(5),
+    //         boxShadow: [BoxShadow(color: Colors.purple, blurRadius: 3)],
+    //       ),
+    //       child: Column(
+    //         crossAxisAlignment: CrossAxisAlignment.start,
+    //         mainAxisSize: MainAxisSize.min,
+    //         children: [
+    //           Text("TimeStamp: ${item1.TimeStamp}"),
+    //           Text("APISME Count: ${item1.Predictions}"),
+    //           Text("BOMUTE Count: ${item2.Predictions}"),
+    //           // Text("BOMUTE Count: ${item1.Predictions["BOMUTE"] ?? 'N/A'}"),
+    //           // Text("APISME Count: ${item2.Predictions["APISME"] ?? 'N/A'}"),
+    //           // Text("OSMACO Count: ${item3.Predictions["OSMACO"] ?? 'N/A'}"),
 
-              // Text("Class: ${item.Class}"),
-            ],
-          ),
-        );
-      },
-    );
+    //           // Text("Class: ${item.Class}"),
+    //         ],
+    //       ),
+    //     );
+    //   },
+    // );
 
     super.initState();
     _startDate = DateTime.parse(DateTime.now().toString());
@@ -904,17 +905,29 @@ class _MyHomePageState extends State<Inference> {
       //   // }
       // }
       data = parsed['body'];
-      chartData.clear();
-      // chartData1.clear();
+      chartData2.clear();
+      chartData1.clear();
       for (dynamic i in data) {
-        if (json.decode(i['Predictions']) != {}) {
-          String apismeValue = (i['Predictions'])['APISME'];
-          int? apismeParsedValue = int.tryParse(apismeValue);
+        print(i['Predictions'] != '{}');
+        if (i['Predictions'] != '{}') {
+          print(json.decode(i['Predictions'])['APISME']);
+          int? apismeParsedValue = (json.decode(i['Predictions'])['APISME']);
+          print('apismeParsedValue:' '$apismeParsedValue');
           if (apismeParsedValue != null) {
-            // count = apismeParsedValue;
-            // chartData2.add(apiData.fromJson(i, count));
-            print('apismeevalue:' '$apismeValue');
-            print('apismeParsedValue:' '$apismeParsedValue');
+            count = apismeParsedValue;
+            chartData2.add(apiData.fromJson(i, count));
+          }
+        }
+      }
+      for (dynamic i in data) {
+        print(i['Predictions'] != '{}');
+        if (i['Predictions'] != '{}') {
+          print(json.decode(i['Predictions'])['BOMUTE']);
+          int? bomuteParsedValue = (json.decode(i['Predictions'])['BOMUTE']);
+          print('bomuteParsedValue:' '$bomuteParsedValue');
+          if (bomuteParsedValue != null) {
+            count = bomuteParsedValue;
+            chartData1.add(apiData.fromJson(i, count));
           }
         }
       }
@@ -1270,111 +1283,139 @@ class _MyHomePageState extends State<Inference> {
                   )
                 else
                   //BOMUTEEEEEEEEEEEEEEEEEEEEEEE
-                  // Container(
-                  //   height: 400,
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(16.0),
-                  //     color: Colors.white,
-                  //     boxShadow: [
-                  //       BoxShadow(
-                  //         color: Colors.grey.shade300,
-                  //         blurRadius: 5.0,
-                  //         spreadRadius: 1.0,
-                  //         offset: Offset(0.0, 0.0),
-                  //       ),
-                  //     ],
-                  //   ),
-                  //   child: SfCartesianChart(
-                  //     legend: Legend(
-                  //       isVisible: false,
-                  //       // name:legend,
-                  //       position: LegendPosition.top,
-                  //       offset: const Offset(550, -150),
-                  //       // title: LegendTitle(
-                  //       //     text: 'Insect',
-                  //       //     textStyle: TextStyle(
-                  //       //         color: Colors.black,
-                  //       //         fontSize: 15,
-                  //       //         fontStyle: FontStyle.italic,
-                  //       //         fontWeight: FontWeight.w900)),
-                  //       // toggleSeriesVisibility: true,
-                  //       // Border color and border width of legend
-                  //       overflowMode: LegendItemOverflowMode.wrap,
-                  //       // borderColor: Colors.black,
-                  //       // borderWidth: 2
-                  //     ),
-                  //     plotAreaBackgroundColor: Colors.white,
-                  //     primaryXAxis: CategoryAxis(
-                  //       title: AxisTitle(
-                  //         text: 'Time',
-                  //         textStyle: TextStyle(fontWeight: FontWeight.bold),
-                  //       ),
-                  //       labelRotation: 45,
-                  //     ),
-                  //     primaryYAxis: NumericAxis(
-                  //       title: AxisTitle(
-                  //         text: 'Insect Count',
-                  //         textStyle: TextStyle(fontWeight: FontWeight.bold),
-                  //       ),
-                  //       axisLine: AxisLine(width: 0),
-                  //       majorGridLines: MajorGridLines(width: 0.5),
-                  //     ),
-                  //     tooltipBehavior: _tooltipBehavior,
-                  //     title: ChartTitle(
-                  //       text: 'GRAPH FOR BOMUTE',
-                  //       textStyle: TextStyle(fontWeight: FontWeight.bold),
-                  //     ),
-                  //     // title: ChartTitle(
-                  //     //   text: widget.deviceId,
-                  //     //   textStyle: TextStyle(fontWeight: FontWeight.bold),
-                  //     // ),
-                  //     series: <ChartSeries<apiData, String>>[
-                  //       LineSeries<apiData, String>(
-                  //         // Text("Class: ${item.Class}"),
-                  //         // name: apiData.Class as dynamic,
-                  //         // name: 'Apis Mellifera',
-                  //         name: 'BOMUTE',
-                  //         markerSettings: const MarkerSettings(
-                  //           height: 3.0,
-                  //           width: 3.0,
-                  //           borderColor: Colors.green,
-                  //           isVisible: true,
-                  //         ),
-                  //         dataSource: chartData,
-                  //         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-                  //         yValueMapper: (apiData sales, _) =>
-                  //             int.parse(sales.Predictions),
-                  //         // yValueMapper: (apiData sales, _) {
-                  //         //   final bomuteValue = sales.Predictions["BOMUTE"];
-                  //         //   print("BOMUTE Value: $bomuteValue");
-                  //         //   return bomuteValue != null
-                  //         //       ? int.parse(bomuteValue)
-                  //         //       : 0;
-                  //         // },
+                  Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.shade300,
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                          offset: Offset(0.0, 0.0),
+                        ),
+                      ],
+                    ),
+                    child: SfCartesianChart(
+                      legend: Legend(
+                        isVisible: false,
+                        // name:legend,
+                        position: LegendPosition.top,
+                        offset: const Offset(550, -150),
+                        // title: LegendTitle(
+                        //     text: 'Insect',
+                        //     textStyle: TextStyle(
+                        //         color: Colors.black,
+                        //         fontSize: 15,
+                        //         fontStyle: FontStyle.italic,
+                        //         fontWeight: FontWeight.w900)),
+                        // toggleSeriesVisibility: true,
+                        // Border color and border width of legend
+                        overflowMode: LegendItemOverflowMode.wrap,
+                        // borderColor: Colors.black,
+                        // borderWidth: 2
+                      ),
+                      plotAreaBackgroundColor: Colors.white,
+                      primaryXAxis: CategoryAxis(
+                        title: AxisTitle(
+                          text: 'Time',
+                          textStyle: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        labelRotation: 45,
+                      ),
+                      primaryYAxis: NumericAxis(
+                        title: AxisTitle(
+                          text: 'Insect Count',
+                          textStyle: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        axisLine: AxisLine(width: 0),
+                        majorGridLines: MajorGridLines(width: 0.5),
+                      ),
+                      // tooltipBehavior: _tooltipBehavior,
+                      tooltipBehavior: TooltipBehavior(
+                        enable: true,
+                        color: Colors.white,
+                        // textStyle: TextStyle(color: Colors.white),
+                        builder: (dynamic data, dynamic point, dynamic series,
+                            int pointIndex, int seriesIndex) {
+                          final apiData item = chartData1[pointIndex];
+                          return Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 245, 214, 250),
+                              borderRadius: BorderRadius.circular(5),
+                              boxShadow: [
+                                BoxShadow(color: Colors.purple, blurRadius: 3)
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("TimeStamp: ${item.TimeStamp}"),
+                                Text("BOMUTE: ${item.Predictions}"),
+                                // Text("Class: ${item.Class}"),
+                              ],
+                            ),
+                          );
+                        },
+                        // customize the tooltip color
+                      ),
+                      title: ChartTitle(
+                        text: 'GRAPH FOR BOMUTE',
+                        textStyle: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      // title: ChartTitle(
+                      //   text: widget.deviceId,
+                      //   textStyle: TextStyle(fontWeight: FontWeight.bold),
+                      // ),
+                      series: <ChartSeries<apiData, String>>[
+                        LineSeries<apiData, String>(
+                          // Text("Class: ${item.Class}"),
+                          // name: apiData.Class as dynamic,
+                          // name: 'Apis Mellifera',
+                          name: 'BOMUTE',
+                          markerSettings: const MarkerSettings(
+                            height: 3.0,
+                            width: 3.0,
+                            borderColor: Colors.green,
+                            isVisible: true,
+                          ),
+                          dataSource: chartData1,
+                          xValueMapper: (apiData sales, _) => sales.TimeStamp,
+                          yValueMapper: (apiData sales, _) => sales.Predictions,
+                          // yValueMapper: (apiData sales, _) {
+                          //   final bomuteValue = sales.Predictions["BOMUTE"];
+                          //   print("BOMUTE Value: $bomuteValue");
+                          //   return bomuteValue != null
+                          //       ? int.parse(bomuteValue)
+                          //       : 0;
+                          // },
 
-                  //         // name: ((apiData sales, _) => sales.TimeStamp) [0],
-                  //         // name: apiData.Class,
-                  //         // legendItemText: (apiData sales, _) => sales.Class,
-                  //         dataLabelSettings:
-                  //             DataLabelSettings(isVisible: false),
-                  //         enableTooltip: true,
-                  //         animationDuration: 0,
-                  //         color: Colors.blue,
-                  //       )
-                  //     ],
-                  //     zoomPanBehavior: ZoomPanBehavior(
-                  //       enablePinching: true,
-                  //       enablePanning: true,
-                  //       enableDoubleTapZooming: true,
-                  //       enableMouseWheelZooming: true,
-                  //       enableSelectionZooming: true,
-                  //       selectionRectBorderWidth: 1.0,
-                  //       selectionRectBorderColor: Colors.blue,
-                  //       selectionRectColor: Colors.transparent.withOpacity(0.3),
-                  //       zoomMode: ZoomMode.x,
-                  //     ),
-                  //   ),
-                  // ),
+                          // name: ((apiData sales, _) => sales.TimeStamp) [0],
+                          // name: apiData.Class,
+                          // legendItemText: (apiData sales, _) => sales.Class,
+                          dataLabelSettings:
+                              DataLabelSettings(isVisible: false),
+                          enableTooltip: true,
+                          animationDuration: 0,
+                          color: Colors.blue,
+                        )
+                      ],
+                      zoomPanBehavior: ZoomPanBehavior(
+                        enablePinching: true,
+                        enablePanning: true,
+                        enableDoubleTapZooming: true,
+                        enableMouseWheelZooming: true,
+                        enableSelectionZooming: true,
+                        selectionRectBorderWidth: 1.0,
+                        selectionRectBorderColor: Colors.blue,
+                        selectionRectColor: Colors.transparent.withOpacity(0.3),
+                        zoomMode: ZoomMode.x,
+                      ),
+                    ),
+                  ),
                 // OSMACOOOOOOOOOOOOOOOOO
                 // Container(
                 //   height: 400,
@@ -1531,7 +1572,36 @@ class _MyHomePageState extends State<Inference> {
                       axisLine: AxisLine(width: 0),
                       majorGridLines: MajorGridLines(width: 0.5),
                     ),
-                    tooltipBehavior: _tooltipBehavior,
+                    // tooltipBehavior: _tooltipBehavior,
+                    tooltipBehavior: TooltipBehavior(
+                      enable: true,
+                      color: Colors.white,
+                      // textStyle: TextStyle(color: Colors.white),
+                      builder: (dynamic data, dynamic point, dynamic series,
+                          int pointIndex, int seriesIndex) {
+                        final apiData item = chartData2[pointIndex];
+                        return Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 245, 214, 250),
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(color: Colors.purple, blurRadius: 3)
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text("TimeStamp: ${item.TimeStamp}"),
+                              Text("APISME Count: ${item.Predictions}"),
+                              // Text("Class: ${item.Class}"),
+                            ],
+                          ),
+                        );
+                      },
+                      // customize the tooltip color
+                    ),
                     title: ChartTitle(
                       text: 'GRAPH FOR APISME',
                       textStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -1552,10 +1622,9 @@ class _MyHomePageState extends State<Inference> {
                           borderColor: Colors.green,
                           isVisible: true,
                         ),
-                        dataSource: chartData,
+                        dataSource: chartData2,
                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-                        yValueMapper: (apiData sales, _) =>
-                            int.parse(sales.Predictions),
+                        yValueMapper: (apiData sales, _) => sales.Predictions,
                         // yValueMapper: (apiData sales, _) {
                         //   final apismeValue = sales.Predictions["APISME"];
                         //   print("APISME Value: $apismeValue");
@@ -1630,10 +1699,10 @@ class apiData {
   apiData(this.TimeStamp, this.Predictions);
 
   final String TimeStamp;
-  final String Predictions;
+  final int Predictions;
   // final String Class;
 
-  factory apiData.fromJson(dynamic parsedJson) {
+  factory apiData.fromJson(dynamic parsedJson, count) {
     // final Map<String, dynamic> jsonDataMap =
     //     Map<String, dynamic>.from(json.decode(Predictions));
 
@@ -1641,7 +1710,8 @@ class apiData {
     return apiData(
       parsedJson['TimeStamp'].toString(),
       // json.decode(parsedJson['Predictions'])
-      parsedJson['Predictions'].toString(),
+      // parsedJson['Predictions'],
+      count,
     );
   }
 }

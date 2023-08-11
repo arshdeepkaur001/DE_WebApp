@@ -189,7 +189,7 @@ class Device {
       int previousDt = fmt.parse(dt).millisecondsSinceEpoch;
       int distance = nowInMS - previousDt;
 
-      if (distance < 60000) {
+      if (distance < 600000) {
         return Device(
             deviceId: dvc['device_id'],
             registerStatus: dvc['register_status'],
