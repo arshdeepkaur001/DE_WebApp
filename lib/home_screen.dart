@@ -11,6 +11,7 @@ import 'package:detest/weatherData.dart';
 import 'package:detest/insectCount.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:intl/intl.dart';
+import 'filteredData.dart';
 
 class HomeScreen extends StatefulWidget {
   final String email;
@@ -107,6 +108,173 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ],
+        );
+      },
+    );
+  }
+
+  Future<void> _filter(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Center(
+              child: Text(
+            'Select a Country',
+            style: TextStyle(color: buttonColor),
+          )),
+          content: SizedBox(
+            height: 300,
+            width: 400,
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        allData();
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'All',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        germanyData();
+                        Navigator.of(context).pop();
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'Germany',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        SpainData();
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'Spain',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        FranceData();
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'France',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        UKData();
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'UK',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        LabData();
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'Lab',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
       },
     );
@@ -545,11 +713,29 @@ class _HomeScreenState extends State<HomeScreen> {
         //   )
         // ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-          heroTag: 'btn3',
-          backgroundColor: buttonColor,
-          onPressed: () => _dialogBuilder(context),
-          label: const Text('Register a new Device +')),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 2),
+            padding: EdgeInsets.only(left: 30),
+            child: FloatingActionButton.extended(
+                heroTag: 'btn3',
+                backgroundColor: buttonColor,
+                onPressed: () => _filter(context),
+                label: const Text('Countries')),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+          // ),
+          FloatingActionButton.extended(
+              heroTag: 'btn3',
+              backgroundColor: buttonColor,
+              onPressed: () => _dialogBuilder(context),
+              label: const Text('Register a new Device +')),
+        ],
+      ),
       body: FutureBuilder<String>(
         future: response,
         builder: ((context, snapshot) {
@@ -706,7 +892,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  for (int i = 0; i < deviceData.length; i++)
+                  for (int i = 0; i < filterData.length; i++)
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 2),
@@ -752,7 +938,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 40,
                                   child: Center(
                                     child: Text(
-                                      deviceData[i].deviceId,
+                                      filterData[i].deviceId,
                                       style: const TextStyle(
                                           fontSize: 16, color: Colors.white),
                                     ),
@@ -762,7 +948,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 40,
                                   child: Center(
                                     child: Text(
-                                      deviceData[i].status,
+                                      filterData[i].status,
                                       style: const TextStyle(
                                           fontSize: 16, color: Colors.white),
                                     ),
@@ -772,7 +958,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 40,
                                   child: Center(
                                     child: Text(
-                                      '${deviceData[i].registerStatus}',
+                                      '${filterData[i].registerStatus}',
                                       style: const TextStyle(
                                           fontSize: 16, color: Colors.white),
                                     ),
@@ -787,7 +973,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                             builder: (_) => ConfigScreen(
-                                              deviceId: deviceData[i].deviceId,
+                                              deviceId: filterData[i].deviceId,
                                               userName: widget.email,
                                             ),
                                           ),
@@ -812,7 +998,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                             builder: (_) => DeviceScreen(
-                                              deviceId: deviceData[i].deviceId,
+                                              deviceId: filterData[i].deviceId,
                                             ),
                                           ),
                                         );
@@ -838,7 +1024,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           MaterialPageRoute(
                                             builder: (_) => Weather(
                                               // values: [],
-                                              deviceId: deviceData[i].deviceId,
+                                              deviceId: filterData[i].deviceId,
                                             ),
                                           ),
                                         );
@@ -890,7 +1076,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           MaterialPageRoute(
                                             builder: (_) => Inference(
                                               // values: [],
-                                              deviceId: deviceData[i].deviceId,
+                                              deviceId: filterData[i].deviceId,
                                             ),
                                           ),
                                         );
@@ -914,8 +1100,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         // print('Status');
                                         modeDevice(
                                             // values: [],
-                                            deviceData[i].deviceId,
-                                            deviceData[i].status);
+                                            filterData[i].deviceId,
+                                            filterData[i].status);
                                       },
                                       icon: const Icon(
                                         Icons.power_settings_new,
