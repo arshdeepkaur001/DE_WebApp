@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:detest/Inferenced_Data copy.dart';
+import 'package:detest/Inferenced_Data.dart';
 import 'package:http/http.dart' as http;
 import 'package:detest/device_screen.dart';
 import 'package:detest/login.dart';
