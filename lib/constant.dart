@@ -159,7 +159,6 @@ Future<String> getData(String email) async {
     }
     deviceData.sort((a, b) => a.deviceId.compareTo(b.deviceId));
     deviceData.sort(compareDevices); // sort the list
-    // deviceData.sort((a, b) => a.deviceId.compareTo(b.deviceId));
     return deviceData.isEmpty ? '400' : '200';
   } else {
     throw Exception('Failed to load api');
