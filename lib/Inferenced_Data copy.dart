@@ -794,7 +794,7 @@ class _MyHomePageState extends State<Inference> {
         "TimeStamp",
         "DeviceId",
         "APISME",
-        // "Mean",
+        "BOMUTE",
       ]
     ];
 
@@ -813,7 +813,13 @@ class _MyHomePageState extends State<Inference> {
       if (predictions != null && predictions['APISME'] != null) {
         row.add(predictions['APISME']);
       } else {
-        row.add("0");
+        row.add("");
+      }
+      final predictions1 = json.decode(jsonData[0]["body"][i]['Predictions']);
+      if (predictions1 != null && predictions1['BOMUTE'] != null) {
+        row.add(predictions1['BOMUTE']);
+      } else {
+        row.add("");
       }
 
       csvData.add(row);
