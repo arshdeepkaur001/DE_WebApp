@@ -793,8 +793,8 @@ class _MyHomePageState extends State<Inference> {
       [
         "TimeStamp",
         "DeviceId",
-        "Class",
-        "Mean",
+        "APISME",
+        // "Mean",
       ]
     ];
 
@@ -807,8 +807,14 @@ class _MyHomePageState extends State<Inference> {
       row = [];
       row.add(jsonData[0]["body"][i]['TimeStamp']);
       row.add(jsonData[0]["body"][i]['DeviceId']);
-      row.add(jsonData[0]["body"][i]['Class']);
-      row.add(jsonData[0]["body"][i]['Mean']);
+      // row.add(jsonData[0]["body"][i]['Predictions']);
+      // row.add(jsonData[0]["body"][i]['Mean']);
+      final predictions = json.decode(jsonData[0]["body"][i]['Predictions']);
+      if (predictions != null && predictions['APISME'] != null) {
+        row.add(predictions['APISME']);
+      } else {
+        row.add("0");
+      }
 
       csvData.add(row);
     }

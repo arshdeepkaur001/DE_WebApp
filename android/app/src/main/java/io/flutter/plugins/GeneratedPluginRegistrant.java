@@ -18,6 +18,11 @@ public final class GeneratedPluginRegistrant {
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);
     try {
+      flutterEngine.getPlugins().add(new com.igrik12.battery_info.BatteryInfoPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin battery_info, com.igrik12.battery_info.BatteryInfoPlugin", e);
+    }
+    try {
       it.nplace.downloadspathprovider.DownloadsPathProviderPlugin.registerWith(shimPluginRegistry.registrarFor("it.nplace.downloadspathprovider.DownloadsPathProviderPlugin"));
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin downloads_path_provider, it.nplace.downloadspathprovider.DownloadsPathProviderPlugin", e);

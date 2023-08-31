@@ -6,6 +6,12 @@
 
 #import "GeneratedPluginRegistrant.h"
 
+#if __has_include(<battery_info/BatteryInfoPlugin.h>)
+#import <battery_info/BatteryInfoPlugin.h>
+#else
+@import battery_info;
+#endif
+
 #if __has_include(<downloads_path_provider/DownloadsPathProviderPlugin.h>)
 #import <downloads_path_provider/DownloadsPathProviderPlugin.h>
 #else
@@ -57,6 +63,7 @@
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
+  [BatteryInfoPlugin registerWithRegistrar:[registry registrarForPlugin:@"BatteryInfoPlugin"]];
   [DownloadsPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"DownloadsPathProviderPlugin"]];
   [OpenFilePlugin registerWithRegistrar:[registry registrarForPlugin:@"OpenFilePlugin"]];
   [OpenFilePlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"OpenFilePlusPlugin"]];
