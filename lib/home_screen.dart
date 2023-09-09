@@ -776,14 +776,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             // 8: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.01),
                             0: FractionColumnWidth(0.09),
-                            1: FractionColumnWidth(0.10),
-                            2: FractionColumnWidth(0.10),
-                            3: FractionColumnWidth(0.10),
-                            4: FractionColumnWidth(0.10),
-                            5: FractionColumnWidth(0.10),
-                            6: FractionColumnWidth(0.10),
-                            7: FractionColumnWidth(0.10),
-                            8: FractionColumnWidth(0.10),
+                            1: FractionColumnWidth(0.12),
+                            2: FractionColumnWidth(0.12),
+                            3: FractionColumnWidth(0.12),
+                            4: FractionColumnWidth(0.12),
+                            5: FractionColumnWidth(0.12),
+                            6: FractionColumnWidth(0.12),
+                            7: FractionColumnWidth(0.12),
+                            8: FractionColumnWidth(0.12),
                             // 9: FractionColumnWidth(0.10),
                           },
                           children: const <TableRow>[
@@ -833,15 +833,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                              Center(
-                                child: Text(
-                                  'DOWNLOAD',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                      color: backgroundColor),
-                                ),
-                              ),
+                              // Center(
+                              //   child: Text(
+                              //     'DOWNLOAD',
+                              //     style: TextStyle(
+                              //         fontWeight: FontWeight.bold,
+                              //         fontSize: 16,
+                              //         color: backgroundColor),
+                              //   ),
+                              // ),
                               Center(
                                 child: Text(
                                   'Weather Data',
@@ -912,15 +912,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Table(
                             columnWidths: const {
                               0: FractionColumnWidth(0.09),
-                              1: FractionColumnWidth(0.10),
-                              2: FractionColumnWidth(0.10),
-                              3: FractionColumnWidth(0.10),
-                              4: FractionColumnWidth(0.10),
-                              5: FractionColumnWidth(0.10),
-                              6: FractionColumnWidth(0.10),
-                              7: FractionColumnWidth(0.10),
-                              8: FractionColumnWidth(0.10),
-                              9: FractionColumnWidth(0.10),
+                              1: FractionColumnWidth(0.12),
+                              2: FractionColumnWidth(0.12),
+                              3: FractionColumnWidth(0.12),
+                              4: FractionColumnWidth(0.12),
+                              5: FractionColumnWidth(0.12),
+                              6: FractionColumnWidth(0.12),
+                              7: FractionColumnWidth(0.12),
+                              // 8: FractionColumnWidth(0.10),
+                              // 9: FractionColumnWidth(0.10),
                               // 8: FractionColumnWidth(0.01),
                             },
                             children: [
@@ -991,30 +991,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 40,
-                                  child: Center(
-                                    child: IconButton(
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (_) => DeviceScreen(
-                                              deviceId: filterData[i].deviceId,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      icon: const Icon(
-                                        Icons.download,
-                                        color: backgroundColor,
-                                      ),
-                                      // label: const Text('DOWNLOAD'),
-                                      style: ElevatedButton.styleFrom(
-                                          // elevation: 10,
-                                          backgroundColor: Colors.white10),
-                                    ),
-                                  ),
-                                ),
+                                // SizedBox(
+                                //   height: 40,
+                                //   child: Center(
+                                //     child: IconButton(
+                                //       onPressed: () {
+                                //         Navigator.of(context).push(
+                                //           MaterialPageRoute(
+                                //             builder: (_) => DeviceScreen(
+                                //               deviceId: filterData[i].deviceId,
+                                //             ),
+                                //           ),
+                                //         );
+                                //       },
+                                //       icon: const Icon(
+                                //         Icons.download,
+                                //         color: backgroundColor,
+                                //       ),
+                                //       // label: const Text('DOWNLOAD'),
+                                //       style: ElevatedButton.styleFrom(
+                                //           // elevation: 10,
+                                //           backgroundColor: Colors.white10),
+                                //     ),
+                                //   ),
+                                // ),
                                 SizedBox(
                                   height: 40,
                                   child: Center(
