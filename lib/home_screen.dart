@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late String result;
   late int sleepDuration = 0;
   bool _hovering = false;
+  bool condition = false;
   @override
   void initState() {
     response = getData(widget.email);
@@ -775,16 +776,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             // 7: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.01),
-                            0: FractionColumnWidth(0.09),
+                            0: FractionColumnWidth(0.12),
                             1: FractionColumnWidth(0.12),
                             2: FractionColumnWidth(0.12),
                             3: FractionColumnWidth(0.12),
                             4: FractionColumnWidth(0.12),
                             5: FractionColumnWidth(0.12),
                             6: FractionColumnWidth(0.12),
-                            7: FractionColumnWidth(0.12),
-                            8: FractionColumnWidth(0.12),
-                            // 9: FractionColumnWidth(0.10),
+                            7: FractionColumnWidth(0.08),
+                            8: FractionColumnWidth(0.08)
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -878,15 +878,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                              // Center(
-                              //   child: Text(
-                              //     'BATTERY',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
+                              Center(
+                                child: Text(
+                                  '',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: backgroundColor),
+                                ),
+                              ),
                             ]),
                           ],
                         ),
@@ -911,17 +911,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               horizontal: 20, vertical: 0),
                           child: Table(
                             columnWidths: const {
-                              0: FractionColumnWidth(0.09),
+                              0: FractionColumnWidth(0.12),
                               1: FractionColumnWidth(0.12),
                               2: FractionColumnWidth(0.12),
                               3: FractionColumnWidth(0.12),
                               4: FractionColumnWidth(0.12),
                               5: FractionColumnWidth(0.12),
                               6: FractionColumnWidth(0.12),
-                              7: FractionColumnWidth(0.12),
-                              // 8: FractionColumnWidth(0.10),
-                              // 9: FractionColumnWidth(0.10),
-                              // 8: FractionColumnWidth(0.01),
+                              7: FractionColumnWidth(0.08),
+                              8: FractionColumnWidth(0.08)
                             },
                             children: [
                               TableRow(children: [
@@ -1184,6 +1182,34 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //     // ),
                                 //   ),
                                 // )
+                                SizedBox(
+                                  height: 40,
+                                  child: Center(
+                                    child: Tooltip(
+                                        message: "battery",
+                                        child: MouseRegion(
+                                          onEnter: (_) {
+                                            setState(() {
+                                              _hovering = true;
+                                            });
+                                          },
+                                          onExit: (_) {
+                                            setState(() {
+                                              _hovering = false;
+                                            });
+                                          },
+                                          child: Icon(
+                                            _hovering
+                                                ? (condition
+                                                    ? Icons.battery_saver
+                                                    : Icons.battery_full)
+                                                : null,
+                                            size: 20.0,
+                                            color: Colors.white,
+                                          ),
+                                        )),
+                                  ),
+                                )
                               ]),
                             ],
                           ),
