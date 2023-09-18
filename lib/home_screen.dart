@@ -1198,14 +1198,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                               _hovering = false;
                                             });
                                           },
-                                          child: Icon(
-                                            _hovering
-                                                ? (condition
-                                                    ? Icons.battery_saver
-                                                    : Icons.battery_full)
-                                                : null,
-                                            size: 20.0,
-                                            color: Colors.white,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                _hovering
+                                                    ? (condition
+                                                        ? Icons.battery_saver
+                                                        : Icons.battery_full)
+                                                    : null,
+                                                size: 20.0,
+                                                color: Colors.white,
+                                              ),
+                                              _hovering
+                                                  ? Text('30%',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12))
+                                                  : Text(""),
+                                            ],
                                           ),
                                         )),
                                   ),
