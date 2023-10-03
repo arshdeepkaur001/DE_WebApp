@@ -12,6 +12,7 @@ import 'package:detest/insectCount.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:intl/intl.dart';
 import 'filteredData.dart';
+import 'package:detest/Battery.dart';
 
 class HomeScreen extends StatefulWidget {
   final String email;
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late String result;
   late int sleepDuration = 0;
   bool _hovering = false;
+  bool condition = false;
   @override
   void initState() {
     response = getData(widget.email);
@@ -782,9 +784,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             4: FractionColumnWidth(0.12),
                             5: FractionColumnWidth(0.12),
                             6: FractionColumnWidth(0.12),
-                            7: FractionColumnWidth(0.12),
-                            8: FractionColumnWidth(0.12),
-                            // 9: FractionColumnWidth(0.10),
+                            7: FractionColumnWidth(0.08),
+                            8: FractionColumnWidth(0.08),
+                            // 9: FractionColumnWidth(0.1),
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -918,8 +920,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               4: FractionColumnWidth(0.12),
                               5: FractionColumnWidth(0.12),
                               6: FractionColumnWidth(0.12),
-                              7: FractionColumnWidth(0.12),
-                              // 8: FractionColumnWidth(0.10),
+                              7: FractionColumnWidth(0.08),
+                              8: FractionColumnWidth(0.08),
                               // 9: FractionColumnWidth(0.10),
                               // 8: FractionColumnWidth(0.01),
                             },
@@ -1115,6 +1117,73 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
+                                SizedBox(
+                                  height: 40,
+                                  child: Center(
+                                    child: IconButton(
+                                      onPressed: () {
+                                        // print('Inference');
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) => Battery(
+                                              // values: [],
+                                              deviceId: filterData[i].deviceId,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.battery_6_bar,
+                                        color: backgroundColor,
+                                      ),
+                                      // label: const Text('Inferenced Data'),
+                                      style: ElevatedButton.styleFrom(
+                                          // elevation: 10,
+                                          backgroundColor: Colors.white10),
+                                    ),
+                                  ),
+                                ),
+                                // SizedBox(
+                                //   height: 40,
+                                //   child: Center(
+                                //     child: Tooltip(
+                                //         message: "battery",
+                                //         child: MouseRegion(
+                                //           onEnter: (_) {
+                                //             setState(() {
+                                //               _hovering = true;
+                                //             });
+                                //           },
+                                //           onExit: (_) {
+                                //             setState(() {
+                                //               _hovering = false;
+                                //             });
+                                //           },
+                                //           child: Row(
+                                //             mainAxisAlignment:
+                                //                 MainAxisAlignment.center,
+                                //             children: [
+                                //               Icon(
+                                //                 _hovering
+                                //                     ? (condition
+                                //                         ? Icons.battery_saver
+                                //                         : Icons.battery_full)
+                                //                     : null,
+                                //                 size: 20.0,
+                                //                 color: Colors.white,
+                                //               ),
+                                //               _hovering
+                                //                   ? Text('30%',
+                                //                       style: TextStyle(
+                                //                           color: Colors.white,
+                                //                           fontSize: 12))
+                                //                   : Text(""),
+                                //             ],
+                                //           ),
+                                //         )),
+                                //   ),
+                                // )
+
                                 // SizedBox(
                                 //   height: 40,
                                 //   child: Center(
