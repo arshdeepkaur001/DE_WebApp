@@ -117,6 +117,8 @@ class _BatteryState extends State<Battery> {
     updateData(); // Call updateData when the widget is initialized
   }
 
+  List<double> lastResponses = [];
+  double average = 12.63;
   Future<void> getAPIData(String deviceId, DateTime ts) async {
     final response = await http.get(Uri.https(
       'eyezeqzt5c.execute-api.us-east-1.amazonaws.com',
@@ -142,12 +144,35 @@ class _BatteryState extends State<Battery> {
     var parsed = jsonDecode(response.body);
     if (parsed['statusCode'] == 200) {
       final data = parsed['body'];
+
+      //Tiya's last 10 non-null approach
+      if (data != null) {
+        lastResponses.add(double.parse(data));
+
+        if (lastResponses.length > 10) {
+          lastResponses.removeAt(0);
+        }
+      }
       setState(() {
         voltageData = data.toString(); // Update the voltage data here
       });
-    } else if (parsed['statusCode'] == 400 ||
-        parsed['statusCode'] == 404 ||
-        parsed['statusCode'] == 500) {
+    } else if (parsed['statusCode'] == 404) {
+      double sum = 0.0;
+      int count = 0;
+      for (double resp in lastResponses) {
+        if (resp != 0) {
+          sum += resp;
+          count++;
+        }
+      }
+      print(sum);
+      print(count);
+      print(average);
+      average = sum / count;
+      setState(() {
+        voltageData = average.toString(); // Update the voltage data here
+      });
+    } else if (parsed['statusCode'] == 400 || parsed['statusCode'] == 500) {
       setState(() {
         errorMessage = parsed['body'][0]['message'];
       });
