@@ -156,11 +156,11 @@ Future<String> getData(String email) async {
   // print(response.body);
   // print(response1.body);
 
-  DateTime current = DateTime.now().toUtc();
+  DateTime current = DateTime.now();
   String now = fmt.format(current);
-  // print(now);
-  int nowInMS = fmt.parse(now).millisecondsSinceEpoch;
 
+  int nowInMS = fmt.parse(now).millisecondsSinceEpoch;
+  print(now);
   deviceData.clear();
   for (var i in jsonDecode(response.body)) {
     // print(i);
@@ -200,12 +200,15 @@ class Device {
       String dt = dvc['lastReceivedTime'];
       int previousDt = fmt.parse(dt).millisecondsSinceEpoch;
       int distance = nowInMS - previousDt;
-
-      if (distance < 300000) {
+      print(dvc['DeviceId']);
+      print(distance);
+      print(dvc['lastReceivedTime']);
+      // print(now);
+      print(nowInMS);
+      print(previousDt);
+      if (distance < 180000) {
         return Device(
-            deviceId: dvc['DeviceId'],
-            registerStatus: true,
-            status: "inactive");
+            deviceId: dvc['DeviceId'], registerStatus: true, status: "active");
       } else {
         return Device(
             deviceId: dvc['DeviceId'],
@@ -226,11 +229,11 @@ class Device {
       int previousDt = fmt1.parse(dt).millisecondsSinceEpoch;
       int distance = nowInMS - previousDt;
 
-      if (distance < 300000) {
+      if (distance < 180000) {
         return Device(
             deviceId: dvc['device_id'],
             registerStatus: dvc['register_status'],
-            status: "inactive");
+            status: "active");
       } else {
         return Device(
             deviceId: dvc['device_id'],
