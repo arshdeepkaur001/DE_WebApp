@@ -228,7 +228,7 @@ class Device {
         return Device(
             deviceId: dvc['device_id'],
             registerStatus: dvc['register_status'],
-            status: "active");
+            status: "inactive");
       } else {
         return Device(
             deviceId: dvc['device_id'],
