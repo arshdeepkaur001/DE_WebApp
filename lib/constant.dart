@@ -203,7 +203,9 @@ class Device {
 
       if (distance < 300000) {
         return Device(
-            deviceId: dvc['DeviceId'], registerStatus: true, status: "active");
+            deviceId: dvc['DeviceId'],
+            registerStatus: true,
+            status: "inactive");
       } else {
         return Device(
             deviceId: dvc['DeviceId'],
