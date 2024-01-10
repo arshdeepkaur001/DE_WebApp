@@ -8519,7 +8519,7 @@ return A.ab($async$a_V,r)},
 aKV(a,b){var s,r="lastReceivedTime",q="DeviceId",p="inactive",o=J.a0(a)
 if(J.c(o.h(a,r),"empty"))return new A.fx(o.h(a,q),p)
 else{s=o.h(a,r)
-if(b-$.azL().rv(s,!1,!1).a<3e5)return new A.fx(o.h(a,q),"active")
+if(b-$.azL().rv(s,!1,!1).a<3e5)return new A.fx(o.h(a,q),p)
 else return new A.fx(o.h(a,q),p)}},
 aKW(a,b){var s,r,q="device_id",p="register_status",o="inactive",n=J.a0(a)
 if(J.c(n.h(a,"status"),"empty")){s=n.h(a,q)
