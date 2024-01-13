@@ -124,8 +124,7 @@ class _BatteryState extends State<Battery> {
       'eyezeqzt5c.execute-api.us-east-1.amazonaws.com',
       '/getData/voltage',
       {
-        'TimeStamp':
-            '${ts.year}-${ts.month}-${ts.day} ${ts.hour}:${ts.minute}:${ts.second}',
+        'TimeStamp': '${ts.year}-${ts.month}-${ts.day} ${ts.hour}:${ts.minute}',
         // ts.year +
         //     "-" +
         //     ts.month +
@@ -140,12 +139,15 @@ class _BatteryState extends State<Battery> {
         'DeviceId': deviceId,
       },
     ));
-    print(response.body);
+    // print(response.body);
+    print(ts.month.runtimeType);
+    print(ts.day.runtimeType);
+    print(ts.year.runtimeType);
     var parsed = jsonDecode(response.body);
     if (parsed['statusCode'] == 200) {
       final data = parsed['body'];
 
-      //Tiya's last 10 non-null approach
+      //last 10 non-null approach
       if (data != null) {
         lastResponses.add(double.parse(data));
 
@@ -165,9 +167,12 @@ class _BatteryState extends State<Battery> {
           count++;
         }
       }
-      print(sum);
-      print(count);
-      print(average);
+      // print("sum");
+      // print(sum);
+      // print("count");
+      // print(count);
+      // print("average");
+      // print(average);
       average = sum / count;
       setState(() {
         voltageData = average.toString(); // Update the voltage data here
