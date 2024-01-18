@@ -777,13 +777,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             // 7: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.01),
+
                             0: FractionColumnWidth(0.18),
                             1: FractionColumnWidth(0.17),
                             2: FractionColumnWidth(0.16),
                             3: FractionColumnWidth(0.16),
                             4: FractionColumnWidth(0.16),
-                            5: FractionColumnWidth(0.17),
-                           
+                            5: FractionColumnWidth(0.17)
+                            // 6: FractionColumnWidth(0.14),
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -814,7 +815,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                           
+                              // Center(
+                              //   child: Text(
+                              //     'REGISTERED',
+                              //     style: TextStyle(
+                              //         fontWeight: FontWeight.bold,
+                              //         fontSize: 16,
+                              //         color: backgroundColor),
+                              //   ),
+                              // ),
+                              // Center(
+                              //   child: Text(
+                              //     'CONFIGURE',
+                              //     style: TextStyle(
+                              //         fontWeight: FontWeight.bold,
+                              //         fontSize: 16,
+                              //         color: backgroundColor),
+                              //   ),
+                              // ),
                               // Center(
                               //   child: Text(
                               //     'DOWNLOAD',
@@ -860,7 +878,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                            
+                              // Center(
+                              //   child: Text(
+                              //     '',
+                              //     style: TextStyle(
+                              //         fontWeight: FontWeight.bold,
+                              //         fontSize: 16,
+                              //         color: backgroundColor),
+                              //   ),
+                              // ),
                             ]),
                           ],
                         ),
@@ -882,7 +908,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.center,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 0),
+                              horizontal: 30, vertical: 0),
                           child: Table(
                             columnWidths: const {
                               0: FractionColumnWidth(0.16),
@@ -890,9 +916,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               2: FractionColumnWidth(0.17),
                               3: FractionColumnWidth(0.17),
                               4: FractionColumnWidth(0.18),
-                              5: FractionColumnWidth(0.15),
-                             
-                              // 8: FractionColumnWidth(0.08)
+                              5: FractionColumnWidth(0.15)
+                              // 6: FractionColumnWidth(0.14)
                             },
                             children: [
                               TableRow(children: [
@@ -1105,13 +1130,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //         Icons.battery_6_bar,
                                 //         color: backgroundColor,
                                 //       ),
-                                      // label: const Text('Inferenced Data'),
-                                      style: ElevatedButton.styleFrom(
-                                          // elevation: 10,
-                                          backgroundColor: Colors.white10),
-                                    ),
-                                  ),
-                                ),
+                                //       // label: const Text('Inferenced Data'),
+                                //       style: ElevatedButton.styleFrom(
+                                //           // elevation: 10,
+                                //           backgroundColor: Colors.white10),
+                                //     ),
+                                //   ),
+                                // ),
                                 // SizedBox(
                                 //   height: 40,
                                 //   child: Center(
