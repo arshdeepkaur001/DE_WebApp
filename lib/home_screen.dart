@@ -777,15 +777,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             // 7: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.12),
                             // 8: FractionColumnWidth(0.01),
-                            0: FractionColumnWidth(0.12),
-                            1: FractionColumnWidth(0.12),
-                            2: FractionColumnWidth(0.18),
-                            3: FractionColumnWidth(0.16),
-                            4: FractionColumnWidth(0.16),
-                            5: FractionColumnWidth(0.16),
-                            6: FractionColumnWidth(0.12),
-                            // 7: FractionColumnWidth(0.08),
-                            // 8: FractionColumnWidth(0.08)
+                            0: FractionColumnWidth(0.08),
+                            1: FractionColumnWidth(0.08),
+                            2: FractionColumnWidth(0.08),
+                            3: FractionColumnWidth(0.08),
+                            4: FractionColumnWidth(0.08),
+                            5: FractionColumnWidth(0.08),
+                            6: FractionColumnWidth(0.08),
+                            7: FractionColumnWidth(0.08),
+                            8: FractionColumnWidth(0.08)
                           },
                           children: const <TableRow>[
                             TableRow(children: <Widget>[
@@ -816,24 +816,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                              // Center(
-                              //   child: Text(
-                              //     'REGISTERED',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
-                              // Center(
-                              //   child: Text(
-                              //     'CONFIGURE',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
+                              Center(
+                                child: Text(
+                                  'REGISTERED',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: backgroundColor),
+                                ),
+                              ),
+                              Center(
+                                child: Text(
+                                  'CONFIGURE',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: backgroundColor),
+                                ),
+                              ),
                               // Center(
                               //   child: Text(
                               //     'DOWNLOAD',
@@ -912,14 +912,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               horizontal: 20, vertical: 0),
                           child: Table(
                             columnWidths: const {
-                              0: FractionColumnWidth(0.12),
-                              1: FractionColumnWidth(0.12),
-                              2: FractionColumnWidth(0.18),
-                              3: FractionColumnWidth(0.16),
-                              4: FractionColumnWidth(0.16),
-                              5: FractionColumnWidth(0.16),
-                              6: FractionColumnWidth(0.12),
-                              // 7: FractionColumnWidth(0.08),
+                              0: FractionColumnWidth(0.08),
+                              1: FractionColumnWidth(0.08),
+                              2: FractionColumnWidth(0.08),
+                              3: FractionColumnWidth(0.08),
+                              4: FractionColumnWidth(0.08),
+                              5: FractionColumnWidth(0.08),
+                              6: FractionColumnWidth(0.08),
+                              7: FractionColumnWidth(0.08),
                               // 8: FractionColumnWidth(0.08)
                             },
                             children: [
@@ -954,42 +954,42 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: Text(
-                                //       '${filterData[i].registerStatus}',
-                                //       style: const TextStyle(
-                                //           fontSize: 16, color: Colors.white),
-                                //     ),
-                                //   ),
-                                // ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: IconButton(
-                                //       onPressed: () {
-                                //         // print('CONFIGURE');
-                                //         Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //             builder: (_) => ConfigScreen(
-                                //               deviceId: filterData[i].deviceId,
-                                //               userName: widget.email,
-                                //             ),
-                                //           ),
-                                //         );
-                                //       },
-                                //       icon: const Icon(
-                                //         Icons.settings,
-                                //         color: backgroundColor,
-                                //       ),
-                                //       // label: const Text('CONFIGURE'),
-                                //       style: ElevatedButton.styleFrom(
-                                //           // elevation: 10,
-                                //           backgroundColor: Colors.white10),
-                                //     ),
-                                //   ),
-                                // ),
+                                SizedBox(
+                                  height: 40,
+                                  child: Center(
+                                    child: Text(
+                                      '${filterData[i].registerStatus}',
+                                      style: const TextStyle(
+                                          fontSize: 16, color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                  child: Center(
+                                    child: IconButton(
+                                      onPressed: () {
+                                        // print('CONFIGURE');
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) => ConfigScreen(
+                                              deviceId: filterData[i].deviceId,
+                                              userName: widget.email,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.settings,
+                                        color: backgroundColor,
+                                      ),
+                                      // label: const Text('CONFIGURE'),
+                                      style: ElevatedButton.styleFrom(
+                                          // elevation: 10,
+                                          backgroundColor: Colors.white10),
+                                    ),
+                                  ),
+                                ),
                                 // SizedBox(
                                 //   height: 40,
                                 //   child: Center(

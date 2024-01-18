@@ -124,7 +124,8 @@ class _BatteryState extends State<Battery> {
       'eyezeqzt5c.execute-api.us-east-1.amazonaws.com',
       '/getData/voltage',
       {
-        'TimeStamp': '${ts.year}-${ts.month}-${ts.day} ${ts.hour}:${ts.minute}',
+        'TimeStamp':
+            '${ts.year}-${ts.month}-${ts.day} ${ts.hour}:${ts.minute}:${ts.second}',
         // ts.year +
         //     "-" +
         //     ts.month +

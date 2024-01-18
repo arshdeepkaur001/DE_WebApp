@@ -112,6 +112,7 @@ import 'package:http/http.dart' as http;
 List<Device> deviceData = [];
 final fmt1 = DateFormat("MMM d yyyy hh:mm:ss");
 final fmt = DateFormat('dd-MM-yyyy_HH-mm-ss');
+final fmt3 = DateFormat('yyyy-MM-dd HH:mm:ss');
 // COLORS
 const backgroundColor = Colors.white;
 
@@ -198,7 +199,15 @@ class Device {
       );
     } else {
       String dt = dvc['lastReceivedTime'];
-      int previousDt = fmt.parse(dt).millisecondsSinceEpoch;
+      int previousDt;
+      try {
+        previousDt = fmt.parse(dt).millisecondsSinceEpoch;
+        // code that may cause an exception
+      } catch (e) {
+        // code that handles the exception
+        previousDt = fmt3.parse(dt).millisecondsSinceEpoch;
+      }
+
       int distance = nowInMS - previousDt;
       print(dvc['DeviceId']);
       print(distance);
