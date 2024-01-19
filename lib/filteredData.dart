@@ -36,9 +36,29 @@ void UKData() {
       .toList();
 }
 
+void USAData() {
+  filterData = deviceData
+      .where((device) =>
+          device.deviceId == "02" ||
+          device.deviceId == "05" ||
+          device.deviceId == "04" ||
+          device.deviceId == "06")
+      .toList();
+}
+
 void LabData() {
-  filterData =
-      deviceData.where((device) => device.deviceId == "D0506").toList();
+  filterData = deviceData
+      .where((device) =>
+          device.deviceId == "D0506" ||
+          device.deviceId == "07" ||
+          device.deviceId == "08" ||
+          device.deviceId == "09" ||
+          device.deviceId == "10" ||
+          device.deviceId == "11" ||
+          device.deviceId == "12" ||
+          device.deviceId == "S1" ||
+          device.deviceId == "S2")
+      .toList();
 }
 
 void allData() {

@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController dateController;
   late TextEditingController timeinput;
   late String result;
+  void selectedCountry = "";
   late int sleepDuration = 0;
   bool _hovering = false;
   bool condition = false;
@@ -126,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(color: buttonColor),
           )),
           content: SizedBox(
-            height: 300,
+            height: 400,
             width: 400,
             child: Column(
               children: [
@@ -243,6 +244,30 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     label: const Text(
                       'UK',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        USAData();
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'USA',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     style: ElevatedButton.styleFrom(
