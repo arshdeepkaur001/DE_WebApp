@@ -1,5 +1,11 @@
 import 'dart:convert';
 import 'package:detest/Inferenced_Data copy.dart';
+import 'package:detest/country/Germany.dart';
+import 'package:detest/country/Spain.dart';
+import 'package:detest/country/UkData.dart';
+import 'package:detest/country/UsaData.dart';
+import 'package:detest/country/_France.dart';
+import 'package:detest/country/lab.dart';
 import 'package:http/http.dart' as http;
 import 'package:detest/device_screen.dart';
 import 'package:detest/login.dart';
@@ -162,8 +168,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       setState(() {
-                        germanyData();
-                        Navigator.of(context).pop();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => germanyScreen()),
+                        );
                       });
                     },
                     icon: const Icon(
@@ -186,9 +195,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       setState(() {
-                        SpainData();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SpainScreen()),
+                        );
                       });
-                      Navigator.of(context).pop();
                     },
                     icon: const Icon(
                       Icons.logout,
@@ -210,9 +222,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       setState(() {
-                        FranceData();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => franceScreen()),
+                        );
                       });
-                      Navigator.of(context).pop();
                     },
                     icon: const Icon(
                       Icons.logout,
@@ -234,9 +249,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       setState(() {
-                        UKData();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => UK_Screen()),
+                        );
                       });
-                      Navigator.of(context).pop();
+                      // Navigator.of(context).pop();
                     },
                     icon: const Icon(
                       Icons.logout,
@@ -258,9 +276,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       setState(() {
-                        USAData();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => USA_Screen()),
+                        );
                       });
-                      Navigator.of(context).pop();
                     },
                     icon: const Icon(
                       Icons.logout,
@@ -282,9 +302,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       setState(() {
-                        LabData();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LabScreen()),
+                        );
                       });
-                      Navigator.of(context).pop();
                     },
                     icon: const Icon(
                       Icons.logout,
