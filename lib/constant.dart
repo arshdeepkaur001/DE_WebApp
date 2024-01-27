@@ -215,7 +215,7 @@ class Device {
       // print(now);
       print(nowInMS);
       print(previousDt);
-      if (distance < 300000) {
+      if (distance < 1200000) {
         return Device(
             deviceId: dvc['DeviceId'], registerStatus: true, status: "active");
       } else {
@@ -238,7 +238,7 @@ class Device {
       int previousDt = fmt1.parse(dt).millisecondsSinceEpoch;
       int distance = nowInMS - previousDt;
 
-      if (distance < 300000) {
+      if (distance < 1200000) {
         return Device(
             deviceId: dvc['device_id'],
             registerStatus: dvc['register_status'],
