@@ -5,6 +5,7 @@ import 'package:detest/country/Spain.dart';
 import 'package:detest/country/UkData.dart';
 import 'package:detest/country/UsaData.dart';
 import 'package:detest/country/_France.dart';
+import 'package:detest/country/INDIA.dart';
 import 'package:detest/country/lab.dart';
 import 'package:http/http.dart' as http;
 import 'package:detest/device_screen.dart';
@@ -288,6 +289,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     label: const Text(
                       'USA',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        // elevation: 10,
+                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => INDIA_Screen()),
+                        );
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: backgroundColor,
+                    ),
+                    label: const Text(
+                      'INDIA',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     style: ElevatedButton.styleFrom(
