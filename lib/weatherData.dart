@@ -41,15 +41,6 @@ class _MyHomePageState extends State<Weather> {
     _endDate = DateTime.parse(DateTime.now().toString());
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // _tooltip = TooltipBehavior(enable: true);
-  //   // _startDate = "2022-02-14";
-  //   // // _endDate = "2023-03-28";
-  //   // getapiData(widget.deviceId, _startDate, _endDate);
-  // }
-
   Future<void> getAPIData(
       String deviceId, DateTime _startDate, DateTime _endDate) async {
     final response = await http.get(Uri.https(
@@ -305,8 +296,6 @@ class _MyHomePageState extends State<Weather> {
                       ),
                     ),
                     SizedBox(width: 16.0),
-
-                    // Add other widgets here
                     ElevatedButton(
                       onPressed: handleDownloadButtonPressed,
                       child: Text(
@@ -381,17 +370,7 @@ class _MyHomePageState extends State<Weather> {
                             ],
                           ),
                           child: SfCartesianChart(
-                            // legend: Legend(
-                            //   isVisible: true,
-                            //   // name:legend,
-                            //   position: LegendPosition.top,
-                            //   offset: const Offset(550, -150),
-                            //   // toggleSeriesVisibility: true,
-                            //   // Border color and border width of legend
-                            //   overflowMode: LegendItemOverflowMode.wrap,
-                            //   // borderColor: Colors.black,
-                            //   // borderWidth: 2
-                            // ),
+                        
                             plotAreaBackgroundColor: Colors.white,
                             primaryXAxis: CategoryAxis(
                               title: AxisTitle(
