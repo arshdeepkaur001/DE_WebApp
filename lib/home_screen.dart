@@ -5,7 +5,7 @@ import 'package:detest/country/Spain.dart';
 import 'package:detest/country/UkData.dart';
 import 'package:detest/country/UsaData.dart';
 import 'package:detest/country/_France.dart';
-import 'package:detest/country/INDIA.dart';
+import 'package:detest/country/India.dart';
 import 'package:detest/country/lab.dart';
 import 'package:http/http.dart' as http;
 import 'package:detest/device_screen.dart';
