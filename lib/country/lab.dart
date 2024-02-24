@@ -26,15 +26,15 @@ class _LabScreenState extends State<LabScreen> {
   late int sleepDuration = 0;
   List<Device> filterData = deviceData
       .where((device) =>
-          device.deviceId == "D0506" ||
-          device.deviceId == "07" ||
-          device.deviceId == "08" ||
-          device.deviceId == "09" ||
-          device.deviceId == "10" ||
-          device.deviceId == "11" ||
-          device.deviceId == "12" ||
-          device.deviceId == "S1" ||
-          device.deviceId == "S2")
+          device.deviceId == "bf" ||
+          device.deviceId == "22" ||
+          device.deviceId == "15" ||
+          device.deviceId == "16" ||
+          device.deviceId == "S4" ||
+          device.deviceId == "S23" ||
+          device.deviceId == "S21" ||
+          device.deviceId == "S11" ||
+          device.deviceId == "S14")
       .toList();
   @override
   void initState() {

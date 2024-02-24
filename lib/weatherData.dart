@@ -1,515 +1,8 @@
-// import 'dart:convert';
-// import 'package:flutter/services.dart';
-// import 'package:http/http.dart' as http;
-// import 'package:flutter/material.dart';
-// import 'package:syncfusion_flutter_charts/charts.dart';
-
-// class Weather extends StatefulWidget {
-//   final String deviceId;
-
-//   const Weather({
-//     super.key,
-//     required this.deviceId,
-//   });
-
-//   @override
-//   State<Weather> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<Weather> {
-//   late TooltipBehavior _tooltipBehavior;
-//   late String _startDate;
-//   late String _endDate;
-//   // @override
-//   // void initState() {
-//   //   _tooltipBehavior = TooltipBehavior(enable: true, color: Colors.purple);
-//   //   super.initState();
-//   // }
-
-//   // @override
-//   // void initState() {
-//   //   super.initState();
-//   //   // _tooltip = TooltipBehavior(enable: true);
-//   //   // _startDate = "2022-02-14";
-//   //   // // _endDate = "2023-03-28";
-//   //   // getapiData(widget.deviceId, _startDate, _endDate);
-//   // }
-
-//   void updateData() async {
-//     final List<dynamic> jsonString =
-//         await getAPIData(widget.deviceId, _startDate, _endDate);
-
-//     chartData.clear();
-//     for (dynamic i in jsonString) {
-//       chartData.add(apiData.fromJson(i));
-//     }
-
-//     setState(() {});
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(
-//           'TimeSeries Graph For Weather Data',
-//           style: TextStyle(
-//             fontSize: 20.0,
-//             letterSpacing: 1.0,
-//             color: Colors.white,
-//           ),
-//         ),
-//         backgroundColor: Colors.green,
-//         elevation: 0.0,
-//         centerTitle: true,
-//       ),
-//       body: SingleChildScrollView(
-//         child: Center(
-//           child: Container(
-//             padding: EdgeInsets.all(16.0),
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.stretch,
-//               children: [
-//                 Row(
-//                   children: [
-//                     Expanded(
-//                       child: TextField(
-//                         onChanged: (value) {
-//                           _startDate = value;
-//                         },
-//                         decoration: InputDecoration(
-//                           labelText: 'Start Date (YYYY-MM-DD)',
-//                           border: OutlineInputBorder(),
-//                           contentPadding: EdgeInsets.symmetric(
-//                               vertical: 12, horizontal: 16),
-//                         ),
-//                       ),
-//                     ),
-//                     SizedBox(width: 16.0),
-//                     Expanded(
-//                       child: TextField(
-//                         onChanged: (value) {
-//                           _endDate = value;
-//                         },
-//                         decoration: InputDecoration(
-//                           labelText: 'End Date (YYYY-MM-DD)',
-//                           border: OutlineInputBorder(),
-//                           contentPadding: EdgeInsets.symmetric(
-//                               vertical: 12, horizontal: 16),
-//                         ),
-//                       ),
-//                     ),
-//                     SizedBox(width: 16.0),
-//                     ElevatedButton(
-//                       onPressed: () {
-//                         // fetch new data
-//                         updateData();
-//                       },
-//                       child: Text(
-//                         'Get Data',
-//                         style: TextStyle(
-//                           fontSize: 20,
-//                         ),
-//                       ),
-//                       style: ElevatedButton.styleFrom(
-//                         primary: Colors.green, // Set the button color to green
-//                         minimumSize:
-//                             Size(80, 0), // Set a minimum width for the button
-//                         padding:
-//                             EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-//                         shape: RoundedRectangleBorder(
-//                           borderRadius: BorderRadius.circular(8),
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//                 SizedBox(height: 32.0),
-//                 Container(
-//                   height: 400,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(16.0),
-//                     color: Colors.white,
-//                     boxShadow: [
-//                       BoxShadow(
-//                         color: Colors.grey.shade300,
-//                         blurRadius: 5.0,
-//                         spreadRadius: 1.0,
-//                         offset: Offset(0.0, 0.0),
-//                       ),
-//                     ],
-//                   ),
-//                   child: SfCartesianChart(
-//                     legend: Legend(
-//                       isVisible: true,
-//                       // name:legend,
-//                       position: LegendPosition.top,
-//                       offset: const Offset(550, -150),
-//                       // toggleSeriesVisibility: true,
-//                       // Border color and border width of legend
-//                       overflowMode: LegendItemOverflowMode.wrap,
-//                       // borderColor: Colors.black,
-//                       // borderWidth: 2
-//                     ),
-//                     plotAreaBackgroundColor: Colors.white,
-//                     primaryXAxis: CategoryAxis(
-//                       title: AxisTitle(
-//                         text: 'Time',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       labelRotation: 45,
-//                     ),
-//                     primaryYAxis: NumericAxis(
-//                       title: AxisTitle(
-//                         text: 'Temprature(°C)',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       axisLine: AxisLine(width: 0),
-//                       majorGridLines: MajorGridLines(width: 0.5),
-//                     ),
-//                     tooltipBehavior: TooltipBehavior(
-//                       enable: true,
-//                       color: Colors.white,
-//                       // textStyle: TextStyle(color: Colors.white),
-//                       builder: (dynamic data, dynamic point, dynamic series,
-//                           int pointIndex, int seriesIndex) {
-//                         final apiData item = chartData[pointIndex];
-//                         return Container(
-//                           padding: EdgeInsets.all(10),
-//                           decoration: BoxDecoration(
-//                             color: Color.fromARGB(255, 245, 214, 250),
-//                             borderRadius: BorderRadius.circular(5),
-//                             boxShadow: [
-//                               BoxShadow(color: Colors.purple, blurRadius: 3)
-//                             ],
-//                           ),
-//                           child: Column(
-//                             crossAxisAlignment: CrossAxisAlignment.start,
-//                             mainAxisSize: MainAxisSize.min,
-//                             children: [
-//                               Text("TimeStamp: ${item.TimeStamp}"),
-//                               Text("Temperature: ${item.Temperature}"),
-//                               // Text("Class: ${item.Class}"),
-//                             ],
-//                           ),
-//                         );
-//                       },
-//                       // customize the tooltip color
-//                     ),
-//                     title: ChartTitle(
-//                       text: 'Temperature Graph',
-//                       textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     ),
-//                     series: <ChartSeries<apiData, String>>[
-//                       LineSeries<apiData, String>(
-//                         name: 'Api Mellifera',
-//                         markerSettings: const MarkerSettings(
-//                           height: 3.0,
-//                           width: 3.0,
-//                           borderColor: Colors.green,
-//                           isVisible: true,
-//                         ),
-//                         dataSource: chartData,
-//                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-//                         yValueMapper: (apiData sales, _) =>
-//                             double.parse(sales.Temperature),
-//                         dataLabelSettings: DataLabelSettings(isVisible: false),
-//                         enableTooltip: true,
-//                         animationDuration: 0,
-//                       )
-//                     ],
-//                     zoomPanBehavior: ZoomPanBehavior(
-//                       enablePinching: true,
-//                       enablePanning: true,
-//                       enableDoubleTapZooming: true,
-//                       enableMouseWheelZooming: true,
-//                       enableSelectionZooming: true,
-//                       selectionRectBorderWidth: 1.0,
-//                       selectionRectBorderColor: Colors.blue,
-//                       selectionRectColor: Colors.transparent.withOpacity(0.3),
-//                       zoomMode: ZoomMode.x,
-//                     ),
-//                   ),
-//                 ),
-//                 SizedBox(height: 20.0),
-//                 Container(
-//                   height: 400,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(16.0),
-//                     color: Colors.white,
-//                     boxShadow: [
-//                       BoxShadow(
-//                         color: Colors.grey.shade300,
-//                         blurRadius: 5.0,
-//                         spreadRadius: 1.0,
-//                         offset: Offset(0.0, 0.0),
-//                       ),
-//                     ],
-//                   ),
-//                   child: SfCartesianChart(
-//                     legend: Legend(
-//                       isVisible: true,
-//                       // name:legend,
-//                       position: LegendPosition.top,
-//                       offset: const Offset(550, -150),
-//                       // toggleSeriesVisibility: true,
-//                       // Border color and border width of legend
-//                       overflowMode: LegendItemOverflowMode.wrap,
-//                       // borderColor: Colors.black,
-//                       // borderWidth: 2
-//                     ),
-//                     plotAreaBackgroundColor: Colors.white,
-//                     primaryXAxis: CategoryAxis(
-//                       title: AxisTitle(
-//                         text: 'Time',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       labelRotation: 45,
-//                     ),
-//                     primaryYAxis: NumericAxis(
-//                       title: AxisTitle(
-//                         text: 'Light Intensity(%)',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       axisLine: AxisLine(width: 0),
-//                       majorGridLines: MajorGridLines(width: 0.5),
-//                     ),
-//                     tooltipBehavior: TooltipBehavior(
-//                       enable: true,
-//                       color: Colors.white,
-//                       // textStyle: TextStyle(color: Colors.white),
-//                       builder: (dynamic data, dynamic point, dynamic series,
-//                           int pointIndex, int seriesIndex) {
-//                         final apiData item = chartData[pointIndex];
-//                         return Container(
-//                           padding: EdgeInsets.all(10),
-//                           decoration: BoxDecoration(
-//                             color: Color.fromARGB(255, 245, 214, 250),
-//                             borderRadius: BorderRadius.circular(5),
-//                             boxShadow: [
-//                               BoxShadow(color: Colors.purple, blurRadius: 3)
-//                             ],
-//                           ),
-//                           child: Column(
-//                             crossAxisAlignment: CrossAxisAlignment.start,
-//                             mainAxisSize: MainAxisSize.min,
-//                             children: [
-//                               Text("TimeStamp: ${item.TimeStamp}"),
-//                               Text("Light Intensity: ${item.Light_intensity}"),
-//                               // Text("Class: ${item.Class}"),
-//                             ],
-//                           ),
-//                         );
-//                       },
-//                       // customize the tooltip color
-//                     ),
-//                     title: ChartTitle(
-//                       text: 'Light Intensity Graph',
-//                       textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     ),
-//                     series: <ChartSeries<apiData, String>>[
-//                       LineSeries<apiData, String>(
-//                         name: 'Api Mellifera',
-//                         markerSettings: const MarkerSettings(
-//                           height: 3.0,
-//                           width: 3.0,
-//                           borderColor: Colors.green,
-//                           isVisible: true,
-//                         ),
-//                         dataSource: chartData,
-//                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-//                         yValueMapper: (apiData sales, _) =>
-//                             double.parse(sales.Light_intensity),
-//                         dataLabelSettings: DataLabelSettings(isVisible: false),
-//                         enableTooltip: true,
-//                         animationDuration: 0,
-//                       )
-//                     ],
-//                     zoomPanBehavior: ZoomPanBehavior(
-//                       enablePinching: true,
-//                       enablePanning: true,
-//                       enableDoubleTapZooming: true,
-//                       enableMouseWheelZooming: true,
-//                       enableSelectionZooming: true,
-//                       selectionRectBorderWidth: 1.0,
-//                       selectionRectBorderColor: Colors.blue,
-//                       selectionRectColor: Colors.transparent.withOpacity(0.3),
-//                       zoomMode: ZoomMode.x,
-//                     ),
-//                   ),
-//                 ),
-//                 SizedBox(height: 20.0),
-//                 Container(
-//                   height: 400,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(16.0),
-//                     color: Colors.white,
-//                     boxShadow: [
-//                       BoxShadow(
-//                         color: Colors.grey.shade300,
-//                         blurRadius: 5.0,
-//                         spreadRadius: 1.0,
-//                         offset: Offset(0.0, 0.0),
-//                       ),
-//                     ],
-//                   ),
-//                   child: SfCartesianChart(
-//                     legend: Legend(
-//                       isVisible: true,
-//                       // name:legend,
-//                       position: LegendPosition.top,
-//                       offset: const Offset(550, -150),
-//                       // toggleSeriesVisibility: true,
-//                       // Border color and border width of legend
-//                       overflowMode: LegendItemOverflowMode.wrap,
-//                       // borderColor: Colors.black,
-//                       // borderWidth: 2
-//                     ),
-//                     plotAreaBackgroundColor: Colors.white,
-//                     primaryXAxis: CategoryAxis(
-//                       title: AxisTitle(
-//                         text: 'Time',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       labelRotation: 45,
-//                     ),
-//                     primaryYAxis: NumericAxis(
-//                       title: AxisTitle(
-//                         text: 'Relative Humidity',
-//                         textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-//                       axisLine: AxisLine(width: 0),
-//                       majorGridLines: MajorGridLines(width: 0.5),
-//                     ),
-//                     tooltipBehavior: TooltipBehavior(
-//                       enable: true,
-//                       color: Colors.white,
-//                       // textStyle: TextStyle(color: Colors.white),
-//                       builder: (dynamic data, dynamic point, dynamic series,
-//                           int pointIndex, int seriesIndex) {
-//                         final apiData item = chartData[pointIndex];
-//                         return Container(
-//                           padding: EdgeInsets.all(10),
-//                           decoration: BoxDecoration(
-//                             color: Color.fromARGB(255, 245, 214, 250),
-//                             borderRadius: BorderRadius.circular(5),
-//                             boxShadow: [
-//                               BoxShadow(color: Colors.purple, blurRadius: 3)
-//                             ],
-//                           ),
-//                           child: Column(
-//                             crossAxisAlignment: CrossAxisAlignment.start,
-//                             mainAxisSize: MainAxisSize.min,
-//                             children: [
-//                               Text("TimeStamp: ${item.TimeStamp}"),
-//                               Text(
-//                                   "Relative Humidity: ${item.Relative_Humidity}"),
-//                               // Text("Class: ${item.Class}"),
-//                             ],
-//                           ),
-//                         );
-//                       },
-//                       // customize the tooltip color
-//                     ),
-//                     title: ChartTitle(
-//                       text: 'Relative Humidity Graph',
-//                       textStyle: TextStyle(fontWeight: FontWeight.bold),
-//                     ),
-//                     series: <ChartSeries<apiData, String>>[
-//                       LineSeries<apiData, String>(
-//                         name: 'Apis Mellifera',
-//                         markerSettings: const MarkerSettings(
-//                           height: 3.0,
-//                           width: 3.0,
-//                           borderColor: Colors.green,
-//                           isVisible: true,
-//                         ),
-//                         dataSource: chartData,
-//                         xValueMapper: (apiData sales, _) => sales.TimeStamp,
-//                         yValueMapper: (apiData sales, _) =>
-//                             double.parse(sales.Relative_Humidity),
-//                         dataLabelSettings: DataLabelSettings(isVisible: false),
-//                         enableTooltip: true,
-//                         animationDuration: 0,
-//                       )
-//                     ],
-//                     zoomPanBehavior: ZoomPanBehavior(
-//                       enablePinching: true,
-//                       enablePanning: true,
-//                       enableDoubleTapZooming: true,
-//                       enableMouseWheelZooming: true,
-//                       enableSelectionZooming: true,
-//                       selectionRectBorderWidth: 1.0,
-//                       selectionRectBorderColor: Colors.blue,
-//                       selectionRectColor: Colors.transparent.withOpacity(0.3),
-//                       zoomMode: ZoomMode.x,
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// Future<List<dynamic>> getAPIData(
-//     String deviceId, String _startDate, String _endDate) async {
-//   final response = await http.get(Uri.https(
-//     'z6sd4rs5e9.execute-api.us-east-1.amazonaws.com',
-//     '/devlopement/lambda_db',
-//     {
-//       'startdate': _startDate,
-//       'enddate': _endDate,
-//       'deviceid': deviceId,
-//     },
-//   ));
-//   var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
-//   if (response.statusCode == 200) {
-//     List<dynamic> data = parsed['body'];
-//     return data;
-//   } else {
-//     // If the server did not return a 200 OK response,
-//     // then throw an exception.
-//     throw Exception('Failed to load api');
-//   }
-// }
-
-// class apiData {
-//   apiData(this.TimeStamp, this.Light_intensity, this.Temperature,
-//       this.Relative_Humidity);
-
-//   final String TimeStamp;
-//   final String Light_intensity;
-//   final String Temperature;
-//   final String Relative_Humidity;
-
-//   factory apiData.fromJson(dynamic parsedJson) {
-//     return apiData(
-//       parsedJson['TimeStamp'].toString(),
-//       parsedJson['Light_intensity(Lux)'].toString(),
-//       parsedJson['Temperature(C)'].toString(),
-//       parsedJson['Relative_Humidity(%)'].toString(),
-//     );
-//   }
-// }
-
-// List<apiData> chartData = [];
-
-// // Future getapiData(String deviceId, _startDate, _endDate) async {
-// //   final List<dynamic> jsonString =
-// //       await getAPIData(deviceId, _startDate, _endDate);
-
-// //   for (dynamic i in jsonString) {
-// //     chartData.add(apiData.fromJson(i));
-// //   }
-
-// //   // print(chartData);
-// // }
-
 import 'dart:convert';
+import 'dart:html' as html;
+import 'package:csv/csv.dart';
+import 'package:detest/widget/check_permission.dart';
+import 'package:detest/widget/directory_path.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -535,7 +28,11 @@ class _MyHomePageState extends State<Weather> {
   late DateTime _startDate;
   late DateTime _endDate;
   List<dynamic> data = [];
+  late String csvString = " ";
   String errorMessage = '';
+  late String Class = " ";
+  var checkAllPermission = CheckPermission();
+  var getDirectoryPath = DirectoryPath();
 
   @override
   void initState() {
@@ -572,6 +69,38 @@ class _MyHomePageState extends State<Weather> {
         'deviceid': deviceId,
       },
     ));
+    final Map<String, dynamic> jsonDataMap =
+        Map<String, dynamic>.from(json.decode(response.body));
+
+    final List<Map<String, dynamic>> jsonData = [jsonDataMap];
+    List<List<dynamic>> csvData = [
+      [
+        "TimeStamp",
+        "DeviceId",
+        "Light_intensity(Lux)",
+        "Temperature(C)",
+        "Relative_Humidity(%)",
+      ]
+    ];
+
+    List<dynamic> row = [];
+    List<dynamic> test = jsonData[0]["body"];
+    int len = test.length;
+    print("Data: ${len}");
+
+    for (int i = 0; i < len; i++) {
+      row = [];
+      row.add(jsonData[0]["body"][i]['TimeStamp']);
+      row.add(jsonData[0]["body"][i]['DeviceId']);
+      row.add(jsonData[0]["body"][i]['Light_intensity(Lux)']);
+      row.add(jsonData[0]["body"][i]['Temperature(C)']);
+      row.add(jsonData[0]["body"][i]['Relative_Humidity(%)']);
+
+      csvData.add(row);
+    }
+
+    csvString = const ListToCsvConverter().convert(csvData);
+    print(csvString);
     var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
     if (parsed['statusCode'] == 200) {
       data = parsed['body'];
@@ -590,6 +119,35 @@ class _MyHomePageState extends State<Weather> {
     } else {
       throw Exception('Failed to load api');
     }
+  }
+
+  Future<void> downloadCsvFile(String csvString, String filename) async {
+    // Convert the CSV string to a byte list.
+    List<int> csvBytes = utf8.encode(csvString);
+
+    // Create a blob containing the CSV data.
+    final blob = html.Blob([csvBytes], 'text/csv');
+
+    // Create a URL for the blob.
+    final url = html.Url.createObjectUrlFromBlob(blob);
+
+    // Create a download link and click it to initiate the download.
+    final anchor = html.document.createElement('a') as html.AnchorElement
+      ..href = url
+      ..download = filename;
+    html.document.body!.append(anchor);
+    anchor.click();
+
+    // Clean up by revoking the URL object.
+    html.Url.revokeObjectUrl(url);
+  }
+
+  void handleDownloadButtonPressed() async {
+    // String csvString = 'header1,header2,header3\nvalue1,value2,value3';
+    String filename = 'InsectCount.csv';
+    await downloadCsvFile(csvString, filename);
+    print('Download completed!');
+    print('Successful');
   }
 
   void updateData() async {
@@ -727,11 +285,32 @@ class _MyHomePageState extends State<Weather> {
                     SizedBox(width: 16.0),
                     ElevatedButton(
                       onPressed: () {
-                        // fetch new data
                         updateData();
                       },
                       child: Text(
                         'Get Data',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.green, // Set the button color to green
+                        minimumSize:
+                            Size(80, 0), // Set a minimum width for the button
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+
+                    // Add other widgets here
+                    ElevatedButton(
+                      onPressed: handleDownloadButtonPressed,
+                      child: Text(
+                        'Download CSV',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -1151,27 +730,35 @@ class _MyHomePageState extends State<Weather> {
   }
 }
 
-// Future<List<dynamic>> getAPIData(
-//     String deviceId, String _startDate, String _endDate) async {
-//   final response = await http.get(Uri.https(
-//     'z6sd4rs5e9.execute-api.us-east-1.amazonaws.com',
-//     '/devlopement/lambda_db',
-//     {
-//       'startdate': _startDate,
-//       'enddate': _endDate,
-//       'deviceid': deviceId,
-//     },
-//   ));
-//   var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
-//   if (response.statusCode == 200) {
-//     List<dynamic> data = parsed['body'];
-//     return data;
-//   } else {
-//     // If the server did not return a 200 OK response,
-//     // then throw an exception.
-//     throw Exception('Failed to load api');
-//   }
-// }
+Future<List<dynamic>> getAPIData(
+    String deviceId, DateTime _startDate, DateTime _endDate) async {
+  final response = await http.get(Uri.https(
+    'z6sd4rs5e9.execute-api.us-east-1.amazonaws.com',
+    '/devlopement/lambda_db',
+    {
+      'startdate': _startDate.year.toString() +
+          "-" +
+          _startDate.month.toString() +
+          "-" +
+          _startDate.day.toString(),
+      'enddate': _endDate.year.toString() +
+          "-" +
+          _endDate.month.toString() +
+          "-" +
+          _endDate.day.toString(),
+      'deviceid': deviceId,
+    },
+  ));
+  var parsed = jsonDecode(response.body); //.cast<Map<String, dynamic>>();
+  if (response.statusCode == 200) {
+    List<dynamic> data = parsed['body'];
+    return data;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load api');
+  }
+}
 
 class apiData {
   apiData(this.TimeStamp, this.Light_intensity, this.Temperature,
