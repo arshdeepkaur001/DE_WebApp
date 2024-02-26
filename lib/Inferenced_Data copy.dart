@@ -767,23 +767,41 @@ class _MyHomePageState extends State<Inference> {
 
   Future<void> getAPIData(
       String deviceId, DateTime _startDate, DateTime _endDate) async {
-    final response = await http.get(Uri.https(
-      'ynm2l0r0di.execute-api.us-east-1.amazonaws.com',
-      '/Data/inferenced_data',
-      {
-        'startdate': _startDate.year.toString() +
-            "-" +
-            _startDate.month.toString() +
-            "-" +
-            _startDate.day.toString(),
-        'enddate': _endDate.year.toString() +
-            "-" +
-            _endDate.month.toString() +
-            "-" +
-            _endDate.day.toString(),
-        'deviceid': deviceId,
-      },
-    ));
+    final response = deviceId.startsWith('D')
+        ? await http.get(Uri.https(
+            'd2wa2msynb.execute-api.us-east-1.amazonaws.com',
+            '/inference/inferenced_data',
+            {
+              'startdate': _startDate.year.toString() +
+                  "-" +
+                  _startDate.month.toString() +
+                  "-" +
+                  _startDate.day.toString(),
+              'enddate': _endDate.year.toString() +
+                  "-" +
+                  _endDate.month.toString() +
+                  "-" +
+                  _endDate.day.toString(),
+              'deviceid': deviceId,
+            },
+          ))
+        : await http.get(Uri.https(
+            'ynm2l0r0di.execute-api.us-east-1.amazonaws.com',
+            '/Data/inferenced_data',
+            {
+              'startdate': _startDate.year.toString() +
+                  "-" +
+                  _startDate.month.toString() +
+                  "-" +
+                  _startDate.day.toString(),
+              'enddate': _endDate.year.toString() +
+                  "-" +
+                  _endDate.month.toString() +
+                  "-" +
+                  _endDate.day.toString(),
+              'deviceid': deviceId,
+            },
+          ));
     // print(response.body);
     final Map<String, dynamic> jsonDataMap =
         Map<String, dynamic>.from(json.decode(response.body));
