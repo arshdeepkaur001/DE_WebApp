@@ -129,231 +129,243 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Center(
-              child: Text(
-            'Select a Country',
-            style: TextStyle(color: buttonColor),
-          )),
-          content: SizedBox(
-            height: 400,
-            width: 400,
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        allData();
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
-                    ),
-                    label: const Text(
-                      'All',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+            title: const Center(
+                child: Text(
+              'Select a Country',
+              style: TextStyle(color: buttonColor),
+            )),
+            content: SizedBox(
+              height: 400,
+              width: 400,
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    // child: ElevatedButton.icon(
+                    //   onPressed: () {
+                    //     setState(() {
+                    //       allData();
+                    //     });
+                    //     Navigator.of(context).pop();
+                    //   },
+                    //   icon: const Icon(
+                    //     Icons.logout,
+                    //     color: backgroundColor,
+                    //   ),
+                    //   label: const Text(
+                    //     'All',
+                    //     style: TextStyle(fontWeight: FontWeight.bold),
+                    //   ),
+                    //   style: ElevatedButton.styleFrom(
+                    //       // elevation: 10,
+                    //       backgroundColor: Color.fromARGB(164, 14, 211, 7)),
+                    // ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => germanyScreen()),
-                        );
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => germanyScreen()),
+                          );
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'Germany',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'Germany',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SpainScreen()),
-                        );
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SpainScreen()),
+                          );
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'Spain',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'Spain',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => franceScreen()),
-                        );
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => franceScreen()),
+                          );
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'France',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'France',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => UK_Screen()),
-                        );
-                      });
-                      // Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UK_Screen()),
+                          );
+                        });
+                        // Navigator.of(context).pop();
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'UK',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'UK',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => USA_Screen()),
-                        );
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => USA_Screen()),
+                          );
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'USA',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'USA',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => INDIA_Screen()),
-                        );
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => INDIA_Screen()),
+                          );
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'INDIA',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'INDIA',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LabScreen()),
-                        );
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.logout,
-                      color: backgroundColor,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LabScreen()),
+                          );
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.logout,
+                        color: backgroundColor,
+                      ),
+                      label: const Text(
+                        'Lab',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          // elevation: 10,
+                          backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                     ),
-                    label: const Text(
-                      'Lab',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        // elevation: 10,
-                        backgroundColor: Color.fromARGB(164, 14, 211, 7)),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        );
+            actions: <Widget>[
+              MaterialButton(
+                textColor: Colors.white,
+                color: Colors.red,
+                child: const Text('Cancel'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ]);
       },
     );
   }
@@ -957,7 +969,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  for (int i = 0; i < filterData.length; i++)
+                  for (int i = 0; i < deviceData.length; i++)
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 2),
@@ -999,7 +1011,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 40,
                                   child: Center(
                                     child: Text(
-                                      filterData[i].deviceId,
+                                      deviceData[i].deviceId,
                                       style: const TextStyle(
                                           fontSize: 16, color: Colors.white),
                                     ),
@@ -1009,7 +1021,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 40,
                                   child: Center(
                                     child: Text(
-                                      filterData[i].status,
+                                      deviceData[i].status,
                                       style: const TextStyle(
                                           fontSize: 16, color: Colors.white),
                                     ),
@@ -1019,7 +1031,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //   height: 40,
                                 //   child: Center(
                                 //     child: Text(
-                                //       '${filterData[i].registerStatus}',
+                                //       '${deviceData[i].registerStatus}',
                                 //       style: const TextStyle(
                                 //           fontSize: 16, color: Colors.white),
                                 //     ),
@@ -1034,7 +1046,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //         Navigator.of(context).push(
                                 //           MaterialPageRoute(
                                 //             builder: (_) => ConfigScreen(
-                                //               deviceId: filterData[i].deviceId,
+                                //               deviceId: deviceData[i].deviceId,
                                 //               userName: widget.email,
                                 //             ),
                                 //           ),
@@ -1059,7 +1071,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //         Navigator.of(context).push(
                                 //           MaterialPageRoute(
                                 //             builder: (_) => DeviceScreen(
-                                //               deviceId: filterData[i].deviceId,
+                                //               deviceId: deviceData[i].deviceId,
                                 //             ),
                                 //           ),
                                 //         );
@@ -1085,7 +1097,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           MaterialPageRoute(
                                             builder: (_) => Weather(
                                               // values: [],
-                                              deviceId: filterData[i].deviceId,
+                                              deviceId: deviceData[i].deviceId,
                                             ),
                                           ),
                                         );
@@ -1137,7 +1149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           MaterialPageRoute(
                                             builder: (_) => Inference(
                                               // values: [],
-                                              deviceId: filterData[i].deviceId,
+                                              deviceId: deviceData[i].deviceId,
                                             ),
                                           ),
                                         );
@@ -1188,7 +1200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //           MaterialPageRoute(
                                 //             builder: (_) => Battery(
                                 //               // values: [],
-                                //               deviceId: filterData[i].deviceId,
+                                //               deviceId: deviceData[i].deviceId,
                                 //             ),
                                 //           ),
                                 //         );
