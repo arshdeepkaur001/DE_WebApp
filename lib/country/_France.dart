@@ -7,6 +7,8 @@ import 'package:detest/constant.dart';
 import 'package:detest/weatherData.dart';
 import 'package:intl/intl.dart';
 
+import '../Battery.dart';
+
 class franceScreen extends StatefulWidget {
   @override
   State<franceScreen> createState() => _franceScreenState();
@@ -68,13 +70,13 @@ class _franceScreenState extends State<franceScreen> {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                   child: Table(
                     columnWidths: const {
-                      0: FractionColumnWidth(0.18),
-                      1: FractionColumnWidth(0.17),
-                      2: FractionColumnWidth(0.16),
-                      3: FractionColumnWidth(0.16),
-                      4: FractionColumnWidth(0.16),
-                      5: FractionColumnWidth(0.17)
-                      // 6: FractionColumnWidth(0.14),
+                      0: FractionColumnWidth(0.07),
+                      1: FractionColumnWidth(0.15),
+                      2: FractionColumnWidth(0.15),
+                      3: FractionColumnWidth(0.15),
+                      4: FractionColumnWidth(0.15),
+                      5: FractionColumnWidth(0.15),
+                      6: FractionColumnWidth(0.18)
                     },
                     children: const <TableRow>[
                       TableRow(children: <Widget>[
@@ -142,6 +144,15 @@ class _franceScreenState extends State<franceScreen> {
                                 color: backgroundColor),
                           ),
                         ),
+                        Center(
+                          child: Text(
+                            'Battery',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: backgroundColor),
+                          ),
+                        ),
                       ]),
                     ],
                   ),
@@ -166,13 +177,13 @@ class _franceScreenState extends State<franceScreen> {
                         const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
                     child: Table(
                       columnWidths: const {
-                        0: FractionColumnWidth(0.16),
-                        1: FractionColumnWidth(0.17),
-                        2: FractionColumnWidth(0.17),
-                        3: FractionColumnWidth(0.17),
-                        4: FractionColumnWidth(0.18),
-                        5: FractionColumnWidth(0.15)
-                        // 6: FractionColumnWidth(0.14)
+                        0: FractionColumnWidth(0.07),
+                        1: FractionColumnWidth(0.15),
+                        2: FractionColumnWidth(0.15),
+                        3: FractionColumnWidth(0.15),
+                        4: FractionColumnWidth(0.15),
+                        5: FractionColumnWidth(0.15),
+                        6: FractionColumnWidth(0.18)
                       },
                       children: [
                         TableRow(children: [
@@ -282,6 +293,54 @@ class _franceScreenState extends State<franceScreen> {
                                     backgroundColor: Colors.white10),
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            height: 40,
+                            child:
+                                // Center(
+                                //   child: FutureBuilder<String>(
+                                //     future: fetchBatteryPercentage(
+                                //         deviceData[i].deviceId),
+                                //     builder: (context, snapshot) {
+                                //       if (snapshot.connectionState ==
+                                //           ConnectionState.waiting) {
+                                //         return CircularProgressIndicator(
+                                //           color: Colors.green,
+                                //         );
+                                //       } else if (snapshot.hasError) {
+                                //         return Text(
+                                //             'Error fetching battery percentage');
+                                //       } else {
+                                //         return Row(
+                                //           mainAxisAlignment:
+                                //               MainAxisAlignment.center,
+                                //           children: [
+                                IconButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => Battery(
+                                      deviceId: deviceData[i].deviceId,
+                                    ),
+                                  ),
+                                );
+                              },
+                              icon: const Icon(
+                                Icons.battery_6_bar,
+                                color: backgroundColor,
+                              ),
+                            ),
+                            //             Text(
+                            //               snapshot.data ?? 'N/A',
+                            //               style: TextStyle(
+                            //                   color: Colors.white),
+                            //             ),
+                            //           ],
+                            //         );
+                            //       }
+                            //     },
+                            //   ),
+                            // ),
                           ),
                         ]),
                       ],
