@@ -321,7 +321,7 @@ class _USA_ScreenState extends State<USA_Screen> {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (_) => Battery(
-                                      deviceId: deviceData[i].deviceId,
+                                        deviceId: filterData[i].deviceId,
                                     ),
                                   ),
                                 );
