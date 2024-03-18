@@ -316,7 +316,7 @@ class _SpainScreenState extends State<SpainScreen> {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (_) => Battery(
-                                      deviceId: deviceData[i].deviceId,
+                                        deviceId: filterData[i].deviceId,
                                     ),
                                   ),
                                 );
