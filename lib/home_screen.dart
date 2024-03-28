@@ -1404,6 +1404,7 @@ import 'package:detest/country/UsaData.dart';
 import 'package:detest/country/_France.dart';
 import 'package:detest/country/India.dart';
 import 'package:detest/country/lab.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:detest/device_screen.dart';
 import 'package:detest/login.dart';
@@ -1417,6 +1418,7 @@ import 'package:numberpicker/numberpicker.dart';
 import 'package:intl/intl.dart';
 import 'filteredData.dart';
 import 'package:detest/Battery.dart';
+import 'birdNet.dart';
 
 class HomeScreen extends StatefulWidget {
   final String email;
@@ -1520,6 +1522,55 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
   }
+
+  // void notifications() {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Text("Battery State"),
+  //         content: Container(
+  //           padding: EdgeInsets.all(16.0),
+  //           decoration: BoxDecoration(
+  //             borderRadius: BorderRadius.circular(16.0),
+  //             color: Colors.grey.shade200,
+  //           ),
+  //           child: Row(
+  //             children: [
+  //               Icon(
+  //                 Icons
+  //                     .battery_charging_full_outlined, // Choose the appropriate battery icon
+  //                 size: 48, // Adjust the size as needed
+  //                 color: Colors.green, // Choose the color
+  //               ),
+  //               SizedBox(
+  //                   width: 16), // Adjust spacing between icon and text field
+  //               Expanded(
+  //                 child: TextFormField(
+  //                   decoration: InputDecoration(
+  //                     labelText: 'Battery Status',
+  //                     border: OutlineInputBorder(),
+  //                     contentPadding:
+  //                         EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+  //                   ),
+  //                   controller: TextEditingController(text: ""),
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //             child: Text('Close'),
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   Future<void> _filter(BuildContext context) {
     return showDialog<void>(
@@ -1772,42 +1823,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-//   Future<void> fetchBatteryPercentage(String deviceId) async {
-//   final apiUrl = Uri.parse('https://g2cn61cfw6.execute-api.us-east-1.amazonaws.com/default/battery_percentage_2?deviceid=$deviceId');
-
-//   try {
-//     final response = await http.get(apiUrl);
-//     if (response.statusCode == 200) {
-//       final Map<String, dynamic> data = jsonDecode(response.body);
-//       // Handle the data received from the API
-//       print('Battery Percentage: ${data['percentage']}');
-//     } else {
-//       throw Exception('Failed to fetch battery percentage: ${response.statusCode}');
-//     }
-//   } catch (e) {
-//     print('Error fetching battery percentage: $e');
-//     // Handle errors
-//   }
-// }
-  // Future<String> fetchBatteryPercentage(String deviceId) async {
-  //   final apiUrl = Uri.parse(
-  //       'https://g2cn61cfw6.execute-api.us-east-1.amazonaws.com/default/battery_percentage_2?deviceid=$deviceId');
-
-  //   try {
-  //     final response = await http.get(apiUrl);
-  //     if (response.statusCode == 200) {
-  //       final Map<String, dynamic> data = jsonDecode(response.body);
-  //       return data['percentage'].toString();
-  //     } else {
-  //       throw Exception(
-  //           'Failed to fetch battery percentage: ${response.statusCode}');
-  //     }
-  //   } catch (e) {
-  //     print('Error fetching battery percentage: $e');
-  //     return 'N/A';
-  //   }
-  // }
-
   Future<String> fetchBatteryPercentage(String deviceId) async {
     final apiUrl = Uri.parse(
         'https://g2cn61cfw6.execute-api.us-east-1.amazonaws.com/default/battery_percentage_2?deviceid=$deviceId');
@@ -1827,8 +1842,74 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     } catch (e) {
       print('Error fetching battery percentage: $e');
-      return 'N/A';
+      return '--';
     }
+  }
+
+  void _openBirdNetDialog(BuildContext context) {
+    String enteredDeviceId = '';
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Enter Device ID',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.green,
+            ),
+          ),
+          content: Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: TextField(
+              onChanged: (value) {
+                enteredDeviceId = value;
+              },
+              decoration: InputDecoration(
+                hintText: 'S01',
+                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.grey[200],
+              ),
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Cancel',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (enteredDeviceId.isEmpty) {
+                  enteredDeviceId = 'S01'; // Default value
+                }
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => birdNet(deviceId: enteredDeviceId),
+                  ),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+              ),
+              child: Text('Next'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -1845,39 +1926,48 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               width: 10,
             ),
-            Text('Biodiversity Sensor Console')
+            Text('Biodiversity Sensor Console'),
           ],
         ),
-        // centerTitle: true,
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.only(right: 20, top: 8, bottom: 10),
-        //     child: ElevatedButton.icon(
-        //       onPressed: () {
-        //         Navigator.of(context).pushReplacement(
-        //             MaterialPageRoute(builder: (context) => const Login()));
-        //         setState(() {
-        //           // deviceData = [];
-        //         });
-        //       },
-        //       // icon: const Icon(
-        //       //   Icons.logout,
-        //       //   color: backgroundColor,
-        //       // ),
-        //       // label: const Text(
-        //       //   'LOG OUT',
-        //       //   style: TextStyle(fontWeight: FontWeight.bold),
-        //       // ),
-        //       // style: ElevatedButton.styleFrom(
-        //       //     // elevation: 10,
-        //       //     backgroundColor: Colors.white10),
-        //     ),
-        //   )
+        // actions: const [
+        //   Icon(
+        //     CupertinoIcons.app_badge,
+        //   ),
+        //   SizedBox(
+        //     width: 40,
+        //   ),
         // ],
+        actions: [
+          // ElevatedButton(
+          //   onPressed: notifications,
+          //   child: Icon(CupertinoIcons.app_badge),
+          //   style: ElevatedButton.styleFrom(
+          //     primary: Colors.green, // Change the background color to blue
+          //   ),
+          // ),
+          ElevatedButton(
+            onPressed: () {
+              _openBirdNetDialog(context);
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+            ),
+            child: Text(
+              "BirdNet",
+              style: TextStyle(
+                color: Colors.white,
+                fontStyle: FontStyle.italic,
+                fontSize: 20,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30,
+          )
+        ],
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
             margin: EdgeInsets.only(left: 2),
@@ -1888,9 +1978,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () => _filter(context),
                 label: const Text('Countries')),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-          // ),
           FloatingActionButton.extended(
               heroTag: 'btn3',
               backgroundColor: buttonColor,
@@ -1964,33 +2051,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                              // Center(
-                              //   child: Text(
-                              //     'REGISTERED',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
-                              // Center(
-                              //   child: Text(
-                              //     'CONFIGURE',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
-                              // Center(
-                              //   child: Text(
-                              //     'DOWNLOAD',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
                               Center(
                                 child: Text(
                                   'Weather Data',
@@ -2000,15 +2060,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: backgroundColor),
                                 ),
                               ),
-                              // Center(
-                              //   child: Text(
-                              //     'Motion Count',
-                              //     style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 16,
-                              //         color: backgroundColor),
-                              //   ),
-                              // ),
                               Center(
                                 child: Text(
                                   'Insect Count',
@@ -2101,66 +2152,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: Text(
-                                //       '${deviceData[i].registerStatus}',
-                                //       style: const TextStyle(
-                                //           fontSize: 16, color: Colors.white),
-                                //     ),
-                                //   ),
-                                // ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: IconButton(
-                                //       onPressed: () {
-                                //         // print('CONFIGURE');
-                                //         Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //             builder: (_) => ConfigScreen(
-                                //               deviceId: deviceData[i].deviceId,
-                                //               userName: widget.email,
-                                //             ),
-                                //           ),
-                                //         );
-                                //       },
-                                //       icon: const Icon(
-                                //         Icons.settings,
-                                //         color: backgroundColor,
-                                //       ),
-                                //       // label: const Text('CONFIGURE'),
-                                //       style: ElevatedButton.styleFrom(
-                                //           // elevation: 10,
-                                //           backgroundColor: Colors.white10),
-                                //     ),
-                                //   ),
-                                // ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: IconButton(
-                                //       onPressed: () {
-                                //         Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //             builder: (_) => DeviceScreen(
-                                //               deviceId: deviceData[i].deviceId,
-                                //             ),
-                                //           ),
-                                //         );
-                                //       },
-                                //       icon: const Icon(
-                                //         Icons.download,
-                                //         color: backgroundColor,
-                                //       ),
-                                //       // label: const Text('DOWNLOAD'),
-                                //       style: ElevatedButton.styleFrom(
-                                //           // elevation: 10,
-                                //           backgroundColor: Colors.white10),
-                                //     ),
-                                //   ),
-                                // ),
                                 SizedBox(
                                   height: 40,
                                   child: Center(
@@ -2187,32 +2178,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: IconButton(
-                                //       onPressed: () {
-                                //         // print('Insect');
-                                //         Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //             builder: (_) => Insects(
-                                //               // values: [],
-                                //               deviceId: deviceData[i].deviceId,
-                                //             ),
-                                //           ),
-                                //         );
-                                //       },
-                                //       icon: const Icon(
-                                //         Icons.bug_report_rounded,
-                                //         color: backgroundColor,
-                                //       ),
-                                //       // label: const Text('InsectCount Data'),
-                                //       style: ElevatedButton.styleFrom(
-                                //           // elevation: 10,
-                                //           backgroundColor: Colors.white10),
-                                //     ),
-                                //   ),
-                                // ),
                                 SizedBox(
                                   height: 40,
                                   child: Center(
@@ -2267,10 +2232,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // SizedBox(
                                 //   height: 40,
                                 //   child: Center(
-                                //     child: Row(
-                                //       children: [
-                                //         Expanded(
-                                //           child: Column(
+                                //     child: FutureBuilder<String>(
+                                //       future: fetchBatteryPercentage(
+                                //           deviceData[i].deviceId),
+                                //       builder: (context, snapshot) {
+                                //         if (snapshot.connectionState ==
+                                //             ConnectionState.waiting) {
+                                //           return CircularProgressIndicator(
+                                //             color: Colors.green,
+                                //           );
+                                //         } else if (snapshot.hasError) {
+                                //           return Text(
+                                //               'Error fetching battery percentage');
+                                //         } else {
+                                //           return Row(
                                 //             mainAxisAlignment:
                                 //                 MainAxisAlignment.center,
                                 //             children: [
@@ -2290,222 +2265,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //                   color: backgroundColor,
                                 //                 ),
                                 //               ),
+                                //               // Text(
+                                //               //   snapshot.data ?? 'N/A',
+                                //               //   style: TextStyle(
+                                //               //       color: Colors.white),
+                                //               // ),
                                 //             ],
-                                //           ),
-                                //         ),
-                                //         Expanded(
-                                //           child: Column(
-                                //             mainAxisAlignment:
-                                //                 MainAxisAlignment.center,
-                                //             children: [
-                                //               Text(deviceData[i].deviceId)
-                                //             ],
-                                //           ),
-                                //         ),
-                                //       ],
+                                //           );
+                                //         }
+                                //       },
                                 //     ),
                                 //   ),
                                 // ),
-
                                 SizedBox(
                                   height: 40,
-                                  child:
-                                      // Center(
-                                      //   child: FutureBuilder<String>(
-                                      //     future: fetchBatteryPercentage(
-                                      //         deviceData[i].deviceId),
-                                      //     builder: (context, snapshot) {
-                                      //       if (snapshot.connectionState ==
-                                      //           ConnectionState.waiting) {
-                                      //         return CircularProgressIndicator(
-                                      //           color: Colors.green,
-                                      //         );
-                                      //       } else if (snapshot.hasError) {
-                                      //         return Text(
-                                      //             'Error fetching battery percentage');
-                                      //       } else {
-                                      //         return Row(
-                                      //           mainAxisAlignment:
-                                      //               MainAxisAlignment.center,
-                                      //           children: [
-                                      IconButton(
-                                    onPressed: () {
-                                      Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (_) => Battery(
-                                            deviceId: deviceData[i].deviceId,
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        IconButton(
+                                          onPressed: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (_) => Battery(
+                                                  deviceId:
+                                                      deviceData[i].deviceId,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          icon: const Icon(
+                                            Icons.battery_6_bar,
+                                            color: backgroundColor,
                                           ),
                                         ),
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.battery_6_bar,
-                                      color: backgroundColor,
+                                      ],
                                     ),
                                   ),
-                                  //             Text(
-                                  //               snapshot.data ?? 'N/A',
-                                  //               style: TextStyle(
-                                  //                   color: Colors.white),
-                                  //             ),
-                                  //           ],
-                                  //         );
-                                  //       }
-                                  //     },
-                                  //   ),
-                                  // ),
-                                ),
-
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: Tooltip(
-                                //         message: "battery",
-                                //         child: MouseRegion(
-                                //           onEnter: (_) {
-                                //             setState(() {
-                                //               _hovering = true;
-                                //             });
-                                //           },
-                                //           onExit: (_) {
-                                //             setState(() {
-                                //               _hovering = false;
-                                //             });
-                                //           },
-                                //           child: Row(
-                                //             mainAxisAlignment:
-                                //                 MainAxisAlignment.center,
-                                //             children: [
-                                //               Icon(
-                                //                 _hovering
-                                //                     ? (condition
-                                //                         ? Icons.battery_saver
-                                //                         : Icons.battery_full)
-                                //                     : null,
-                                //                 size: 20.0,
-                                //                 color: Colors.white,
-                                //               ),
-                                //               _hovering
-                                //                   ? Text('30%',
-                                //                       style: TextStyle(
-                                //                           color: Colors.white,
-                                //                           fontSize: 12))
-                                //                   : Text(""),
-                                //             ],
-                                //           ),
-                                //         )),
-                                //   ),
-                                // )
-
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: IconButton(
-                                //       onPressed: () {
-                                //         // print('Insect');
-                                //         Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //             builder: (_) => Insects(
-                                //               // values: [],
-                                //               deviceId: deviceData[i].deviceId,
-                                //             ),
-                                //           ),
-                                //         );
-                                //       },
-                                //       icon: const Icon(
-                                //         Icons.bug_report_rounded,
-                                //         color: backgroundColor,
-                                //       ),
-                                //       // label: const Text('InsectCount Data'),
-                                //       style: ElevatedButton.styleFrom(
-                                //           // elevation: 10,
-                                //           backgroundColor: Colors.white10),
-                                //     ),
-                                //   ),
-                                // ),
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: Tooltip(
-                                //         message: "Delete",
-                                //         child: MouseRegion(
-                                //           onEnter: (_) {
-                                //             setState(() {
-                                //               _hovering = true;
-                                //             });
-                                //           },
-                                //           onExit: (_) {
-                                //             setState(() {
-                                //               _hovering = false;
-                                //             });
-                                //           },
-                                //           child: _hovering
-                                //               ? IconButton(
-                                //                   onPressed: () => _dialogbox(
-                                //                       context,
-                                //                       deviceData[i].deviceId),
-                                //                   icon: const Icon(
-                                //                     Icons.close,
-                                //                     color: backgroundColor,
-                                //                   ),
-                                //                   style:
-                                //                       ElevatedButton.styleFrom(
-                                //                           backgroundColor:
-                                //                               Colors.white10),
-                                //                 )
-                                //               : null,
-                                //         )),
-                                //     // child: IconButton(
-                                //     //   onPressed: () => _dialogbox(context),
-                                //     //   icon: const Icon(
-                                //     //     Icons.delete,
-                                //     //     color: backgroundColor,
-                                //     //   ),
-                                //     //   style: ElevatedButton.styleFrom(
-                                //     //       backgroundColor: Colors.white10),
-                                //     // ),
-                                //   ),
-                                // )
-                                // SizedBox(
-                                //   height: 40,
-                                //   child: Center(
-                                //     child: Tooltip(
-                                //         message: "battery",
-                                //         child: MouseRegion(
-                                //           onEnter: (_) {
-                                //             setState(() {
-                                //               _hovering = true;
-                                //             });
-                                //           },
-                                //           onExit: (_) {
-                                //             setState(() {
-                                //               _hovering = false;
-                                //             });
-                                //           },
-                                //           child: Row(
-                                //             mainAxisAlignment:
-                                //                 MainAxisAlignment.center,
-                                //             children: [
-                                //               Icon(
-                                //                 _hovering
-                                //                     ? (condition
-                                //                         ? Icons.battery_saver
-                                //                         : Icons.battery_full)
-                                //                     : null,
-                                //                 size: 20.0,
-                                //                 color: Colors.white,
-                                //               ),
-                                //               _hovering
-                                //                   ? Text('30%',
-                                //                       style: TextStyle(
-                                //                           color: Colors.white,
-                                //                           fontSize: 12))
-                                //                   : Text(""),
-                                //             ],
-                                //           ),
-                                //         )),
-                                //   ),
-                                // )
+                                )
                               ]),
                             ],
                           ),
